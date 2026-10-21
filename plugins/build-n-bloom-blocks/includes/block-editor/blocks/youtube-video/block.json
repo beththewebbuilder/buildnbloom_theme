@@ -30,5 +30,6 @@
 	"textdomain": "multiple-blocks",
 	"editorScript": "file:../../../../build/youtube-video.js",
 	"editorStyle": "file:../../../../build/youtube-video.css",
-	"style": "file:../../../../build/style-youtube-video.css"
+	"style": [ "file:../../../../build/style-youtube-video.css", "buildnbloom-font-awesome" ],
+	"viewScript": "file:../../../../build/youtube-video-view.js"
 }

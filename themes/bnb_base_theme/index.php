@@ -33,8 +33,11 @@
             'post_type' => 'page'
         ]);
 
-        echo $page[0]->post_content;
-        
+        // Run the content filters so blocks render and their front-end assets get enqueued
+        if ( ! empty( $page ) ) {
+            echo apply_filters( 'the_content', $page[0]->post_content );
+        }
+
         wp_footer();?>
 
 </body>

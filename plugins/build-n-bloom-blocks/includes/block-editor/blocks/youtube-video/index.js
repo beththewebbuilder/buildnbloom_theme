@@ -7,6 +7,7 @@ import '../../block-editor-group.scss';
 
 // Internal dependencies
 import save from './save';
+import deprecated from './deprecated';
 import json from './block.json';
 
 const { name, attributes, ...settings } = json;
@@ -90,5 +91,6 @@ registerBlockType(name, {
 		</div>
 	);
 	},
-	save
+	save,
+	deprecated
 });

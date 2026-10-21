@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Build'n'Bloom Gutenberg Blocks
  * Description:       Custom designed gutenberg blocks for Build'n'Bloom clients.
- * Requires at least: 5.8
+ * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            The WordPress Contributors
@@ -39,6 +39,9 @@ add_filter( 'block_categories_all', 'custom_block_category', 10, 2);
  * @see https://developer.wordpress.org/block-editor/tutorials/block-tutorial/writing-your-first-block-type/
  */
 function build_n_bloom_blocks_init() {
+
+	// Icons used by the YouTube block (play/close); referenced from its block.json
+	wp_register_style( 'buildnbloom-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '6.5.1' );
 
 	$blocks = array(
         'image-background/',
