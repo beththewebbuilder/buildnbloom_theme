@@ -1,0 +1,47 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/carousel-slide",
+	"version": "0.1.0",
+	"title": "Carousel Slide",
+	"category": "buildnbloom",
+	"icon": "format-image",
+	"description": "An image slide with an optional caption and link.",
+	"parent": [ "build-n-bloom-blocks/carousel" ],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"color": {
+			"text": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"caption": {
+			"type": "string",
+			"default": ""
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "build-n-bloom-blocks"
+}

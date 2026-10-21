@@ -5,6 +5,10 @@ $sml-screen-size: 767px;
 $lrg-laptop-screen: 1440px;
 $laptop-screen: 1024px;
 
+// BREAKPOINTS (min-width) for the column/slide counts set per screen size
+$tablet-up: $sml-screen-size + 1;
+$desktop-up: $laptop-screen;
+
 // Z-INDEX
 $z-index-video-title: 1;
 $z-index-video-modal: 10;

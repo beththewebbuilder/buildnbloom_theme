@@ -1,0 +1,70 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/carousel",
+	"version": "0.1.0",
+	"title": "Carousel",
+	"category": "buildnbloom",
+	"icon": "images-alt2",
+	"description": "A scrolling carousel of image slides, e.g. a gallery or logo strip. Add Carousel Slides inside it.",
+	"keywords": [ "slider", "slideshow", "logos", "gallery" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"slidesPerView": {
+			"type": "number",
+			"default": 1
+		},
+		"tabletSlidesPerView": {
+			"type": "number",
+			"default": 1
+		},
+		"mobileSlidesPerView": {
+			"type": "number",
+			"default": 1
+		},
+		"slideHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"imageFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"showArrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDots": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplaySeconds": {
+			"type": "number",
+			"default": 5
+		},
+		"loop": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"editorScript": "file:../../../../build/carousel.js",
+	"editorStyle": "file:../../../../build/carousel.css",
+	"style": "file:../../../../build/style-carousel.css",
+	"viewScript": "file:../../../../build/carousel-view.js"
+}

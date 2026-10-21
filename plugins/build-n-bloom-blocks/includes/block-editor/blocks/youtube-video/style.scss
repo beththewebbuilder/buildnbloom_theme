@@ -1,5 +1,8 @@
 @import "../../variables.scss";
 
+// Themes can restyle through these custom properties:
+//   --bnb-video-popup-text-color, --bnb-video-popup-icon-size, --bnb-video-popup-backdrop
+
 .wp-block-build-n-bloom-blocks-youtube-video[data-class*="video-container-with-popup"] {
     position: relative;
 
@@ -36,7 +39,7 @@
         }
         .wp-block-heading {
             position: absolute;
-            color: white;
+            color: var(--bnb-video-popup-text-color, white);
             bottom: 10vh;
             width: 100%;
             text-align: center;
@@ -52,12 +55,12 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        font-size: 5rem;
-        color: white;
+        font-size: var(--bnb-video-popup-icon-size, 5rem);
+        color: var(--bnb-video-popup-text-color, white);
     }
     .click-to-play {
         position: absolute;
-        color: white;
+        color: var(--bnb-video-popup-text-color, white);
         bottom: 6vh;
         width: 100%;
         text-align: center;       
@@ -72,7 +75,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.9);
+        background-color: var(--bnb-video-popup-backdrop, rgba(0,0,0,0.9));
         padding: 5%;
         z-index: $z-index-video-modal;
         iframe {
@@ -83,7 +86,7 @@
         }
         .close-video {
             text-align: center;
-            color: white;
+            color: var(--bnb-video-popup-text-color, white);
             font-size: 2rem;
             &:hover {
                 cursor: pointer;

@@ -16,14 +16,11 @@
   <body>
 
     <?php
-        $page = get_posts([
-            'name'      => 'home',
-            'post_type' => 'page'
-        ]);
-
-        // Run the content filters so blocks render and their front-end assets get enqueued
-        if ( ! empty( $page ) ) {
-            echo apply_filters( 'the_content', $page[0]->post_content );
+        // Show the content of whichever page/post is being viewed.
+        // the_content() runs the content filters so blocks render and their front-end assets get enqueued.
+        while ( have_posts() ) {
+            the_post();
+            the_content();
         }
 
         wp_footer();?>

@@ -1,0 +1,45 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/item-grid",
+	"version": "0.1.0",
+	"title": "Item Grid",
+	"category": "buildnbloom",
+	"icon": "grid-view",
+	"description": "A grid of cards. Add Grid Cards (image) or Video Cards inside it.",
+	"keywords": [ "cards", "columns", "gallery" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"tabletColumns": {
+			"type": "number",
+			"default": 2
+		},
+		"mobileColumns": {
+			"type": "number",
+			"default": 1
+		},
+		"aspectRatio": {
+			"type": "string",
+			"default": "4/3"
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"editorScript": "file:../../../../build/item-grid.js",
+	"editorStyle": "file:../../../../build/item-grid.css",
+	"style": "file:../../../../build/style-item-grid.css"
+}

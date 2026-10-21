@@ -1,0 +1,55 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/grid-card",
+	"version": "0.1.0",
+	"title": "Grid Card",
+	"category": "buildnbloom",
+	"icon": "id-alt",
+	"description": "An image card with a title, text and optional link.",
+	"parent": [ "build-n-bloom-blocks/item-grid" ],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "build-n-bloom-blocks"
+}

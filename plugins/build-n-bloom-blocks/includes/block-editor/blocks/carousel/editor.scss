@@ -1,0 +1,22 @@
+/* ADMIN EDIT DISPLAY */
+
+// Wrap the slides onto rows instead of scrolling, so every slide can be selected and edited
+.wp-block-build-n-bloom-blocks-carousel .bnb-carousel__track {
+	flex-wrap: wrap;
+	overflow: visible;
+	scroll-snap-type: none;
+
+	> .block-list-appender {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 6rem;
+		flex: 0 0 6rem;
+		border: 1px dashed currentColor;
+	}
+}
+
+.bnb-carousel__slide-inner .components-placeholder {
+	min-height: 10rem;
+}

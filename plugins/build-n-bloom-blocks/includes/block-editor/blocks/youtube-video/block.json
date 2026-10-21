@@ -2,14 +2,23 @@
 	"apiVersion": 3,
 	"name": "build-n-bloom-blocks/youtube-video",
 	"version": "0.1.0",
-	"title": "YouTube Video",
+	"title": "Video Popup",
 	"category": "buildnbloom",
 	"icon": "format-video",
-	"description": "Create a full sized image with a play button, when clicked the YouTube video opens out and starts to play in a popup.",
+	"description": "A full sized image with a play button. When clicked, the YouTube or Vimeo video opens and plays in a popup.",
+	"keywords": [ "youtube", "vimeo", "modal", "lightbox" ],
 	"supports": {
 		"html": false
 	},
 	"attributes": {
+		"videoProvider": {
+			"type": "string",
+			"default": "youtube"
+		},
+		"vimeoId": {
+			"type": "string",
+			"default": ""
+		},
         "youTubeId": {
 			"type": "string",
 			"default": "VkO_7eTE0hU?si=7skp7_zp2lIxL53I"

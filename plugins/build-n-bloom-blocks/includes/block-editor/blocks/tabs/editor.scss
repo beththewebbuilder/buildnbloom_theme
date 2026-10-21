@@ -1,0 +1,16 @@
+/* ADMIN EDIT DISPLAY */
+
+// Each tab is shown as a labelled section so it's clear where one tab ends and the next begins
+.wp-block-build-n-bloom-blocks-tab {
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border: 1px dashed currentColor;
+
+	.bnb-tab__title {
+		display: inline-block;
+		margin: 0 0 1rem;
+		padding: 0.25rem 0.75rem;
+		border-bottom: 3px solid currentColor;
+		font-size: 1rem;
+	}
+}
