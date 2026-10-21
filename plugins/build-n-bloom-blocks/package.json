@@ -1,8 +1,8 @@
 {
 	"name": "build-n-bloom-blocks",
 	"version": "0.1.0",
-	"description": "The first block!",
-	"author": "The WordPress Contributors",
+	"description": "Custom Gutenberg blocks for Build'n'Bloom client sites.",
+	"author": "Bethany Fowler",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {

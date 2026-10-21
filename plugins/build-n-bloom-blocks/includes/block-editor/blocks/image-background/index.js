@@ -107,7 +107,7 @@ registerBlockType(name, {
 		<Fragment>
 			<InspectorControls group="position">
 				<div className="full-width-control-wrapper">
-					<div class="custom-label">Desktop background image</div>
+					<div className="custom-label">Desktop background image</div>
 					<div><em>{attributes.desktopImageTitle}</em></div>
 					{attributes.desktopImageId == 0 &&
 						<MediaUploadCheck>
@@ -118,35 +118,35 @@ registerBlockType(name, {
 								allowedTypes={['image', 'video']}
 								render={ ({open}) => (
 								<Button onClick={open} variant="primary" isLarge>
-									{ attributes.desktopImageId == 0 && __('Choose an image', 'awp')}
+									{ attributes.desktopImageId == 0 && __('Choose an image', 'build-n-bloom-blocks')}
 								</Button>
 								)}/>
 						</MediaUploadCheck>
 					}					
-					<div class="flex-container">
+					<div className="flex-container">
 						{attributes.desktopImageId != 0 && 
 							<MediaUploadCheck>
 								<MediaUpload
-									title={__('Replace image', 'awp')}
+									title={__('Replace image', 'build-n-bloom-blocks')}
 									value={attributes.desktopImageId}
 									onSelect={ onSelectDesktopMedia }
 									allowedTypes={['image', 'video']}
 									render={({open}) => (
-										<Button className="flex-item" onClick={open} variant="secondary" isLarge>{__('Replace', 'awp')}</Button>
+										<Button className="flex-item" onClick={open} variant="secondary" isLarge>{__('Replace', 'build-n-bloom-blocks')}</Button>
 									)}
 								/>
 							</MediaUploadCheck>
 						}
 						{attributes.desktopImageId != 0 && 
 							<MediaUploadCheck>
-								<Button className="flex-item" onClick={ removeDesktopMedia } variant="secondary" isDestructive>{__('Remove', 'awp')}</Button>
+								<Button className="flex-item" onClick={ removeDesktopMedia } variant="secondary" isDestructive>{__('Remove', 'build-n-bloom-blocks')}</Button>
 							</MediaUploadCheck>
 						}
 					</div>
 				</div>
 
 				<div className="full-width-control-wrapper">
-					<div class="custom-label">Mobile background image</div>
+					<div className="custom-label">Mobile background image</div>
 					<div><em>{ attributes.mobileImageTitle }</em></div>
 					{ attributes.mobileImageId == 0 &&
 						<MediaUploadCheck>
@@ -157,28 +157,28 @@ registerBlockType(name, {
 								allowedTypes={['image', 'video']}
 								render={ ({open}) => (
 								<Button onClick={open} variant="primary" isLarge>
-									{ attributes.mobileImageId == 0 && __('Choose an image', 'awp')}
+									{ attributes.mobileImageId == 0 && __('Choose an image', 'build-n-bloom-blocks')}
 								</Button>
 								)}/>
 						</MediaUploadCheck>
 					}					
-					<div class="flex-container">
+					<div className="flex-container">
 						{ attributes.mobileImageId != 0 && 
 							<MediaUploadCheck>
 								<MediaUpload
-									title={__('Replace image', 'awp')}
+									title={__('Replace image', 'build-n-bloom-blocks')}
 									value={attributes.mobileImageId}
 									onSelect={ onSelectMobileMedia }
 									allowedTypes={['image', 'video']}
 									render={({open}) => (
-										<Button className="flex-item" onClick={open} variant="secondary" isLarge>{__('Replace', 'awp')}</Button>
+										<Button className="flex-item" onClick={open} variant="secondary" isLarge>{__('Replace', 'build-n-bloom-blocks')}</Button>
 									)}
 								/>
 							</MediaUploadCheck>
 						}
 						{attributes.mobileImageId != 0 && 
 							<MediaUploadCheck>
-								<Button className="flex-item" onClick={ removeMobileMedia } variant="secondary" isDestructive>{__('Remove', 'awp')}</Button>
+								<Button className="flex-item" onClick={ removeMobileMedia } variant="secondary" isDestructive>{__('Remove', 'build-n-bloom-blocks')}</Button>
 							</MediaUploadCheck>
 						}
 					</div>
@@ -292,7 +292,7 @@ registerBlockType(name, {
 			</InspectorControls>
 		</Fragment>
 
-        <div class="image-background-block custom-block" 
+        <div className="image-background-block custom-block" 
 			data-mobile-container-height={attributes.mobileHeight}
 			data-top-padding={attributes.paddingTop}
 			data-bottom-padding={attributes.paddingBottom}
@@ -301,14 +301,13 @@ registerBlockType(name, {
 			data-desktop-content-position={attributes.desktopContentPosition}
 			data-mobile-content-position={attributes.mobileContentPosition}>
 
-			<img src="https://buildnbloom.co.uk/wp-content/uploads/2023/08/TLF-Image-Button.png"/>
 
-			<div class="background-image" 
+			<div className="background-image" 
 				style={blockStyle}
 				data-container-height={attributes.containerHeight}
 				data-desktop-image-position={attributes.desktopImagePosition}>
 
-				<div class="image-overlay"
+				<div className="image-overlay"
 					data-background-opacity={attributes.opacityColour}
 					data-opacity-percentage={attributes.backgroundOpacityPercent}>
 				</div>

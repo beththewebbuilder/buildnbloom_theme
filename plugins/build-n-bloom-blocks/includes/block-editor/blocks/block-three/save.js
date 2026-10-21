@@ -26,7 +26,7 @@ export default function save() {
 		<p {...useBlockProps.save()}>
 			{__(
 				'First Block – hello from the saved content!',
-				'multiple-blocks'
+				'build-n-bloom-blocks'
 			)}
 		</p>
 	);

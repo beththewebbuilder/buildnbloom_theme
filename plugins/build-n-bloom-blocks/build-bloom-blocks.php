@@ -5,10 +5,10 @@
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Bethany Fowler
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       multiple-blocks build-n-bloom-blocks
+ * Text Domain:       build-n-bloom-blocks
  *
  * @package           buildnbloom
  */
@@ -17,7 +17,7 @@
 function custom_block_category( $categories ) {
     $custom_block = array(
         'slug'  => 'buildnbloom',
-        'title' => __( 'Build N Bloom', 'buildnbloom' ),
+        'title' => __( 'Build N Bloom', 'build-n-bloom-blocks' ),
     );
   
     $categories_sorted = array();

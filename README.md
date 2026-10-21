@@ -39,16 +39,20 @@ This file contains the settings for the block, including all the attributes.
 
 #### editor.scss
 
-This file contains the settings for the block, including all the attributes.
+Styles that only apply inside the block editor (the admin preview of the block).
 
 #### index.js
 
-This file contains the settings for the block, including all the attributes.
+Registers the block and contains the `edit` function: the settings panel controls in the sidebar and how the block displays in the editor.
 
 #### save.js
 
-This file contains the settings for the block, including all the attributes.
+Defines the HTML markup that is saved to the page and shown on the front end. If this markup changes, add the old version to `deprecated.js` so blocks already on pages don't show as invalid.
 
 #### style.scss
 
-This file contains the settings for the block, including all the attributes.
+Styles that apply on the front end (and in the editor).
+
+#### view.js (optional)
+
+Front-end JavaScript, loaded only on pages that use the block. Add it to `viewScript` in `block.json` and as an entry in `webpack.config.js`.

@@ -1,6 +1,6 @@
 {
-	"apiVersion": 2,
-	"name": "twitchstreams/block-three",
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/block-three",
 	"version": "0.1.0",
 	"title": "Third Block",
 	"category": "design",
@@ -9,7 +9,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "multiple-blocks",
+	"textdomain": "build-n-bloom-blocks",
 	"editorScript": "file:../../../../build/block-three.js",
 	"editorStyle": "file:../../../../build/block-three.css",
 	"style": "file:../../../../build/style-block-three.css"

@@ -33,13 +33,13 @@ export default function Edit() {
 		<div { ...useBlockProps() }>
 			{ __(
 				'Inspector Control Groups Block',
-				'inspector-control-groups'
+				'build-n-bloom-blocks'
 			) }
 			<InspectorControls group="color">
 				<div className="full-width-control-wrapper">
 					{ __(
 						"I'm in the colors group!",
-						'inspector-control-groups'
+						'build-n-bloom-blocks'
 					) }
 				</div>
 			</InspectorControls>
@@ -47,7 +47,7 @@ export default function Edit() {
 				<div className="full-width-control-wrapper">
 					{ __(
 						"I'm in the typography group!",
-						'inspector-control-groups'
+						'build-n-bloom-blocks'
 					) }
 				</div>
 			</InspectorControls>
@@ -55,7 +55,7 @@ export default function Edit() {
 				<div className="full-width-control-wrapper">
 					{ __(
 						"I'm in the dimensions group!",
-						'inspector-control-groups'
+						'build-n-bloom-blocks'
 					) }
 				</div>
 			</InspectorControls>
@@ -63,7 +63,7 @@ export default function Edit() {
 				<div className="full-width-control-wrapper">
 					{ __(
 						"I'm in the border group!",
-						'inspector-control-groups'
+						'build-n-bloom-blocks'
 					) }
 				</div>
 			</InspectorControls>

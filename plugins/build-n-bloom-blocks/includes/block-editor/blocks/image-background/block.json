@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "build-n-bloom-blocks/image-background",
 	"version": "0.1.0",
 	"title": "Image Background",
@@ -75,7 +75,7 @@
 			"default": ""
 		}
     },
-	"textdomain": "multiple-blocks",
+	"textdomain": "build-n-bloom-blocks",
 	"editorScript": "file:../../../../build/image-background.js",
 	"editorStyle": "file:../../../../build/image-background.css",
 	"style": "file:../../../../build/style-image-background.css"

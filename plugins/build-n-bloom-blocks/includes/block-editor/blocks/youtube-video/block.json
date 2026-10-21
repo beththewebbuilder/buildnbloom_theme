@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "build-n-bloom-blocks/youtube-video",
 	"version": "0.1.0",
 	"title": "YouTube Video",
@@ -27,7 +27,7 @@
 			"default": true
 		}
     },
-	"textdomain": "multiple-blocks",
+	"textdomain": "build-n-bloom-blocks",
 	"editorScript": "file:../../../../build/youtube-video.js",
 	"editorStyle": "file:../../../../build/youtube-video.css",
 	"style": [ "file:../../../../build/style-youtube-video.css", "buildnbloom-font-awesome" ],

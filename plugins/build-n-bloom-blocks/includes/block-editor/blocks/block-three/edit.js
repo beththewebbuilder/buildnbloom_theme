@@ -31,7 +31,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p {...useBlockProps()}>
-			{__('First Block – hello from the editor!', 'multiple-blocks')}
+			{__('First Block – hello from the editor!', 'build-n-bloom-blocks')}
 		</p>
 	);
 }

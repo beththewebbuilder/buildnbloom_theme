@@ -76,10 +76,9 @@ registerBlockType(name, {
                 onChange={ onYouTubeIdChange }/>
             </PanelRow>
           </PanelBody>
-        </InspectorControls>,
+        </InspectorControls>
 
-        <div class="video-container custom-block">
-          <img src="https://buildnbloom.co.uk/wp-content/uploads/2023/08/TLF-Image-Button.png"/>
+        <div className="video-container custom-block">
 		  <InnerBlocks 
             allowedBlocks={ ALLLOWED_BLOCKS } 
             template={ BLOCK_TEMPLATE } 
