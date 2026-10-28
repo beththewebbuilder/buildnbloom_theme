@@ -52,3 +52,15 @@
         justify-content: center;
     }
 }
+// Media picker in the sidebar (components/media-control.js)
+.bnb-media-control {
+    margin-bottom: 1rem;
+
+    .bnb-media-control__preview {
+        display: block;
+        width: 100%;
+        max-height: 10rem;
+        margin-bottom: 0.5rem;
+        object-fit: contain;
+    }
+}

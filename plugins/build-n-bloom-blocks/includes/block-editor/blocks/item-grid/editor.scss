@@ -1,0 +1,17 @@
+/* ADMIN EDIT DISPLAY */
+
+// Keep the "add card" button the size of one grid cell
+.wp-block-build-n-bloom-blocks-item-grid > .block-list-appender {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 8rem;
+	border: 1px dashed currentColor;
+}
+
+// Placeholder shown on a card before media is chosen
+.bnb-card__media .components-placeholder {
+	height: 100%;
+	min-height: 0;
+}

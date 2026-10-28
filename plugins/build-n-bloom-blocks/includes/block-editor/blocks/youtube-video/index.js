@@ -1,7 +1,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, TextControl, RangeControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, PanelRow, TextControl, RangeControl, ToggleControl, SelectControl } from '@wordpress/components';
 import './style.scss';
 import '../../block-editor-group.scss';
 
@@ -38,9 +38,15 @@ registerBlockType(name, {
 	function onSetMobileContainerHeight( mobileContainerHeightValue ) {
 		setAttributes( { mobileHeight: mobileContainerHeightValue } );
 	}
-	function onYouTubeIdChange( videoIdValue ) {
-		var trimedVideoId = videoIdValue.replace("https://youtu.be/", "");
-		setAttributes( { youTubeId: trimedVideoId } )
+	// Accepts a full YouTube/Vimeo link or just the video ID
+	function onVideoChange( videoValue ) {
+		if ( attributes.videoProvider === 'vimeo' ) {
+			var vimeoMatch = videoValue.match( /vimeo\.com\/(?:video\/)?(\d+)/ );
+			setAttributes( { vimeoId: vimeoMatch ? vimeoMatch[1] : videoValue.trim() } );
+			return;
+		}
+		var youTubeMatch = videoValue.match( /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]+)/ );
+		setAttributes( { youTubeId: youTubeMatch ? youTubeMatch[1] : videoValue.trim() } );
 	}
 	function onSetPadding( addPaddingValue ) {
 		setAttributes( { addPadding: addPaddingValue } );
@@ -69,17 +75,24 @@ registerBlockType(name, {
 				checked={ attributes.addPadding }
 				onChange={ onSetPadding }
 			/>
+			<SelectControl
+				label="Video from"
+				value={ attributes.videoProvider }
+				options={[
+					{ label: 'YouTube', value: 'youtube' },
+					{ label: 'Vimeo', value: 'vimeo' }
+				]}
+				onChange={ ( videoProvider ) => setAttributes( { videoProvider } ) }/>
             <PanelRow>
-                <TextControl 
-                label="YouTube"
-                value={ attributes.youTubeId }
-                onChange={ onYouTubeIdChange }/>
+                <TextControl
+                label={ attributes.videoProvider === 'vimeo' ? 'Vimeo link or ID' : 'YouTube link or ID' }
+                value={ attributes.videoProvider === 'vimeo' ? attributes.vimeoId : attributes.youTubeId }
+                onChange={ onVideoChange }/>
             </PanelRow>
           </PanelBody>
-        </InspectorControls>,
+        </InspectorControls>
 
-        <div class="video-container custom-block">
-          <img src="https://buildnbloom.co.uk/wp-content/uploads/2023/08/TLF-Image-Button.png"/>
+        <div className="video-container custom-block">
 		  <InnerBlocks 
             allowedBlocks={ ALLLOWED_BLOCKS } 
             template={ BLOCK_TEMPLATE } 

@@ -1,0 +1,46 @@
+// /* FRONT-END DISPLAY (also loaded in the editor) */
+// Layout only. Selectors use :where() so they have no specificity and any theme style wins.
+// Themes can restyle through these custom properties:
+//   --bnb-tabs-gap, --bnb-tabs-border, --bnb-tab-padding, --bnb-tab-background, --bnb-tab-color,
+//   --bnb-tab-active-background, --bnb-tab-active-color, --bnb-tab-active-border-color, --bnb-tab-panel-padding
+
+:where(.bnb-tabs__list) {
+	display: none;
+}
+
+:where(.wp-block-build-n-bloom-blocks-tabs.is-enhanced .bnb-tabs__list) {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--bnb-tabs-gap, 0.25rem);
+	border-bottom: var(--bnb-tabs-border, 1px solid currentColor);
+}
+
+// The heading text is used for the tab button instead
+:where(.wp-block-build-n-bloom-blocks-tabs.is-enhanced .bnb-tab__title) {
+	display: none;
+}
+
+:where(.bnb-tabs__tab) {
+	margin: 0 0 -1px;
+	padding: var(--bnb-tab-padding, 0.75rem 1.25rem);
+	border: 0;
+	border-bottom: 3px solid transparent;
+	background: var(--bnb-tab-background, transparent);
+	color: var(--bnb-tab-color, inherit);
+	font: inherit;
+	cursor: pointer;
+
+	&[aria-selected="true"] {
+		background: var(--bnb-tab-active-background, transparent);
+		color: var(--bnb-tab-active-color, inherit);
+		border-bottom-color: var(--bnb-tab-active-border-color, currentColor);
+	}
+}
+
+:where(.wp-block-build-n-bloom-blocks-tab) {
+	padding: var(--bnb-tab-panel-padding, 1.5rem 0);
+}
+
+:where(.bnb-tab__title) {
+	margin-top: 0;
+}

@@ -26,14 +26,14 @@ export default function save({attributes}) {
 		data-desktop-content-position={attributes.desktopContentPosition}
 		data-mobile-content-position={attributes.mobileContentPosition}>
 
-			<div class="background-image" 
+			<div className="background-image" 
 				style={blockStyle}
 				data-container-height={attributes.containerHeight}
 				data-desktop-image-position={attributes.desktopImagePosition}>
 				<video autoplay muted loop style={displayVideo(attributes.desktopImageUrl)}>
 					<source src={attributes.desktopImageUrl}></source>
 				</video>
-				<div class="image-overlay"
+				<div className="image-overlay"
 					data-background-opacity={attributes.opacityColour}
 					data-opacity-percentage={attributes.backgroundOpacityPercent}
 					data-top-padding={attributes.paddingTop}
@@ -42,14 +42,14 @@ export default function save({attributes}) {
 				<InnerBlocks.Content/>
 			</div>
 
-			<div class="mobile-background-image" 
+			<div className="mobile-background-image" 
 				style={mobileBlockStyle}
 				data-mobile-container-height={attributes.mobileHeight}
 				data-mobile-image-position={attributes.mobileImagePosition}>
 				<video autoplay muted loop style={displayVideo(attributes.mobileImageUrl)}>
 					<source src={attributes.mobileImageUrl}></source>
 				</video>
-				<div class="image-overlay"
+				<div className="image-overlay"
 					data-background-opacity={attributes.opacityColour}
 					data-opacity-percentage={attributes.backgroundOpacityPercent}
 					data-top-padding={attributes.paddingTop}

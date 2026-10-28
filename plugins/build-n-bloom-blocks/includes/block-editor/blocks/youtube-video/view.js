@@ -1,10 +1,15 @@
-// FRONT-END: open the YouTube popup on click, pause and close it again.
+// FRONT-END: open the video popup on click, pause and close it again.
 
-function sendCommand( iframe, func ) {
-	if ( iframe && iframe.contentWindow ) {
-		// Requires enablejsapi=1 on the embed URL
-		iframe.contentWindow.postMessage( JSON.stringify( { event: 'command', func, args: '' } ), '*' );
+// action is 'play' or 'pause'
+function sendCommand( iframe, action ) {
+	if ( ! iframe || ! iframe.contentWindow ) {
+		return;
 	}
+	const message = iframe.src.includes( 'vimeo.com' )
+		? { method: action }
+		// YouTube requires enablejsapi=1 on the embed URL
+		: { event: 'command', func: action + 'Video', args: '' };
+	iframe.contentWindow.postMessage( JSON.stringify( message ), '*' );
 }
 
 document.addEventListener( 'DOMContentLoaded', () => {
@@ -17,11 +22,11 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
 		const open = () => {
 			popup.style.display = 'block';
-			sendCommand( iframe, 'playVideo' );
+			sendCommand( iframe, 'play' );
 		};
 		const close = ( event ) => {
 			event.stopPropagation();
-			sendCommand( iframe, 'pauseVideo' );
+			sendCommand( iframe, 'pause' );
 			popup.style.display = 'none';
 		};
 

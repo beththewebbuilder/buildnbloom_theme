@@ -1,0 +1,29 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/tab",
+	"version": "0.1.0",
+	"title": "Tab",
+	"category": "buildnbloom",
+	"icon": "excerpt-view",
+	"description": "One tab: a title for the tab button and any content below it.",
+	"parent": [ "build-n-bloom-blocks/tabs" ],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"anchor": true,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true
+		}
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "build-n-bloom-blocks"
+}
