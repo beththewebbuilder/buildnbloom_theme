@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Apex Red Header",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "Background", "color": "#ffffff" },
+				{ "slug": "contrast", "name": "Text", "color": "#000000" },
+				{ "slug": "primary", "name": "Primary", "color": "#000000" },
+				{ "slug": "on-primary", "name": "Text on primary", "color": "#ffffff" },
+				{ "slug": "secondary", "name": "Hover", "color": "#000000" },
+				{ "slug": "on-secondary", "name": "Text on hover", "color": "#ffffff" },
+				{ "slug": "muted", "name": "Muted background", "color": "#f2f2f2" },
+				{ "slug": "border", "name": "Border", "color": "#cccccc" },
+				{ "slug": "header", "name": "Header & footer (Apex red)", "color": "#b70000" },
+				{ "slug": "on-header", "name": "Text on header & footer", "color": "#ffffff" }
+			]
+		}
+	}
+}

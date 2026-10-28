@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Apex Dark",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "Background", "color": "#121212" },
+				{ "slug": "contrast", "name": "Text", "color": "#ffffff" },
+				{ "slug": "primary", "name": "Primary", "color": "#ffffff" },
+				{ "slug": "on-primary", "name": "Text on primary", "color": "#000000" },
+				{ "slug": "secondary", "name": "Apex red (light)", "color": "#ff6b6b" },
+				{ "slug": "on-secondary", "name": "Text on Apex red", "color": "#000000" },
+				{ "slug": "muted", "name": "Muted background", "color": "#1f1f1f" },
+				{ "slug": "border", "name": "Border", "color": "#3a3a3a" },
+				{ "slug": "header", "name": "Header & footer", "color": "#000000" },
+				{ "slug": "on-header", "name": "Text on header & footer", "color": "#ffffff" }
+			]
+		}
+	}
+}
