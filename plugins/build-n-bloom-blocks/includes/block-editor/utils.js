@@ -27,6 +27,21 @@ export function cssVariables( variables ) {
 	return style;
 }
 
+// YouTube or Vimeo page/share/embed link -> URL to embed in an iframe, or '' if it isn't recognised
+export function videoEmbedUrl( url ) {
+	const youTube = ( url || '' ).match( /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([\w-]{11})/ );
+	if ( youTube ) {
+		return 'https://www.youtube.com/embed/' + youTube[ 1 ];
+	}
+	// Unlisted Vimeo videos have a privacy hash after the ID: vimeo.com/123/abc or ?h=abc
+	const vimeo = ( url || '' ).match( /vimeo\.com\/(?:video\/)?(\d+)(?:\/([\da-f]+)|.*[?&]h=([\da-f]+))?/ );
+	if ( vimeo ) {
+		const hash = vimeo[ 2 ] || vimeo[ 3 ];
+		return 'https://player.vimeo.com/video/' + vimeo[ 1 ] + ( hash ? '?h=' + hash : '' );
+	}
+	return '';
+}
+
 // Media library selection -> the attributes the blocks store for it
 export function mediaAttributes( media, prefix ) {
 	return {

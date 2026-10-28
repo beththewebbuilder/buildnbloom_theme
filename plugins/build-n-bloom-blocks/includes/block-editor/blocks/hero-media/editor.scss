@@ -1,0 +1,16 @@
+/* ADMIN EDIT DISPLAY */
+
+// Until a background is chosen, the placeholder sits above the content instead of behind it
+.wp-block-build-n-bloom-blocks-hero-media .bnb-hero__placeholder {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 40rem;
+	margin-bottom: 1.5rem;
+	color: #1e1e1e;
+}
+
+// Button text is edited in place, so show a text cursor rather than a link one
+.bnb-hero__buttons .wp-block-button__link {
+	cursor: text;
+}

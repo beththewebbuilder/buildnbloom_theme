@@ -31,6 +31,24 @@ function custom_block_category( $categories ) {
 }
 add_filter( 'block_categories_all', 'custom_block_category', 10, 2);
 
+// Keep every block in this plugin (including new ones) in the Build N Bloom category,
+// whatever category its block.json says. The server-side filter covers PHP registration;
+// the editor filter covers registerBlockType() in each block's index.js, which spreads block.json.
+function buildnbloom_force_block_category( $metadata ) {
+	if ( isset( $metadata['name'] ) && 0 === strpos( $metadata['name'], 'build-n-bloom-blocks/' ) ) {
+		$metadata['category'] = 'buildnbloom';
+	}
+	return $metadata;
+}
+add_filter( 'block_type_metadata', 'buildnbloom_force_block_category' );
+
+function buildnbloom_force_editor_block_category() {
+	wp_add_inline_script( 'wp-blocks', "wp.hooks.addFilter( 'blocks.registerBlockType', 'build-n-bloom-blocks/category', function( settings, name ) {
+		return 0 === name.indexOf( 'build-n-bloom-blocks/' ) ? Object.assign( {}, settings, { category: 'buildnbloom' } ) : settings;
+	} );" );
+}
+add_action( 'enqueue_block_editor_assets', 'buildnbloom_force_editor_block_category' );
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -47,6 +65,7 @@ function build_n_bloom_blocks_init() {
 	// A site can remove families it doesn't use, e.g. in its theme's functions.php:
 	//   add_filter( 'build_n_bloom_blocks', function( $blocks ) { unset( $blocks['tabs'] ); return $blocks; } );
 	$blocks = apply_filters( 'build_n_bloom_blocks', array(
+		'hero-media'       => array( 'hero-media' ),
 		'image-background' => array( 'image-background' ),
 		'youtube-video'    => array( 'youtube-video' ),
 		'item-grid'        => array( 'item-grid', 'grid-card', 'video-card' ),

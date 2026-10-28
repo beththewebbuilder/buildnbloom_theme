@@ -1,0 +1,184 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/hero-media",
+	"version": "0.1.0",
+	"title": "Hero Video or Image",
+	"category": "buildnbloom",
+	"icon": "cover-image",
+	"description": "Full page video/image as designed primarily for the homepage with optional button.",
+	"keywords": [ "hero", "banner", "cover", "video", "image", "homepage" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"color": {
+			"background": false,
+			"text": true
+		},
+		"spacing": {
+			"padding": true
+		}
+	},
+	"attributes": {
+		"mediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"focalPoint": {
+			"type": "object",
+			"default": { "x": 0.5, "y": 0.5 }
+		},
+		"videoId": {
+			"type": "number",
+			"default": 0
+		},
+		"videoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"posterId": {
+			"type": "number",
+			"default": 0
+		},
+		"posterUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileMediaType": {
+			"type": "string",
+			"default": "same"
+		},
+		"mobileImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobileImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileFocalPoint": {
+			"type": "object",
+			"default": { "x": 0.5, "y": 0.5 }
+		},
+		"mobileVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobileVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobilePosterId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobilePosterUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 30
+		},
+		"height": {
+			"type": "number",
+			"default": 100
+		},
+		"mobileHeight": {
+			"type": "number",
+			"default": 0
+		},
+		"contentPosition": {
+			"type": "string",
+			"default": "middle"
+		},
+		"contentAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"headingFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"headingMobileFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"headingFontFamily": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"textFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"textMobileFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"textFontFamily": {
+			"type": "string",
+			"default": ""
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonText": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonAction": {
+			"type": "string",
+			"default": "link"
+		},
+		"buttonStyle": {
+			"type": "string",
+			"default": "text"
+		},
+		"popupVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"editorScript": "file:../../../../build/hero-media.js",
+	"editorStyle": "file:../../../../build/hero-media.css",
+	"style": "file:../../../../build/style-hero-media.css",
+	"viewScript": "file:../../../../build/hero-media-view.js"
+}

@@ -5,6 +5,8 @@ const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 module.exports = {
 	...defaultConfig,
 	entry: {
+		'hero-media': './includes/block-editor/blocks/hero-media',
+		'hero-media-view': './includes/block-editor/blocks/hero-media/view.js',
 		'image-background': './includes/block-editor/blocks/image-background',
 		'youtube-video': './includes/block-editor/blocks/youtube-video',
 		'youtube-video-view': './includes/block-editor/blocks/youtube-video/view.js',
