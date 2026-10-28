@@ -1,0 +1,236 @@
+@import "../../variables.scss";
+
+// /* FRONT-END DISPLAY (also loaded in the editor) */
+// Layout only. Selectors use :where() so they have no specificity and any theme style wins.
+// Themes can restyle through these custom properties:
+//   --bnb-hero-height, --bnb-hero-padding, --bnb-hero-content-width, --bnb-hero-text-color
+
+:where(.wp-block-build-n-bloom-blocks-hero-media) {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	// Height setting: percentage of the screen height, with its own value on mobile when set
+	--bnb-hero-screen: var(--bnb-hero-screen-height, 100);
+	min-height: var(--bnb-hero-height, calc(var(--bnb-hero-screen) * 1vh));
+	min-height: var(--bnb-hero-height, calc(var(--bnb-hero-screen) * 1svh)); // ignores the mobile browser toolbar where supported
+	padding: var(--bnb-hero-padding, 3rem 1.5rem);
+	overflow: hidden;
+	color: var(--bnb-hero-text-color, #fff);
+	text-align: center;
+
+	@media screen and (max-width: $sml-screen-size) {
+		--bnb-hero-screen: var(--bnb-hero-mobile-screen-height, var(--bnb-hero-screen-height, 100));
+	}
+}
+
+// Content position (vertical) and alignment (horizontal)
+:where(.bnb-hero--content-top) {
+	justify-content: flex-start;
+}
+:where(.bnb-hero--content-bottom) {
+	justify-content: flex-end;
+}
+:where(.bnb-hero--align-left) {
+	align-items: flex-start;
+	text-align: left;
+}
+:where(.bnb-hero--align-right) {
+	align-items: flex-end;
+	text-align: right;
+}
+
+:where(.bnb-hero__media, .bnb-hero__overlay) {
+	position: absolute;
+	inset: 0;
+}
+
+:where(.bnb-hero__media picture) {
+	display: contents;
+}
+
+// Separate mobile media: show one layer per screen size
+@media screen and (max-width: $sml-screen-size) {
+	:where(.bnb-hero__media--desktop) {
+		display: none;
+	}
+}
+@media screen and (min-width: $tablet-up) {
+	:where(.bnb-hero__media--mobile) {
+		display: none;
+	}
+}
+
+:where(.bnb-hero__media--mobile) {
+	--bnb-hero-focal-point: var(--bnb-hero-mobile-focal-point, 50% 50%);
+}
+
+:where(.bnb-hero__image, .bnb-hero__video) {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: var(--bnb-hero-focal-point, 50% 50%);
+}
+
+:where(.bnb-hero__overlay) {
+	background-color: var(--bnb-hero-overlay-color, #000);
+	opacity: var(--bnb-hero-overlay-opacity, 0.3);
+}
+
+:where(.bnb-hero__content) {
+	position: relative;
+	z-index: 1;
+	max-width: var(--bnb-hero-content-width, 50rem);
+}
+
+:where(.bnb-hero__heading, .bnb-hero__text) {
+	color: inherit;
+}
+
+// Mobile heading/text size settings. !important is needed to override the desktop size, which is set inline.
+@media screen and (max-width: $sml-screen-size) {
+	.bnb-hero__heading--mobile-size {
+		font-size: var(--bnb-hero-heading-mobile-size) !important;
+	}
+	.bnb-hero__text--mobile-size {
+		font-size: var(--bnb-hero-text-mobile-size) !important;
+	}
+}
+
+:where(.bnb-hero__buttons) {
+	display: flex; // core Buttons styles only load on pages that use that block
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+:where(.bnb-hero--align-left .bnb-hero__buttons) {
+	justify-content: flex-start;
+}
+:where(.bnb-hero--align-center .bnb-hero__buttons) {
+	justify-content: center;
+}
+:where(.bnb-hero--align-right .bnb-hero__buttons) {
+	justify-content: flex-end;
+}
+
+// Play icon button style
+:where(.bnb-hero__play) {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	color: inherit;
+	text-decoration: none;
+}
+
+:where(.bnb-hero__play-icon) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--bnb-hero-play-size, 5rem);
+	height: var(--bnb-hero-play-size, 5rem);
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+
+	svg {
+		width: 40%;
+		height: 40%;
+		margin-left: 6%; // optically centre the triangle
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}
+
+:where(.bnb-hero__play:hover, .bnb-hero__play:focus-visible) :where(.bnb-hero__play-icon) {
+	transform: scale(1.08);
+}
+
+:where(.bnb-hero__play-label) {
+	font-weight: 600;
+}
+
+// Video popup (view.js). Opened with showModal(), so it sits above the page whatever the hero's overflow/z-index.
+:where(.bnb-hero__modal) {
+	width: min(90vw, calc(80vh * 16 / 9));
+	max-width: none;
+	padding: 0;
+	border: 0;
+	background: #000;
+	overflow: visible;
+
+	&::backdrop {
+		background: var(--bnb-hero-modal-backdrop, rgba(0, 0, 0, 0.85));
+	}
+}
+
+:where(.bnb-hero__modal-frame) {
+	aspect-ratio: 16 / 9;
+
+	iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+}
+
+:where(.bnb-hero__modal-close) {
+	position: absolute;
+	right: 0;
+	bottom: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: #fff;
+	font-size: 1.75rem; // icon size
+	cursor: pointer;
+}
+
+// Pause/play button for background videos (view.js)
+:where(.bnb-hero__pause) {
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+	z-index: 2;
+	width: 2.75rem;
+	height: 2.75rem;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	cursor: pointer;
+
+	// Pause icon: two bars
+	&::before {
+		content: "";
+		display: block;
+		box-sizing: border-box;
+		width: 0.75rem;
+		height: 0.9rem;
+		margin: auto;
+		border-left: 0.25rem solid currentColor;
+		border-right: 0.25rem solid currentColor;
+	}
+}
+
+// Play icon: triangle
+:where(.bnb-hero__pause.is-paused)::before {
+	width: 0;
+	height: 0;
+	margin-left: calc(50% - 0.25rem);
+	border-style: solid;
+	border-width: 0.45rem 0 0.45rem 0.75rem;
+	border-color: transparent transparent transparent currentColor;
+}

@@ -3,11 +3,11 @@ import { URLInput } from '@wordpress/block-editor';
 import { ToggleControl } from '@wordpress/components';
 
 // Sidebar control for an optional link, stored in the linkUrl and opensInNewTab attributes
-export default function LinkControl( { attributes, setAttributes } ) {
+export default function LinkControl( { attributes, setAttributes, label = __( 'Link (optional)', 'build-n-bloom-blocks' ) } ) {
 	return (
 		<div className="full-width-control-wrapper bnb-link-control">
 			<URLInput
-				label={ __( 'Link (optional)', 'build-n-bloom-blocks' ) }
+				label={ label }
 				value={ attributes.linkUrl }
 				onChange={ ( linkUrl ) => setAttributes( { linkUrl } ) }
 			/>
