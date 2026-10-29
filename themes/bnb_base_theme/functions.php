@@ -1,37 +1,32 @@
 <?php
-
-function my_deregister_scripts(){
-  wp_deregister_script( 'wp-embed' );
-}
-add_action( 'wp_footer', 'my_deregister_scripts' );
-
-// Add thumbnails
-add_theme_support('post-thumbnails');
-
-//WordPress Titles
-add_theme_support('title-tag');
-
-//navigation menus
-register_nav_menus(array(
-  'primary' => __('Primary Menu'),
-  'footer' => __('Footer Menu'),
-));
-
-function styles_scripts_init() {
-    //enqueue stylesheets
-    wp_enqueue_style('style', get_template_directory_uri() . '/style.css');
-}
-add_action( 'wp_enqueue_scripts', 'styles_scripts_init' );
-
 /**
- * Proper ob_end_flush() for all levels
+ * Build'n'Bloom Base: parent block theme shared by client sites.
  *
- * This replaces the WordPress `wp_ob_end_flush_all()` function
- * with a replacement that doesn't cause PHP notices.
+ * Templates, layout and design settings live here. Each client has a child theme whose theme.json
+ * sets their colours, fonts and button styles, and which can override any template or part.
+ *
+ * @package bnb-base
  */
-remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
-add_action( 'shutdown', function() {
-   while ( @ob_end_flush() );
-} );
 
- ?>
+// The parent's stylesheet, then the child theme's, so brand CSS can override the parent
+function bnb_base_enqueue_styles() {
+	wp_enqueue_style( 'bnb-base', get_template_directory_uri() . '/style.css', array(), wp_get_theme( get_template() )->get( 'Version' ) );
+
+	if ( is_child_theme() ) {
+		wp_enqueue_style( 'bnb-child', get_stylesheet_uri(), array( 'bnb-base' ), wp_get_theme()->get( 'Version' ) );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'bnb_base_enqueue_styles' );
+
+// The same stylesheets in the editor, so it matches the front end.
+// For a relative path, WordPress loads the file from both the child and the parent theme.
+function bnb_base_setup() {
+	add_editor_style( 'style.css' );
+}
+add_action( 'after_setup_theme', 'bnb_base_setup' );
+
+// Pattern category for the theme's own patterns (patterns/*.php)
+function bnb_base_register_pattern_category() {
+	register_block_pattern_category( 'bnb-base', array( 'label' => __( "Build'n'Bloom", 'bnb-base' ) ) );
+}
+add_action( 'init', 'bnb_base_register_pattern_category' );

@@ -3,7 +3,7 @@
  * Plugin Name:       Build'n'Bloom Gutenberg Blocks
  * Description:       Custom designed gutenberg blocks for Build'n'Bloom clients.
  * Requires at least: 6.1
- * Requires PHP:      7.0
+ * Requires PHP:      7.4
  * Version:           0.1.0
  * Author:            Bethany Fowler
  * License:           GPL-2.0-or-later

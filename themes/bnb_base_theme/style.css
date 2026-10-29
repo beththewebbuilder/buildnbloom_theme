@@ -1,8 +1,35 @@
 /*
-Theme Name: Build'n'Bloom Base Theme
-Author: Bethany Fowler  
+Theme Name: Build'n'Bloom Base
+Author: Bethany Fowler
 Author URI: https://bethanyfowler.me/
-Description: Base theme for designing and developing gutenberg plugins.
-Version: 0.0.1
-Text Domain: buildnbloom
+Description: Parent block theme shared by Build'n'Bloom client sites. Layout, templates and design settings live here; each client's colours, fonts and button styles live in a small child theme.
+Requires at least: 6.6
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bnb-base
 */
+
+/*
+ * Most styling is in theme.json. This file is only for what theme.json can't do.
+ * It is loaded on the front end and in the editor (functions.php).
+ */
+
+/* Sections set their own spacing, so no gap between the header, page content and footer */
+.wp-site-blocks > * {
+	margin-block-start: 0;
+}
+
+/* Header: sticky by default. A child theme turns this off with settings.custom.header.position "static". */
+.wp-site-blocks > header.wp-block-template-part {
+	position: var(--wp--custom--header--position, sticky);
+	top: var(--wp-admin--admin-bar--height, 0px);
+	z-index: 100;
+}
+
+/* Visible keyboard focus for links, matching the button focus style in theme.json */
+:where(a):focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 3px;
+}

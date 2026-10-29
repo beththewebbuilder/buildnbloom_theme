@@ -1,0 +1,60 @@
+/*
+Theme Name: Apex Media
+Template: bnb_base_theme
+Author: Bethany Fowler
+Author URI: https://bethanyfowler.me/
+Description: Apex Media's brand on the Build'n'Bloom Base theme: black and white with a red accent, Qualy headings, outlined buttons and a full-screen menu.
+Requires at least: 6.6
+Requires PHP: 7.4
+Version: 2.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: apex-media
+*/
+
+/*
+ * Colours, fonts and buttons are in theme.json. This file is only the Apex header and menu,
+ * which theme.json can't describe. Loaded after the parent's style.css, on the site and in the editor.
+ */
+
+/* Header: menu button on the left, logo in the centre */
+.apex-header__bar {
+	position: relative;
+	min-height: 3rem;
+}
+
+.apex-header__logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.apex-header__logo img {
+	width: auto;
+	height: 4rem;
+}
+
+.apex-header__menu .wp-block-navigation__responsive-container-open svg {
+	width: 2rem;
+	height: 2rem;
+}
+
+/* Full-screen menu: large links in the centre of the screen */
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	height: 100%;
+}
+
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	justify-content: center;
+}
+
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+	font-size: clamp(2rem, 6vw, 2.5rem);
+}
+
+.apex-header__menu .wp-block-navigation-item__content:hover,
+.apex-header__menu .wp-block-navigation-item__content:focus-visible {
+	color: var(--wp--preset--color--secondary);
+}
