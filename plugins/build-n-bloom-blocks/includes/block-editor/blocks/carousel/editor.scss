@@ -6,15 +6,20 @@
 	overflow: visible;
 	scroll-snap-type: none;
 
+	// "Add new slide" button, on its own row under the slides
 	> .block-list-appender {
 		position: relative;
 		display: flex;
-		align-items: center;
 		justify-content: center;
-		min-height: 6rem;
-		flex: 0 0 6rem;
-		border: 1px dashed currentColor;
+		flex: 0 0 100%;
+		margin: 0.5rem 0 0;
 	}
+}
+
+.bnb-carousel__add-slide.components-button {
+	height: auto;
+	padding: 0.75rem 1.5rem;
+	font-size: 14px;
 }
 
 .bnb-carousel__slide-inner .components-placeholder {

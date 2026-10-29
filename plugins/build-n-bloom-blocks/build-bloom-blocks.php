@@ -75,8 +75,31 @@ function build_n_bloom_blocks_init() {
 
 	foreach( $blocks as $family ) {
 		foreach( $family as $block ) {
-			register_block_type( plugin_dir_path( __FILE__ ) . 'includes/block-editor/blocks/' . $block );
+			$block_type = register_block_type( plugin_dir_path( __FILE__ ) . 'includes/block-editor/blocks/' . $block );
+			if ( $block_type ) {
+				buildnbloom_version_block_styles( $block_type );
+			}
 		}
 	}
 }
 add_action( 'init', 'build_n_bloom_blocks_init' );
+
+/**
+ * WordPress versions block.json stylesheets with the block's "version", which doesn't change
+ * on each build, so browsers kept showing old styles. Use the built file's modified time instead.
+ */
+function buildnbloom_version_block_styles( $block_type ) {
+	$wp_styles = wp_styles();
+	$handles   = array_merge( (array) $block_type->style_handles, (array) $block_type->editor_style_handles );
+
+	foreach ( $handles as $handle ) {
+		$style = isset( $wp_styles->registered[ $handle ] ) ? $wp_styles->registered[ $handle ] : null;
+		if ( ! $style || ! is_string( $style->src ) ) {
+			continue;
+		}
+		$path = str_replace( plugins_url( '/', __FILE__ ), plugin_dir_path( __FILE__ ), strtok( $style->src, '?' ) );
+		if ( file_exists( $path ) ) {
+			$style->ver = (string) filemtime( $path );
+		}
+	}
+}
