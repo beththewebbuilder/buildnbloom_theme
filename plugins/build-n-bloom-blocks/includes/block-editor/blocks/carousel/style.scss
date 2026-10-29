@@ -51,12 +51,17 @@
 :where(.bnb-carousel__image) {
 	display: block;
 	width: 100%;
-	height: var(--bnb-carousel-slide-height, auto);
 	object-fit: var(--bnb-carousel-image-fit, cover);
+}
+
+// Not :where(), so it beats WordPress's `html :where(img[class*=wp-image-]) { height: auto }`
+.bnb-carousel__image {
+	height: var(--bnb-carousel-slide-height, auto);
 }
 
 :where(.bnb-carousel__caption) {
 	margin: 0.5rem 0 0;
+	text-align: center;
 }
 
 :where(.bnb-carousel__arrow) {
@@ -75,10 +80,20 @@
 	background: var(--bnb-carousel-arrow-background, rgba(255, 255, 255, 0.8));
 	cursor: pointer;
 
-	&:disabled {
+	&.slick-disabled {
 		opacity: 0.4;
 		cursor: default;
 	}
+}
+
+// Arrows and dots only work once Slick has started (view.js)
+:where(.wp-block-build-n-bloom-blocks-carousel:not(.bnb-carousel--ready)) > :where(.bnb-carousel__arrow, .bnb-carousel__dots) {
+	display: none;
+}
+
+// Hidden by Slick when every slide already fits on screen
+:where(.bnb-carousel__arrow.slick-hidden) {
+	display: none;
 }
 
 :where(.bnb-carousel__arrow--prev) {
@@ -96,7 +111,18 @@
 	margin-top: 1rem;
 }
 
-:where(.bnb-carousel__dot) {
+:where(.bnb-carousel__dots .slick-dots) {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+:where(.bnb-carousel__dots .slick-dots button) {
+	display: block;
 	width: 0.75rem;
 	height: 0.75rem;
 	padding: 0;
@@ -104,10 +130,85 @@
 	border-radius: 50%;
 	background: var(--bnb-carousel-dot-color, currentColor);
 	opacity: 0.3;
+	font-size: 0;
 	cursor: pointer;
 
-	&[aria-current="true"] {
-		background: var(--bnb-carousel-dot-active-color, currentColor);
-		opacity: 1;
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+}
+
+:where(.bnb-carousel__dots .slick-active button) {
+	opacity: 1;
+	background: var(--bnb-carousel-dot-active-color, currentColor);
+}
+
+// SLICK
+// Core layout from slick-carousel/slick/slick.css (v1.8.1), applied once Slick has started.
+// The gap between slides is a margin on each slide, which Slick allows for when sizing them.
+
+:where(.bnb-carousel__track.slick-initialized) {
+	display: block;
+	overflow: hidden; // clips the negative margin on .slick-list below
+	scroll-snap-type: none;
+	-webkit-user-select: none;
+	user-select: none;
+	touch-action: pan-y;
+	-webkit-tap-highlight-color: transparent;
+}
+
+:where(.bnb-carousel__track .slick-list) {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin: 0 calc(var(--bnb-carousel-gap, 1rem) / -2);
+	padding: 0;
+
+	&:focus {
+		outline: none;
+	}
+
+	&.dragging {
+		cursor: pointer;
+	}
+}
+
+:where(.bnb-carousel__track .slick-track),
+:where(.bnb-carousel__track .slick-list) {
+	transform: translate3d(0, 0, 0);
+}
+
+:where(.bnb-carousel__track .slick-track) {
+	position: relative;
+	top: 0;
+	left: 0;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+
+	&::before,
+	&::after {
+		display: table;
+		content: "";
+	}
+
+	&::after {
+		clear: both;
+	}
+}
+
+:where(.bnb-carousel__track .slick-slide) {
+	display: block;
+	float: left;
+	min-height: 1px;
+	margin: 0 calc(var(--bnb-carousel-gap, 1rem) / 2);
+
+	[dir="rtl"] & {
+		float: right;
+	}
+
+	&.dragging img {
+		pointer-events: none;
 	}
 }

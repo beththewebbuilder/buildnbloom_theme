@@ -1,87 +1,59 @@
-// FRONT-END: arrows, dots and autoplay for the carousel. Without JS the slides still scroll by swipe/scrollbar.
+// FRONT-END: runs the carousel with Slick (https://kenwheeler.github.io/slick/).
+// Without JS the slides still scroll by swipe/scrollbar (see style.scss).
+import $ from 'jquery';
+import 'slick-carousel';
+
+// Must match $tablet-up and $desktop-up in variables.scss
+const TABLET_UP = 768;
+const DESKTOP_UP = 1024;
+
+function slideCount( carousel, name ) {
+	return parseInt( carousel.style.getPropertyValue( name ), 10 ) || 1;
+}
 
 function initCarousel( carousel ) {
-	const track = carousel.querySelector( ':scope > .bnb-carousel__track' );
-	const slides = track ? Array.from( track.children ) : [];
-	if ( slides.length < 2 ) {
+	const $track = $( carousel ).children( '.bnb-carousel__track' );
+	if ( $track.children().length < 2 ) {
 		return;
 	}
 
 	const prevButton = carousel.querySelector( ':scope > .bnb-carousel__arrow--prev' );
 	const nextButton = carousel.querySelector( ':scope > .bnb-carousel__arrow--next' );
 	const dotsContainer = carousel.querySelector( ':scope > .bnb-carousel__dots' );
-	const loop = carousel.dataset.loop === 'true';
-
-	const atStart = () => track.scrollLeft <= 1;
-	const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
-	const currentIndex = () => {
-		const left = track.scrollLeft;
-		let closest = 0;
-		slides.forEach( ( slide, index ) => {
-			if ( Math.abs( slide.offsetLeft - left ) < Math.abs( slides[ closest ].offsetLeft - left ) ) {
-				closest = index;
-			}
-		} );
-		return closest;
+	const reducedMotion = window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+	const autoplaySpeed = parseInt( carousel.dataset.autoplaySpeed, 10 );
+	const slides = {
+		mobile: slideCount( carousel, '--bnb-carousel-slides-mobile' ),
+		tablet: slideCount( carousel, '--bnb-carousel-slides-tablet' ),
+		desktop: slideCount( carousel, '--bnb-carousel-slides' ),
 	};
-	const goTo = ( index ) => {
-		const slide = slides[ Math.max( 0, Math.min( index, slides.length - 1 ) ) ];
-		track.scrollTo( { left: slide.offsetLeft } );
-	};
-	const next = () => ( atEnd() ? loop && goTo( 0 ) : goTo( currentIndex() + 1 ) );
-	const prev = () => ( atStart() ? loop && goTo( slides.length - 1 ) : goTo( currentIndex() - 1 ) );
 
-	prevButton?.addEventListener( 'click', prev );
-	nextButton?.addEventListener( 'click', next );
+	$track.slick( {
+		rows: 0, // keep the slides as Slick's slides, without an extra wrapper
+		slidesToShow: slides.mobile,
+		slidesToScroll: 1,
+		infinite: carousel.dataset.loop === 'true',
+		speed: reducedMotion ? 0 : 500,
+		autoplay: Boolean( autoplaySpeed ) && ! reducedMotion,
+		autoplaySpeed: autoplaySpeed || 5000,
+		pauseOnHover: true,
+		pauseOnFocus: true,
+		arrows: Boolean( prevButton && nextButton ),
+		prevArrow: prevButton,
+		nextArrow: nextButton,
+		dots: Boolean( dotsContainer ),
+		appendDots: dotsContainer,
+		mobileFirst: true,
+		// mobileFirst breakpoints apply above the given width
+		responsive: [
+			{ breakpoint: TABLET_UP - 1, settings: { slidesToShow: slides.tablet } },
+			{ breakpoint: DESKTOP_UP - 1, settings: { slidesToShow: slides.desktop } },
+		],
+	} );
 
-	// One dot per slide
-	const dots = dotsContainer ? slides.map( ( slide, index ) => {
-		const dot = document.createElement( 'button' );
-		dot.type = 'button';
-		dot.className = 'bnb-carousel__dot';
-		dot.setAttribute( 'aria-label', `Go to slide ${ index + 1 }` );
-		dot.addEventListener( 'click', () => goTo( index ) );
-		dotsContainer.appendChild( dot );
-		return dot;
-	} ) : [];
-
-	const update = () => {
-		const active = currentIndex();
-		dots.forEach( ( dot, index ) => dot.setAttribute( 'aria-current', index === active ? 'true' : 'false' ) );
-		if ( ! loop ) {
-			if ( prevButton ) {
-				prevButton.disabled = atStart();
-			}
-			if ( nextButton ) {
-				nextButton.disabled = atEnd();
-			}
-		}
-	};
-	track.addEventListener( 'scroll', () => window.requestAnimationFrame( update ), { passive: true } );
-	window.addEventListener( 'resize', update );
-	update();
-
-	// Autoplay pauses while the visitor is hovering or focused on the carousel
-	const seconds = parseFloat( carousel.dataset.autoplay );
-	if ( seconds && ! window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
-		let timer = null;
-		const start = () => {
-			if ( ! timer ) {
-				timer = window.setInterval( () => ( atEnd() && ! loop ? stop() : next() ), seconds * 1000 );
-			}
-		};
-		const stop = () => {
-			window.clearInterval( timer );
-			timer = null;
-		};
-		carousel.addEventListener( 'mouseenter', stop );
-		carousel.addEventListener( 'mouseleave', start );
-		carousel.addEventListener( 'focusin', stop );
-		carousel.addEventListener( 'focusout', start );
-		start();
-	}
+	carousel.classList.add( 'bnb-carousel--ready' );
 }
 
-document.addEventListener( 'DOMContentLoaded', () => {
+$( () => {
 	document.querySelectorAll( '.wp-block-build-n-bloom-blocks-carousel' ).forEach( initCarousel );
 } );

@@ -20,3 +20,17 @@
 .bnb-carousel__slide-inner .components-placeholder {
 	min-height: 10rem;
 }
+
+// Arrow colour preview, shown under the slides instead of over them so they stay clickable
+.bnb-carousel__arrow-preview {
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+
+	.bnb-carousel__arrow {
+		position: static;
+		transform: none;
+		cursor: default;
+	}
+}

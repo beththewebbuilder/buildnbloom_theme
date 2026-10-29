@@ -10,14 +10,15 @@
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-        "plugin-sass": "sass --watch includes/block-editor/block-editor-group.scss build/style-block-editor.css",
+		"plugin-sass": "sass --watch includes/block-editor/block-editor-group.scss build/style-block-editor.css",
 		"start": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update"
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "^7.0.2",
 		"@wordpress/blocks": "^11.1.0",
-		"@wordpress/i18n": "^4.2.2"
+		"@wordpress/i18n": "^4.2.2",
+		"slick-carousel": "^1.8.1"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^18.0.1"
