@@ -1,15 +1,11 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { cssVariables, linkWrapper, videoEmbedUrl } from '../../utils';
+import { cssVariables, focalPointValue, linkWrapper, videoEmbedUrl } from '../../utils';
 import Icon from '../../components/icons';
 import MediaLayer, { hasMobileMedia } from './media-layer';
 
 // Always full width, plus content position/alignment as modifier classes. Shared with edit.js
 export function heroClassName( attributes ) {
 	return 'alignfull bnb-hero--content-' + attributes.contentPosition + ' bnb-hero--align-' + attributes.contentAlign;
-}
-
-function focalPointValue( focalPoint ) {
-	return focalPoint ? Math.round( focalPoint.x * 100 ) + '% ' + Math.round( focalPoint.y * 100 ) + '%' : '';
 }
 
 // Settings are passed to the stylesheet as CSS custom properties.

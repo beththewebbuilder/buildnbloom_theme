@@ -15,6 +15,11 @@ export function linkWrapper( { linkUrl, opensInNewTab } ) {
 	};
 }
 
+// FocalPointPicker value ({ x: 0.5, y: 0.2 }) -> CSS object-position ("50% 20%"), or '' if not set
+export function focalPointValue( focalPoint ) {
+	return focalPoint ? Math.round( focalPoint.x * 100 ) + '% ' + Math.round( focalPoint.y * 100 ) + '%' : '';
+}
+
 // Inline CSS custom properties. Values are stringified because the block serializer adds "px" to numbers.
 export function cssVariables( variables ) {
 	const style = {};

@@ -43,15 +43,26 @@
 }
 
 :where(.bnb-carousel__slide-inner) {
+	position: relative; // for heading and text over the image
 	display: block;
 	color: inherit;
 	text-decoration: none;
+}
+
+:where(.bnb-carousel__media) {
+	display: block;
+	overflow: hidden; // keeps the zoom hover effect inside the slide
 }
 
 :where(.bnb-carousel__image) {
 	display: block;
 	width: 100%;
 	object-fit: var(--bnb-carousel-image-fit, cover);
+	object-position: var(--bnb-slide-focal-point, 50% 50%);
+
+	@media screen and (max-width: $sml-screen-size) {
+		object-position: var(--bnb-slide-mobile-focal-point, var(--bnb-slide-focal-point, 50% 50%));
+	}
 }
 
 // Not :where(), so it beats WordPress's `html :where(img[class*=wp-image-]) { height: auto }`
@@ -59,9 +70,64 @@
 	height: var(--bnb-carousel-slide-height, auto);
 }
 
-:where(.bnb-carousel__caption) {
-	margin: 0.5rem 0 0;
+// Heading and text, below the image by default
+:where(.bnb-carousel__content) {
+	margin-top: 0.5rem;
 	text-align: center;
+}
+
+:where(.bnb-carousel__heading) {
+	margin: 0;
+	font-size: 1.25em;
+}
+
+:where(.bnb-carousel__caption) {
+	margin: 0;
+}
+
+:where(.bnb-carousel__heading + .bnb-carousel__caption) {
+	margin-top: 0.25rem;
+}
+
+// Over the image: along the bottom on a dark fade. Themes can change it with
+// --bnb-slide-overlay-background and --bnb-slide-overlay-color
+:where(.bnb-slide--caption-overlay .bnb-carousel__content) {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 2.5rem 1rem 1rem;
+	background: var(--bnb-slide-overlay-background, linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75)));
+}
+
+// White text unless a text colour was chosen for the slide
+:where(.bnb-slide--caption-overlay:not(.has-text-color) .bnb-carousel__content) {
+	color: var(--bnb-slide-overlay-color, #fff);
+}
+
+// Hover effects, also shown when the slide's link has keyboard focus
+:where(.bnb-slide--hover-greyscale .bnb-carousel__image) {
+	filter: grayscale(100%);
+	transition: filter 0.3s ease;
+}
+
+:where(.bnb-slide--hover-greyscale:hover .bnb-carousel__image, .bnb-slide--hover-greyscale:focus-within .bnb-carousel__image) {
+	filter: none;
+}
+
+:where(.bnb-slide--hover-zoom .bnb-carousel__image) {
+	transition: transform 0.4s ease;
+}
+
+:where(.bnb-slide--hover-zoom:hover .bnb-carousel__image, .bnb-slide--hover-zoom:focus-within .bnb-carousel__image) {
+	transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:where(.bnb-slide--hover-zoom .bnb-carousel__image) {
+		transition: none;
+	}
 }
 
 :where(.bnb-carousel__arrow) {

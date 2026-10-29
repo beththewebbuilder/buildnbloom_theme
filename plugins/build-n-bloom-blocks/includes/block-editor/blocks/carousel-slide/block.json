@@ -1,11 +1,11 @@
 {
 	"apiVersion": 3,
 	"name": "build-n-bloom-blocks/carousel-slide",
-	"version": "0.1.0",
-	"title": "Carousel Slide",
+	"version": "0.2.0",
+	"title": "Slide Image",
 	"category": "buildnbloom",
 	"icon": "format-image",
-	"description": "An image slide with an optional caption and link.",
+	"description": "An image slide with an optional heading, text and link, and an optional separate image for mobile.",
 	"parent": [ "build-n-bloom-blocks/carousel" ],
 	"supports": {
 		"html": false,
@@ -30,9 +30,43 @@
 			"type": "string",
 			"default": ""
 		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"useMobileImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"mobileImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"mobileImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileFocalPoint": {
+			"type": "object"
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
 		"caption": {
 			"type": "string",
 			"default": ""
+		},
+		"captionPosition": {
+			"type": "string",
+			"default": "below"
+		},
+		"imageFit": {
+			"type": "string",
+			"default": ""
+		},
+		"hoverEffect": {
+			"type": "string",
+			"default": "none"
 		},
 		"linkUrl": {
 			"type": "string",
