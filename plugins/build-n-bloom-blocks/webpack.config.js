@@ -14,6 +14,7 @@ module.exports = {
 		'video-card-view': './includes/block-editor/blocks/video-card/view.js',
 		'carousel': './includes/block-editor/blocks/carousel',
 		'carousel-view': './includes/block-editor/blocks/carousel/view.js',
+		'review-item': './includes/block-editor/blocks/review-item/style-entry.js',
 		'tabs': './includes/block-editor/blocks/tabs',
 		'tabs-view': './includes/block-editor/blocks/tabs/view.js',
 	},

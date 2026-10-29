@@ -28,6 +28,9 @@ function initCarousel( carousel ) {
 		desktop: slideCount( carousel, '--bnb-carousel-slides' ),
 	};
 
+	// Items that can also be used outside a carousel (e.g. Review Item) don't save slide roles themselves
+	$track.children( ':not([role])' ).attr( { role: 'group', 'aria-roledescription': 'slide' } );
+
 	$track.slick( {
 		rows: 0, // keep the slides as Slick's slides, without an extra wrapper
 		slidesToShow: slides.mobile,

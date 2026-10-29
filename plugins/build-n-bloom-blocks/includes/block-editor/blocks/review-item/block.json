@@ -1,0 +1,47 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/review-item",
+	"version": "0.1.0",
+	"title": "Review Item",
+	"category": "buildnbloom",
+	"icon": "format-quote",
+	"description": "A customer review: logo or photo, company name, the review and an optional author. Use it on its own or as a Carousel slide.",
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"color": {
+			"text": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"attributes": {
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"company": {
+			"type": "string",
+			"default": ""
+		},
+		"review": {
+			"type": "string",
+			"default": ""
+		},
+		"author": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"style": "file:../../../../build/style-review-item.css"
+}

@@ -69,7 +69,7 @@ function build_n_bloom_blocks_init() {
 		'image-background' => array( 'image-background' ),
 		'youtube-video'    => array( 'youtube-video' ),
 		'item-grid'        => array( 'item-grid', 'grid-card', 'video-card' ),
-		'carousel'         => array( 'carousel', 'carousel-slide' ),
+		'carousel'         => array( 'carousel', 'carousel-slide', 'review-item' ),
 		'tabs'             => array( 'tabs', 'tab' ),
 	) );
 

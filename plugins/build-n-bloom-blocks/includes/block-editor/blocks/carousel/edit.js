@@ -4,7 +4,7 @@ import { PanelBody, RangeControl, SelectControl, ToggleControl, __experimentalUn
 import { carouselStyle, Chevron } from './save';
 
 // Only slides can go in the carousel
-const ALLOWED_BLOCKS = [ 'build-n-bloom-blocks/carousel-slide' ];
+const ALLOWED_BLOCKS = [ 'build-n-bloom-blocks/carousel-slide', 'build-n-bloom-blocks/review-item' ];
 const TEMPLATE = [
 	[ 'build-n-bloom-blocks/carousel-slide' ],
 	[ 'build-n-bloom-blocks/carousel-slide' ],

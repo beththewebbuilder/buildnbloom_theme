@@ -36,7 +36,7 @@
 	}
 }
 
-:where(.bnb-carousel__track > .wp-block-build-n-bloom-blocks-carousel-slide) {
+:where(.bnb-carousel__track > :is(.wp-block-build-n-bloom-blocks-carousel-slide, .wp-block-build-n-bloom-blocks-review-item)) {
 	flex: 0 0 calc((100% - (var(--bnb-slides) - 1) * var(--bnb-carousel-gap, 1rem)) / var(--bnb-slides));
 	margin: 0;
 	scroll-snap-align: start;
