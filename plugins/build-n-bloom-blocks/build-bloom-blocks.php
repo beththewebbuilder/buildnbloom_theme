@@ -67,7 +67,7 @@ function build_n_bloom_blocks_init() {
 	$blocks = apply_filters( 'build_n_bloom_blocks', array(
 		'hero-media'    => array( 'hero-media' ),
 		'youtube-video' => array( 'youtube-video' ),
-		'item-grid'     => array( 'item-grid', 'grid-card', 'video-card' ),
+		'item-grid'     => array( 'item-grid', 'grid-card' ),
 		'carousel'      => array( 'carousel', 'carousel-slide', 'review-item' ),
 		'tabs'          => array( 'tabs', 'tab' ),
 	) );

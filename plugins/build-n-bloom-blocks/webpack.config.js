@@ -10,7 +10,6 @@ module.exports = {
 		'youtube-video': './includes/block-editor/blocks/youtube-video',
 		'youtube-video-view': './includes/block-editor/blocks/youtube-video/view.js',
 		'item-grid': './includes/block-editor/blocks/item-grid',
-		'video-card-view': './includes/block-editor/blocks/video-card/view.js',
 		'carousel': './includes/block-editor/blocks/carousel',
 		'carousel-view': './includes/block-editor/blocks/carousel/view.js',
 		'review-item': './includes/block-editor/blocks/review-item/style-entry.js',

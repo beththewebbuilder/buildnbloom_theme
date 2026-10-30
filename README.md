@@ -13,7 +13,7 @@ An image with a title and play button. Clicking it opens a YouTube or Vimeo vide
 
 #### Item Grid (`item-grid`) → Grid Card
 
-A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid. Video Cards can no longer be added, but any already saved in a grid keep working.
+A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid.
 
 #### Carousel (`carousel`) → Carousel Slide
 

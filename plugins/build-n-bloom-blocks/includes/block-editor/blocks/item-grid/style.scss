@@ -34,8 +34,8 @@
 	margin: 0.5rem 0 0;
 }
 
-// Grid Card and Video Card share the card layout
-:where(.wp-block-build-n-bloom-blocks-grid-card, .wp-block-build-n-bloom-blocks-video-card) {
+// Grid Card layout
+:where(.wp-block-build-n-bloom-blocks-grid-card) {
 	display: flex;
 	flex-direction: column;
 	margin: 0;
@@ -58,14 +58,14 @@
 	overflow: hidden;
 }
 
-:where(.bnb-card__media img, .bnb-card__media video) {
+:where(.bnb-card__media img) {
 	display: block;
 	width: 100%;
 	object-fit: cover;
 }
 
 // Not :where(), so it beats WordPress's `html :where(img[class*=wp-image-]) { height: auto }`
-.bnb-card__media :is(img, video) {
+.bnb-card__media img {
 	height: 100%;
 }
 
@@ -86,7 +86,7 @@
 	position: relative;
 }
 
-:where(.has-overlay-cards .bnb-card__media img, .has-overlay-cards .bnb-card__media video) {
+:where(.has-overlay-cards .bnb-card__media img) {
 	transition: opacity 0.2s;
 }
 
@@ -113,7 +113,7 @@
 		opacity: 1;
 	}
 
-	:where(.has-overlay-cards .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__media :is(img, video)) {
+	:where(.has-overlay-cards .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__media img) {
 		opacity: 0.5;
 	}
 }
