@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Spec card",
+	"slug": "spec-card",
+	"blockTypes": [ "core/group" ],
+	"styles": {
+		"color": { "background": "var:preset|color|surface" },
+		"border": {
+			"top": { "color": "var:preset|color|primary", "style": "solid", "width": "4px" },
+			"right": { "color": "var:preset|color|border", "style": "solid", "width": "1px" },
+			"bottom": { "color": "var:preset|color|border", "style": "solid", "width": "1px" },
+			"left": { "color": "var:preset|color|border", "style": "solid", "width": "1px" }
+		},
+		"spacing": {
+			"padding": {
+				"top": "clamp(1.25rem, 3vw, 1.875rem)",
+				"right": "clamp(1.25rem, 3vw, 1.875rem)",
+				"bottom": "clamp(1.25rem, 3vw, 1.875rem)",
+				"left": "clamp(1.25rem, 3vw, 1.875rem)"
+			}
+		}
+	}
+}

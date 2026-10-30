@@ -1,0 +1,130 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "Paper", "color": "#f3f0e8" },
+				{ "slug": "contrast", "name": "Ink", "color": "#16191c" },
+				{ "slug": "primary", "name": "Ember", "color": "#ff6a13" },
+				{ "slug": "on-primary", "name": "Text on ember", "color": "#1b0d03" },
+				{ "slug": "secondary", "name": "Ember hover", "color": "#ff8238" },
+				{ "slug": "on-secondary", "name": "Text on ember hover", "color": "#1b0d03" },
+				{ "slug": "muted", "name": "Paper dark", "color": "#e9e5da" },
+				{ "slug": "border", "name": "Border", "color": "#d7d3c9" },
+				{ "slug": "header", "name": "Header & footer", "color": "#16191c" },
+				{ "slug": "on-header", "name": "Text on header & footer", "color": "#fbfaf6" },
+				{ "slug": "surface", "name": "Card white", "color": "#fbfaf6" },
+				{ "slug": "steel", "name": "Steel", "color": "#20252a" },
+				{ "slug": "accent-text", "name": "Ember text (small text on light backgrounds)", "color": "#b53c00" },
+				{ "slug": "subtle-text", "name": "Subtle text", "color": "#5d6266" }
+			]
+		},
+		"layout": {
+			"contentSize": "760px",
+			"wideSize": "1240px"
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "Barlow",
+					"fontFamily": "Barlow, Arial, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Barlow", "fontWeight": "400", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-400.woff2" ] },
+						{ "fontFamily": "Barlow", "fontWeight": "500", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-500.woff2" ] },
+						{ "fontFamily": "Barlow", "fontWeight": "600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-600.woff2" ] }
+					]
+				},
+				{
+					"slug": "heading",
+					"name": "Barlow Condensed",
+					"fontFamily": "\"Barlow Condensed\", \"Arial Narrow\", Arial, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "500", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-500.woff2" ] },
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-600.woff2" ] },
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "700", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-700.woff2" ] }
+					]
+				},
+				{
+					"slug": "mono",
+					"name": "IBM Plex Mono",
+					"fontFamily": "\"IBM Plex Mono\", Consolas, monospace",
+					"fontFace": [
+						{ "fontFamily": "IBM Plex Mono", "fontWeight": "400", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/ibm-plex-mono-400.woff2" ] },
+						{ "fontFamily": "IBM Plex Mono", "fontWeight": "500", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/ibm-plex-mono-500.woff2" ] }
+					]
+				}
+			]
+		},
+		"custom": {
+			"button": {
+				"radius": "0"
+			}
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontSize": "1.0625rem",
+			"lineHeight": "1.55"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontWeight": "700",
+					"lineHeight": "1.02",
+					"letterSpacing": "0.005em",
+					"textTransform": "uppercase"
+				}
+			},
+			"h1": { "typography": { "fontSize": "clamp(3.375rem, 7.6vw, 6.5rem)" } },
+			"h2": { "typography": { "fontSize": "clamp(2.25rem, 5vw, 3.625rem)" } },
+			"h3": { "typography": { "fontSize": "1.625rem" } },
+			"h4": { "typography": { "fontSize": "1.375rem" } },
+			"link": {
+				"color": { "text": "var:preset|color|accent-text" },
+				":hover": { "color": { "text": "var:preset|color|contrast" } }
+			},
+			"button": {
+				"typography": {
+					"fontSize": "1.1875rem",
+					"fontWeight": "700",
+					"letterSpacing": "0.04em",
+					"lineHeight": "1",
+					"textTransform": "uppercase"
+				},
+				"spacing": {
+					"padding": { "top": "0.8em", "right": "1.15em", "bottom": "0.8em", "left": "1.15em" }
+				},
+				":focus-visible": {
+					"outline": { "color": "var:preset|color|primary", "offset": "2px", "style": "solid", "width": "3px" }
+				}
+			}
+		},
+		"blocks": {
+			"core/button": {
+				"variations": {
+					"outline": {
+						"color": { "background": "transparent", "text": "currentColor" },
+						"border": { "color": "currentColor", "width": "2px", "style": "solid" }
+					}
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|body",
+					"fontSize": "0.9375rem",
+					"fontWeight": "500"
+				}
+			},
+			"core/site-title": {
+				"typography": {
+					"fontSize": "1.5625rem",
+					"letterSpacing": "0.04em",
+					"lineHeight": "1",
+					"textTransform": "uppercase"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+/*
+Theme Name: Luffman Engineering
+Template: bnb_base_theme
+Author: Bethany Fowler
+Author URI: https://bethanyfowler.me/
+Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with an ember accent, Barlow type and square buttons.
+Requires at least: 6.6
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: luffman-engineering
+*/
+
+/*
+ * Colours, fonts and buttons are in theme.json, and the block styles are in styles/blocks/.
+ * This file is only what those can't do. Loaded after the parent's style.css, on the site and in the editor.
+ */
+
+/* Header phone number has no room next to the menu on smaller screens */
+@media (max-width: 1000px) {
+	.luffman-header__phone {
+		display: none;
+	}
+}
+
+/* Dark section: small text and links use the brighter ember */
+.is-style-dark-section .is-style-eyebrow {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Spec table: label on the left, figure on the right, a line between each row */
+.is-style-spec-table table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.is-style-spec-table :is(td, th) {
+	padding: 0.55rem 0;
+	border: 0;
+	border-top: 1px solid var(--wp--preset--color--border);
+	text-align: left;
+	vertical-align: top;
+}
+
+.is-style-spec-table td:first-child {
+	width: 38%;
+	padding-right: 0.875rem;
+	font-weight: 600;
+}
