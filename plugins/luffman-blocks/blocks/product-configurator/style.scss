@@ -1,0 +1,105 @@
+@import "../controls";
+
+// /* FRONT-END DISPLAY (also loaded in the editor) */
+
+.wp-block-luffman-blocks-product-configurator {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+	gap: clamp(2rem, 6vw, 4.5rem);
+	align-items: center;
+
+	@media (max-width: 1000px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.luffman-config__stage {
+	border: 1px solid #3c444b;
+	background: radial-gradient(ellipse at 50% 70%, #3a2a20, #16191c 68%);
+}
+
+.luffman-config__preview {
+	position: relative;
+	aspect-ratio: 26 / 21;
+
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	// Stacked images: each chosen option's image sits on top of the last
+	img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.luffman-config__heading {
+	margin: 0;
+}
+
+.luffman-config__groups {
+	display: grid;
+	gap: 1.25rem;
+	margin: 1.75rem 0;
+}
+
+.luffman-config__group {
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		padding: 0;
+	}
+}
+
+.luffman-config__summary {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+}
+
+.luffman-config__note {
+	margin: 0.375rem 0 1.25rem;
+	color: #a5adb3;
+}
+
+.luffman-config__price {
+	margin: 0 0 1.25rem;
+}
+
+.luffman-config__cta {
+	display: inline-block;
+	text-decoration: none;
+}
+
+// The flames in the firepit drawing
+.flame {
+	animation: luffman-flicker 1.3s ease-in-out infinite alternate;
+	transform-box: fill-box;
+	transform-origin: 50% 100%;
+
+	&.b {
+		animation-delay: -0.4s;
+		animation-duration: 0.9s;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}
+
+@keyframes luffman-flicker {
+	from {
+		transform: scaleY(0.9) skewX(-2deg);
+	}
+	to {
+		transform: scaleY(1.1) skewX(3deg);
+	}
+}

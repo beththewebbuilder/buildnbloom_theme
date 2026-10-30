@@ -8,7 +8,7 @@ Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README
 |---|---|
 | `theme.json` | Luffman colours, self-hosted Barlow, Barlow Condensed and IBM Plex Mono, heading sizes, square buttons and a 1240px wide layout |
 | `parts/` | Header with phone number and quote button, and a footer with the company address |
-| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Same part four processes, Workshop film and story, Our work, and Get a quote |
+| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Process finder, Same part four processes, Workshop film and story, Our work, Firepit designer, and Get a quote |
 | `templates/archive-job.html` | The Our work page listing every job |
 | `assets/images/hero-cut-part.svg` | Hero illustration, a static version of the mockup's laser animation |
 | `styles/blocks/` | Block styles: **Eyebrow** (Paragraph), **Dark section** and **Spec card** (Group), **Spec table** (Table) |
@@ -33,6 +33,16 @@ Everything else (templates, page layout) comes from the parent theme.
 3. **Site title:** Settings → General. Use a logo instead if you want "Engineering" in orange, as a site title can only be one colour.
 4. **Menu:** Appearance → Editor → Patterns → Header, select the menu and choose or create it.
 5. **Homepage:** Settings → Reading → "A static page". Set full-width pages to the **Page without title (full width)** template.
+
+## Process Finder
+
+The rules are set on each **Finder Process** block in the editor: tick the materials it suits, set its thickness limits, and rank it for each priority (1 is recommended first, 0 means it isn't offered for that priority). Materials, priorities and the slider range are on the parent block. Run `npm run build` in `luffman-blocks` after changing its code.
+
+## Product Configurator
+
+Each product is a **Product Configurator** block holding **Option Groups** (such as size or material), which hold **Product Options**. Options, notes and prices are all content, so a new product needs no code if **Stacked images** is chosen as its preview: give each option a transparent PNG and the chosen images are layered in order. The firepit uses its own drawn preview, which needs the group keys `pattern`, `size`, `material` and `plate`. A new drawn preview is added in `blocks/product-configurator/view.js`.
+
+The enquiry button fills in the quote form's message, on the same page or through a link to another page.
 
 ## Our work
 

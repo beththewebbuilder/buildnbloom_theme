@@ -1,0 +1,27 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/finder-process",
+	"version": "0.1.0",
+	"title": "Finder Process",
+	"category": "widgets",
+	"icon": "admin-tools",
+	"description": "One process in the Process Finder, with its facts and the jobs it suits.",
+	"parent": [ "luffman-blocks/process-finder" ],
+	"usesContext": [ "luffman-blocks/materials", "luffman-blocks/priorities" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"name": { "type": "string", "default": "" },
+		"why": { "type": "string", "default": "" },
+		"tolerance": { "type": "string", "default": "" },
+		"thickness": { "type": "string", "default": "" },
+		"bedSize": { "type": "string", "default": "" },
+		"materials": { "type": "array", "default": [] },
+		"minThickness": { "type": "number", "default": 0 },
+		"maxThickness": { "type": "number", "default": 0 },
+		"ranks": { "type": "object", "default": {} }
+	},
+	"textdomain": "luffman-blocks"
+}

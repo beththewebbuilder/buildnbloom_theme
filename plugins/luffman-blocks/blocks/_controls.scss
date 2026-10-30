@@ -1,0 +1,43 @@
+// Row of choice buttons, shared by the Process Finder and Product Configurator
+.luffman-seg {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+}
+
+.luffman-seg__button {
+	padding: 0.5625rem 0.8125rem;
+	border: 1px solid #3c444b;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	font-size: 0.9375rem;
+
+	&[aria-pressed="true"] {
+		border-color: var(--wp--preset--color--surface);
+		background: var(--wp--preset--color--surface);
+		color: var(--wp--preset--color--contrast);
+		font-weight: 600;
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--wp--preset--color--primary);
+		outline-offset: 2px;
+	}
+}
+
+.luffman-control-label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: #a5adb3;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+}
+
+.luffman-eyebrow {
+	margin: 0 0 0.75rem;
+	color: var(--wp--preset--color--primary);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+}

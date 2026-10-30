@@ -1,0 +1,22 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/product-option",
+	"version": "0.1.0",
+	"title": "Product Option",
+	"category": "widgets",
+	"icon": "yes",
+	"description": "One option a visitor can choose.",
+	"parent": [ "luffman-blocks/option-group" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"label": { "type": "string", "default": "" },
+		"value": { "type": "string", "default": "" },
+		"summary": { "type": "string", "default": "" },
+		"note": { "type": "string", "default": "" },
+		"image": { "type": "string", "default": "" }
+	},
+	"textdomain": "luffman-blocks"
+}

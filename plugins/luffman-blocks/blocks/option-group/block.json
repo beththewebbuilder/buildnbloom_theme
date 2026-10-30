@@ -1,0 +1,20 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/option-group",
+	"version": "0.1.0",
+	"title": "Option Group",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "One choice in the Product Configurator, such as size or material. Add Product Options inside it.",
+	"parent": [ "luffman-blocks/product-configurator" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"label": { "type": "string", "default": "" },
+		"key": { "type": "string", "default": "" },
+		"optional": { "type": "boolean", "default": false }
+	},
+	"textdomain": "luffman-blocks"
+}

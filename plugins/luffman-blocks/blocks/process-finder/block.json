@@ -1,0 +1,40 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/process-finder",
+	"version": "0.1.0",
+	"title": "Process Finder",
+	"category": "widgets",
+	"icon": "filter",
+	"description": "Visitors choose a material, thickness and priority, and see which process suits their job. Add Finder Processes inside it.",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Process finder" },
+		"heading": { "type": "string", "default": "Which cut suits your job?" },
+		"materials": {
+			"type": "array",
+			"default": [ "Mild steel", "Stainless", "Aluminium", "Brass / copper", "Non-metal" ]
+		},
+		"priorities": {
+			"type": "array",
+			"default": [ "Accuracy", "No heat marks", "Lowest cost" ]
+		},
+		"minThickness": { "type": "number", "default": 1 },
+		"maxThickness": { "type": "number", "default": 80 },
+		"defaultThickness": { "type": "number", "default": 6 },
+		"noMatch": { "type": "string", "default": "We don't have a standard process for this job. Call us and we'll talk it through." },
+		"note": { "type": "string", "default": "" }
+	},
+	"providesContext": {
+		"luffman-blocks/materials": "materials",
+		"luffman-blocks/priorities": "priorities"
+	},
+	"textdomain": "luffman-blocks",
+	"editorScript": "file:../../build/process-finder.js",
+	"editorStyle": "file:../../build/process-finder.css",
+	"style": "file:../../build/style-process-finder.css",
+	"viewScript": "file:../../build/process-finder-view.js"
+}

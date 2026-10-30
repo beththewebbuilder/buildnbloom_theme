@@ -1,0 +1,14 @@
+{
+	"name": "luffman-blocks",
+	"version": "0.1.0",
+	"description": "Blocks for Luffman Engineering.",
+	"license": "GPL-2.0-or-later",
+	"private": true,
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^18.1.0"
+	}
+}

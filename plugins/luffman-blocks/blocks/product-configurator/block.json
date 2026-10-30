@@ -1,0 +1,29 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/product-configurator",
+	"version": "0.1.0",
+	"title": "Product Configurator",
+	"category": "widgets",
+	"icon": "admin-customizer",
+	"description": "Visitors choose options for a made-to-order product, see a preview and send an enquiry. Add Option Groups inside it.",
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "" },
+		"heading": { "type": "string", "default": "" },
+		"preview": { "type": "string", "default": "images" },
+		"previewLabel": { "type": "string", "default": "Preview of the product you have configured" },
+		"price": { "type": "string", "default": "" },
+		"ctaLabel": { "type": "string", "default": "Enquire about this product" },
+		"ctaUrl": { "type": "string", "default": "#quote" },
+		"enquiryPrefix": { "type": "string", "default": "Product enquiry: " }
+	},
+	"textdomain": "luffman-blocks",
+	"editorScript": "file:../../build/product-configurator.js",
+	"editorStyle": "file:../../build/product-configurator.css",
+	"style": "file:../../build/style-product-configurator.css",
+	"viewScript": "file:../../build/product-configurator-view.js"
+}

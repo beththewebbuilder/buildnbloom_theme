@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Luffman Blocks
- * Description:       Luffman Engineering's own content: the Our work post type and the settings for the quote form.
+ * Description:       Luffman Engineering's own content: the Process Finder and Product Configurator blocks, the Our work post type and the settings for the quote form.
  * Requires at least: 6.7
  * Requires PHP:      8.3
  * Version:           0.1.0
@@ -12,6 +12,15 @@
  *
  * @package luffman-blocks
  */
+
+// Blocks. Child blocks can only be used inside their parent, and are registered from its script.
+function luffman_register_blocks() {
+	$blocks = array( 'process-finder', 'finder-process', 'product-configurator', 'option-group', 'product-option' );
+	foreach ( $blocks as $block ) {
+		register_block_type( plugin_dir_path( __FILE__ ) . 'blocks/' . $block );
+	}
+}
+add_action( 'init', 'luffman_register_blocks' );
 
 // Fields shown on each job, saved as post meta and displayed with block bindings
 function luffman_job_fields() {
