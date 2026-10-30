@@ -1,16 +1,37 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, useInnerBlocksProps, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { createBlocksFromInnerBlocksTemplate } from '@wordpress/blocks';
+import { useBlockProps, useInnerBlocksProps, InspectorControls, PanelColorSettings, store as blockEditorStore } from '@wordpress/block-editor';
 import { PanelBody, RangeControl, SelectControl, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { addFilter } from '@wordpress/hooks';
 import AddBlockButton from '../../components/add-block-button';
 import { carouselStyle, Chevron } from './save';
 
-// Only slides can go in the carousel
-const ALLOWED_BLOCKS = [ 'build-n-bloom-blocks/carousel-slide', 'build-n-bloom-blocks/review-item' ];
-const TEMPLATE = [
-	[ 'build-n-bloom-blocks/carousel-slide' ],
-	[ 'build-n-bloom-blocks/carousel-slide' ],
-	[ 'build-n-bloom-blocks/carousel-slide' ],
+// A carousel holds one type of slide. Mixing them breaks Slick's layout: it works out the space
+// around every slide from the first one, so a slide with different padding wraps onto a second row.
+const SLIDE_BLOCKS = {
+	image: 'build-n-bloom-blocks/carousel-slide',
+	review: 'build-n-bloom-blocks/review-item',
+};
+const SLIDE_TYPES = [
+	{ label: __( 'Images', 'build-n-bloom-blocks' ), value: 'image' },
+	{ label: __( 'Reviews', 'build-n-bloom-blocks' ), value: 'review' },
 ];
+
+function slideTemplate( slideType ) {
+	return [ [ SLIDE_BLOCKS[ slideType ] ], [ SLIDE_BLOCKS[ slideType ] ], [ SLIDE_BLOCKS[ slideType ] ] ];
+}
+
+// allowedBlocks isn't enough on its own: WordPress always lets a block into its "parent", so
+// Carousel Slides could still be added to a review carousel. Removing "parent" from the slide
+// would show it in the inserter everywhere, so the slide type is checked here instead.
+addFilter( 'blockEditor.__unstableCanInsertBlockType', 'build-n-bloom-blocks/carousel-slide-type', ( canInsert, blockType, rootClientId, { getBlock } ) => {
+	const root = rootClientId ? getBlock( rootClientId ) : null;
+	if ( ! canInsert || root?.name !== 'build-n-bloom-blocks/carousel' || ! Object.values( SLIDE_BLOCKS ).includes( blockType.name ) ) {
+		return canInsert;
+	}
+	return blockType.name === SLIDE_BLOCKS[ root.attributes.slideType ];
+} );
 
 // Height presets, saved as the CSS height itself (screen heights based on the old Apex carousel).
 // svh is the screen height without the browser's toolbars on phones.
@@ -38,20 +59,41 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		setAttributes( { slideHeight: value === 'custom' ? '20rem' : value, imageFit } );
 	}
 
+	const { getBlocks } = useSelect( blockEditorStore );
+	const { replaceInnerBlocks } = useDispatch( blockEditorStore );
+	const isImageCarousel = attributes.slideType === 'image';
+
+	// Slides of the other type are removed so the carousel can't end up mixed (undo brings them back)
+	function onChangeSlideType( slideType ) {
+		const matching = getBlocks( clientId ).filter( ( block ) => block.name === SLIDE_BLOCKS[ slideType ] );
+		setAttributes( { slideType } );
+		replaceInnerBlocks( clientId, matching.length ? matching : createBlocksFromInnerBlocksTemplate( slideTemplate( slideType ) ) );
+	}
+
 	const blockProps = useBlockProps( { className: 'bnb-editor-container', style: carouselStyle( attributes ) } );
 	// In the editor all slides are shown wrapped onto rows so each one can be edited (see editor.scss).
 	// Slick only runs on the front end.
 	const innerBlocksProps = useInnerBlocksProps( { className: 'bnb-carousel__track' }, {
-		allowedBlocks: ALLOWED_BLOCKS,
-		template: TEMPLATE,
+		allowedBlocks: [ SLIDE_BLOCKS[ attributes.slideType ] ],
+		template: slideTemplate( attributes.slideType ),
 		orientation: 'horizontal',
-		renderAppender: () => <AddBlockButton rootClientId={ clientId } label={ __( 'Add new slide', 'build-n-bloom-blocks' ) } />,
+		renderAppender: () => (
+			<AddBlockButton
+				rootClientId={ clientId }
+				label={ isImageCarousel ? __( 'Add new slide', 'build-n-bloom-blocks' ) : __( 'Add new review', 'build-n-bloom-blocks' ) } />
+		),
 	} );
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Slides', 'build-n-bloom-blocks' ) }>
+					<SelectControl
+						label={ __( 'Carousel type', 'build-n-bloom-blocks' ) }
+						help={ __( 'Changing this removes slides of the other type.', 'build-n-bloom-blocks' ) }
+						value={ attributes.slideType }
+						options={ SLIDE_TYPES }
+						onChange={ onChangeSlideType } />
 					<RangeControl
 						label={ __( 'Slides visible (desktop)', 'build-n-bloom-blocks' ) }
 						value={ attributes.slidesPerView }
@@ -70,12 +112,14 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						onChange={ ( mobileSlidesPerView ) => setAttributes( { mobileSlidesPerView } ) }
 						min={ 1 }
 						max={ 4 } />
-					<SelectControl
-						label={ __( 'Media height', 'build-n-bloom-blocks' ) }
-						value={ mediaHeight }
-						options={ MEDIA_HEIGHTS }
-						onChange={ onChangeMediaHeight } />
-					{ mediaHeight === 'custom' &&
+					{ isImageCarousel &&
+						<SelectControl
+							label={ __( 'Media height', 'build-n-bloom-blocks' ) }
+							value={ mediaHeight }
+							options={ MEDIA_HEIGHTS }
+							onChange={ onChangeMediaHeight } />
+					}
+					{ isImageCarousel && mediaHeight === 'custom' &&
 						<UnitControl
 							label={ __( 'Custom height', 'build-n-bloom-blocks' ) }
 							value={ attributes.slideHeight }
@@ -86,15 +130,17 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							] }
 							onChange={ ( slideHeight ) => setAttributes( { slideHeight: slideHeight || '' } ) } />
 					}
-					<SelectControl
-						label={ __( 'Image fit', 'build-n-bloom-blocks' ) }
-						help={ __( 'Use "Fit inside" for logos so they are not cropped.', 'build-n-bloom-blocks' ) }
-						value={ attributes.imageFit }
-						options={ [
-							{ label: __( 'Fill and crop', 'build-n-bloom-blocks' ), value: 'cover' },
-							{ label: __( 'Fit inside', 'build-n-bloom-blocks' ), value: 'contain' },
-						] }
-						onChange={ ( imageFit ) => setAttributes( { imageFit } ) } />
+					{ isImageCarousel &&
+						<SelectControl
+							label={ __( 'Image fit', 'build-n-bloom-blocks' ) }
+							help={ __( 'Use "Fit inside" for logos so they are not cropped.', 'build-n-bloom-blocks' ) }
+							value={ attributes.imageFit }
+							options={ [
+								{ label: __( 'Fill and crop', 'build-n-bloom-blocks' ), value: 'cover' },
+								{ label: __( 'Fit inside', 'build-n-bloom-blocks' ), value: 'contain' },
+							] }
+							onChange={ ( imageFit ) => setAttributes( { imageFit } ) } />
+					}
 				</PanelBody>
 				<PanelBody title={ __( 'Navigation', 'build-n-bloom-blocks' ) }>
 					<ToggleControl

@@ -15,9 +15,9 @@ An image with a title and play button. Clicking it opens a YouTube or Vimeo vide
 
 A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid.
 
-#### Carousel (`carousel`) → Carousel Slide
+#### Carousel (`carousel`) → Carousel Slide / Review Item
 
-A scrolling carousel with slides visible per screen size, optional arrows, dots, looping and autoplay (paused on hover, off for reduced motion). Use "Fit inside" image fit for logo strips. It only accepts **Carousel Slides** (image, optional caption and link), which can only be added inside a carousel.
+A scrolling carousel with slides visible per screen size, optional arrows, dots, looping and autoplay (paused on hover, off for reduced motion). Use "Fit inside" image fit for logo strips. Its **Carousel type** setting makes it either an image carousel of **Carousel Slides** (image, optional caption and link), which can only be added inside a carousel, or a review carousel of **Review Items**. The two can't be mixed: Slick sizes every slide from the first one, so a slide with different padding wraps onto a second row and leaves a gap above the dots.
 
 #### Tabs (`tabs`) → Tab
 

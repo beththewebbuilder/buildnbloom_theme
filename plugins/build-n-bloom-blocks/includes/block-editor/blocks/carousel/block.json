@@ -5,7 +5,7 @@
 	"title": "Carousel",
 	"category": "buildnbloom",
 	"icon": "images-alt2",
-	"description": "A scrolling carousel of image slides, e.g. a gallery or logo strip. Add Carousel Slides inside it.",
+	"description": "A scrolling carousel of images or reviews, e.g. a gallery, logo strip or testimonials.",
 	"keywords": [
 		"slider",
 		"slideshow",
@@ -29,6 +29,10 @@
 		}
 	},
 	"attributes": {
+		"slideType": {
+			"type": "string",
+			"default": "image"
+		},
 		"slidesPerView": {
 			"type": "number",
 			"default": 1
