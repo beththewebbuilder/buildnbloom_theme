@@ -17,7 +17,7 @@ A grid of cards that sits within the page container or runs the full width of th
 
 #### Stat Bar (`stat-bar`) → Stat Item
 
-A row of key facts with separate column counts for desktop, tablet and mobile. It only accepts **Stat Items** (a headline figure and a short label), which can only be added inside a Stat Bar.
+A row of key facts with separate column counts for desktop, tablet and mobile. Its **Full width background** setting runs the background across the whole screen while the stats stay in line with the page. It only accepts **Stat Items** (a headline figure and a short label), which can only be added inside a Stat Bar.
 
 #### Process List (`process-list`) → Process Row
 
@@ -42,7 +42,7 @@ The plugin only ships layout CSS, so each site keeps its own look:
 | Block | Custom properties |
 | --- | --- |
 | Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding`, `--bnb-card-overlay-color`, `--bnb-card-overlay-background` |
-| Stat Bar | `--bnb-stat-padding`, `--bnb-stat-divider`, `--bnb-stat-value-size`, `--bnb-stat-label-size` |
+| Stat Bar | `--bnb-stat-padding`, `--bnb-stat-divider`, `--bnb-stat-value-size`, `--bnb-stat-label-size`, `--bnb-stat-bar-gutter` |
 | Process List | `--bnb-process-rule`, `--bnb-process-border`, `--bnb-process-hover-background`, `--bnb-process-arrow-color`, `--bnb-process-number-color`, `--bnb-process-spec-font` |
 | Carousel | `--bnb-carousel-gap`, `--bnb-carousel-arrow-color`, `--bnb-carousel-arrow-background`, `--bnb-carousel-arrow-size`, `--bnb-carousel-dot-color`, `--bnb-carousel-dot-active-color` |
 | Tabs | `--bnb-tabs-gap`, `--bnb-tabs-border`, `--bnb-tab-padding`, `--bnb-tab-background`, `--bnb-tab-color`, `--bnb-tab-active-background`, `--bnb-tab-active-color`, `--bnb-tab-active-border-color`, `--bnb-tab-panel-padding` |

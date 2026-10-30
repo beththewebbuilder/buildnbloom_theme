@@ -3,7 +3,7 @@
 // /* FRONT-END DISPLAY (also loaded in the editor) */
 // Layout only. Selectors use :where() so they have no specificity and any theme style wins.
 // Themes can restyle through these custom properties:
-//   --bnb-stat-padding, --bnb-stat-divider, --bnb-stat-value-size, --bnb-stat-label-size
+//   --bnb-stat-padding, --bnb-stat-divider, --bnb-stat-value-size, --bnb-stat-label-size, --bnb-stat-bar-gutter
 
 :where(.bnb-stats__items) {
 	display: grid;
@@ -18,6 +18,14 @@
 	@media screen and (min-width: $desktop-up) {
 		grid-template-columns: repeat(var(--bnb-stats-columns, 4), minmax(0, 1fr));
 	}
+}
+
+// Full width: the background runs edge to edge while the stats stay in line with the page
+:where(.wp-block-build-n-bloom-blocks-stat-bar.alignfull .bnb-stats__items) {
+	box-sizing: content-box;
+	max-width: var(--wp--style--global--wide-size, none);
+	margin-inline: auto;
+	padding-inline: var(--bnb-stat-bar-gutter, var(--wp--style--root--padding-left, 1rem));
 }
 
 :where(.wp-block-build-n-bloom-blocks-stat-item) {

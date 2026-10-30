@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, useInnerBlocksProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import AddBlockButton from '../../components/add-block-button';
 import { statBarStyle } from './save';
 
@@ -25,6 +25,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Stat bar settings', 'build-n-bloom-blocks' ) }>
+					<ToggleControl
+						label={ __( 'Full width background', 'build-n-bloom-blocks' ) }
+						help={ __( 'The background runs across the whole screen and the stats stay in line with the page.', 'build-n-bloom-blocks' ) }
+						checked={ attributes.align === 'full' }
+						onChange={ ( isFull ) => setAttributes( { align: isFull ? 'full' : undefined } ) } />
 					<RangeControl
 						label={ __( 'Columns (desktop)', 'build-n-bloom-blocks' ) }
 						value={ attributes.columns }

@@ -16,10 +16,8 @@ $luffman_stats = array(
 	'150 tonnes' => 'Folding capacity',
 );
 ?>
-<!-- wp:group {"metadata":{"name":"Proof bar"},"align":"full","backgroundColor":"primary","textColor":"on-primary","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-on-primary-color has-primary-background-color has-text-color has-background" style="margin-top:0;margin-bottom:0">
-<!-- wp:build-n-bloom-blocks/stat-bar {"columns":5,"align":"wide"} -->
-<div style="--bnb-stats-columns:5;--bnb-stats-columns-tablet:2;--bnb-stats-columns-mobile:2" class="wp-block-build-n-bloom-blocks-stat-bar alignwide"><ul class="bnb-stats__items">
+<!-- wp:build-n-bloom-blocks/stat-bar {"metadata":{"name":"Proof bar"},"columns":5,"align":"full","backgroundColor":"primary","textColor":"on-primary","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+<div style="margin-top:0;margin-bottom:0;--bnb-stats-columns:5;--bnb-stats-columns-tablet:2;--bnb-stats-columns-mobile:2" class="wp-block-build-n-bloom-blocks-stat-bar alignfull has-on-primary-color has-primary-background-color has-text-color has-background"><ul class="bnb-stats__items">
 <?php foreach ( $luffman_stats as $luffman_value => $luffman_label ) : ?>
 <!-- wp:build-n-bloom-blocks/stat-item <?php echo wp_json_encode( array( 'value' => $luffman_value, 'label' => $luffman_label ), JSON_UNESCAPED_UNICODE ); ?> -->
 <li class="wp-block-build-n-bloom-blocks-stat-item"><span class="bnb-stat__value"><?php echo $luffman_value; ?></span><span class="bnb-stat__label"><?php echo $luffman_label; ?></span></li>
@@ -27,5 +25,3 @@ $luffman_stats = array(
 <?php endforeach; ?>
 </ul></div>
 <!-- /wp:build-n-bloom-blocks/stat-bar -->
-</div>
-<!-- /wp:group -->
