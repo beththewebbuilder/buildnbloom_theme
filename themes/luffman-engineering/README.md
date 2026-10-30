@@ -8,7 +8,8 @@ Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README
 |---|---|
 | `theme.json` | Luffman colours, self-hosted Barlow, Barlow Condensed and IBM Plex Mono, heading sizes, square buttons and a 1240px wide layout |
 | `parts/` | Header with phone number and quote button, and a footer with the company address |
-| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Same part four processes, and Workshop film and story |
+| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Same part four processes, Workshop film and story, Our work, and Get a quote |
+| `templates/archive-job.html` | The Our work page listing every job |
 | `assets/images/hero-cut-part.svg` | Hero illustration, a static version of the mockup's laser animation |
 | `styles/blocks/` | Block styles: **Eyebrow** (Paragraph), **Dark section** and **Spec card** (Group), **Spec table** (Table) |
 | `style.css` | The little CSS `theme.json` can't do |
@@ -33,11 +34,15 @@ Everything else (templates, page layout) comes from the parent theme.
 4. **Menu:** Appearance → Editor → Patterns → Header, select the menu and choose or create it.
 5. **Homepage:** Settings → Reading → "A static page". Set full-width pages to the **Page without title (full width)** template.
 
+## Our work
+
+Install the **Luffman Blocks** plugin. Jobs are added under **Our work** in the admin, each with a title, sector, process, material and result. The latest three show on the homepage, and all of them at `/our-work/`.
+
 ## Quote form
 
-Use a form plugin that sends by email through SMTP:
+The Get a quote pattern shows the Contact Form 7 form titled **Get a quote**, so the form must keep that title. The host needs PHP 8.3 or newer for Contact Form 7.
 
-- Allow `.dxf`, `.dwg`, `.step`, `.stp` and `.pdf` uploads, which WordPress blocks by default.
-- Limit uploads to 15MB in total. Email encoding adds about a third, and Gmail's limit is 25MB per message.
-- Attach files to the email and don't keep copies on the server, as drawings may be confidential.
-- Send a real file at the limit before launch, because the mail service may have a lower limit than Gmail.
+- **Uploads:** one file up to 15MB (DXF, DWG, STEP, PDF or ZIP). Email encoding adds about a third, and Gmail's limit is 25MB per message. The file is attached to the email and Contact Form 7 deletes its temporary copy.
+- **Before launch:** change the form's Mail recipient from the site admin address to `luffmaneng@gmail.com`, and set up an SMTP plugin so email is delivered reliably.
+- **Spam:** add Cloudflare Turnstile under Contact → Integration.
+- **Test:** send a real file at the limit, because the mail service may have a lower limit than Gmail.

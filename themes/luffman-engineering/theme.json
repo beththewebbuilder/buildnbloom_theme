@@ -117,6 +117,14 @@
 					"fontWeight": "500"
 				}
 			},
+			"core/post-title": {
+				"elements": {
+					"link": {
+						"color": { "text": "var:preset|color|contrast" },
+						":hover": { "color": { "text": "var:preset|color|accent-text" } }
+					}
+				}
+			},
 			"core/site-title": {
 				"typography": {
 					"fontSize": "1.5625rem",
