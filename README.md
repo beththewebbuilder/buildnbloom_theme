@@ -11,9 +11,9 @@ All blocks are in the **Build N Bloom** category of the block inserter.
 
 An image with a title and play button. Clicking it opens a YouTube or Vimeo video in a full screen popup.
 
-#### Item Grid (`item-grid`) → Grid Card / Video Card
+#### Item Grid (`item-grid`) → Grid Card
 
-A grid of cards with separate column counts for desktop, tablet and mobile and a shared image shape. The grid only accepts **Grid Cards** (image, title, text, optional link) and **Video Cards** (short muted clip that plays on hover or loops, title, text, optional link), and the cards can only be added inside a grid.
+A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid. Video Cards can no longer be added, but any already saved in a grid keep working.
 
 #### Carousel (`carousel`) → Carousel Slide
 
@@ -33,7 +33,7 @@ The plugin only ships layout CSS, so each site keeps its own look:
 
 | Block | Custom properties |
 | --- | --- |
-| Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding` |
+| Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding`, `--bnb-card-overlay-color`, `--bnb-card-overlay-background` |
 | Carousel | `--bnb-carousel-gap`, `--bnb-carousel-arrow-color`, `--bnb-carousel-arrow-background`, `--bnb-carousel-arrow-size`, `--bnb-carousel-dot-color`, `--bnb-carousel-dot-active-color` |
 | Tabs | `--bnb-tabs-gap`, `--bnb-tabs-border`, `--bnb-tab-padding`, `--bnb-tab-background`, `--bnb-tab-color`, `--bnb-tab-active-background`, `--bnb-tab-active-color`, `--bnb-tab-active-border-color`, `--bnb-tab-panel-padding` |
 | Video Popup | `--bnb-video-popup-text-color`, `--bnb-video-popup-icon-size`, `--bnb-video-popup-backdrop` |

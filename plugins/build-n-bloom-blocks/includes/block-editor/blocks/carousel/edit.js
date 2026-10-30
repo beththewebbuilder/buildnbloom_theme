@@ -1,6 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, useInnerBlocksProps, InspectorControls, Inserter, PanelColorSettings } from '@wordpress/block-editor';
-import { Button, PanelBody, RangeControl, SelectControl, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+import { useBlockProps, useInnerBlocksProps, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
+import { PanelBody, RangeControl, SelectControl, ToggleControl, __experimentalUnitControl as UnitControl } from '@wordpress/components';
+import AddBlockButton from '../../components/add-block-button';
 import { carouselStyle, Chevron } from './save';
 
 // Only slides can go in the carousel
@@ -26,23 +27,6 @@ const MEDIA_HEIGHTS = [
 ];
 const LOGO_HEIGHTS = [ '10rem', '7.5rem', '5rem' ];
 
-// Replaces the small "+" appender. Set up like WordPress's own ButtonBlockAppender: the quick
-// inserter only lists the blocks allowed in the carousel (without it, every block was offered).
-function AddSlideButton( { rootClientId } ) {
-	return (
-		<Inserter
-			rootClientId={ rootClientId }
-			position="bottom center"
-			isAppender
-			__experimentalIsQuick
-			renderToggle={ ( { onToggle, disabled } ) => (
-				<Button className="bnb-carousel__add-slide" variant="secondary" onClick={ onToggle } disabled={ disabled }>
-					{ __( 'Add new slide', 'build-n-bloom-blocks' ) }
-				</Button>
-			) } />
-	);
-}
-
 export default function Edit( { attributes, setAttributes, clientId } ) {
 	// Any height that isn't a preset was typed in as a custom one
 	const mediaHeight = MEDIA_HEIGHTS.some( ( option ) => option.value === attributes.slideHeight ) ? attributes.slideHeight : 'custom';
@@ -61,7 +45,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
 		orientation: 'horizontal',
-		renderAppender: () => <AddSlideButton rootClientId={ clientId } />,
+		renderAppender: () => <AddBlockButton rootClientId={ clientId } label={ __( 'Add new slide', 'build-n-bloom-blocks' ) } />,
 	} );
 
 	return (

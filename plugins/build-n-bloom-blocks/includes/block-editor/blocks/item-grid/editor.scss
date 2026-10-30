@@ -1,13 +1,30 @@
 /* ADMIN EDIT DISPLAY */
 
-// Keep the "add card" button the size of one grid cell
-.wp-block-build-n-bloom-blocks-item-grid > .block-list-appender {
+// In the editor the outer block is the outlined container and the cards sit in .bnb-grid__items
+.wp-block-build-n-bloom-blocks-item-grid.bnb-editor-container {
+	display: block;
+}
+
+// "Add new card" button, on its own row under the cards
+.bnb-grid__items > .block-list-appender {
 	position: relative;
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	min-height: 8rem;
-	border: 1px dashed currentColor;
+	grid-column: 1 / -1;
+	margin: 0.5rem 0 0;
+}
+
+// Overlay text stays visible and below the image so it can be edited and the placeholder stays clickable
+.block-editor-block-list__block.has-overlay-cards .bnb-card__media + .bnb-card__body {
+	position: static;
+	color: inherit;
+	text-align: left;
+	background: none;
+	opacity: 1;
+}
+
+.block-editor-block-list__block.has-overlay-cards .bnb-card__media :is(img, video) {
+	opacity: 1;
 }
 
 // Placeholder shown on a card before media is chosen
