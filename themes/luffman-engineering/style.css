@@ -24,6 +24,17 @@ Text Domain: luffman-engineering
 	}
 }
 
+/* Eyebrow sits tight above the heading it introduces */
+.is-style-eyebrow + * {
+	margin-block-start: 0.75rem !important;
+}
+
+/* Item Grid cards on the paper background */
+:root {
+	--bnb-card-background: var(--wp--preset--color--surface);
+	--bnb-card-padding: 1.25rem;
+}
+
 /* Dark section: small text and links use the brighter ember */
 .is-style-dark-section .is-style-eyebrow {
 	color: var(--wp--preset--color--primary);
