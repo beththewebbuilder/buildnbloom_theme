@@ -15,6 +15,14 @@ An image with a title and play button. Clicking it opens a YouTube or Vimeo vide
 
 A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid.
 
+#### Stat Bar (`stat-bar`) → Stat Item
+
+A row of key facts with separate column counts for desktop, tablet and mobile. It only accepts **Stat Items** (a headline figure and a short label), which can only be added inside a Stat Bar.
+
+#### Process List (`process-list`) → Process Row
+
+An ordered list of services or steps. Rows are numbered automatically, so they stay in order when moved, and the numbers can be turned off. It only accepts **Process Rows** (title, text, a short spec line and an optional link), which can only be added inside a Process List. Linked rows show an arrow.
+
 #### Carousel (`carousel`) → Carousel Slide / Review Item
 
 A scrolling carousel with slides visible per screen size, optional arrows, dots, looping and autoplay (paused on hover, off for reduced motion). Use "Fit inside" image fit for logo strips. Its **Carousel type** setting makes it either an image carousel of **Carousel Slides** (image, optional caption and link), which can only be added inside a carousel, or a review carousel of **Review Items**. The two can't be mixed: Slick sizes every slide from the first one, so a slide with different padding wraps onto a second row and leaves a gap above the dots.
@@ -34,6 +42,8 @@ The plugin only ships layout CSS, so each site keeps its own look:
 | Block | Custom properties |
 | --- | --- |
 | Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding`, `--bnb-card-overlay-color`, `--bnb-card-overlay-background` |
+| Stat Bar | `--bnb-stat-padding`, `--bnb-stat-divider`, `--bnb-stat-value-size`, `--bnb-stat-label-size` |
+| Process List | `--bnb-process-rule`, `--bnb-process-border`, `--bnb-process-hover-background`, `--bnb-process-arrow-color`, `--bnb-process-number-color`, `--bnb-process-spec-font` |
 | Carousel | `--bnb-carousel-gap`, `--bnb-carousel-arrow-color`, `--bnb-carousel-arrow-background`, `--bnb-carousel-arrow-size`, `--bnb-carousel-dot-color`, `--bnb-carousel-dot-active-color` |
 | Tabs | `--bnb-tabs-gap`, `--bnb-tabs-border`, `--bnb-tab-padding`, `--bnb-tab-background`, `--bnb-tab-color`, `--bnb-tab-active-background`, `--bnb-tab-active-color`, `--bnb-tab-active-border-color`, `--bnb-tab-panel-padding` |
 | Video Popup | `--bnb-video-popup-text-color`, `--bnb-video-popup-icon-size`, `--bnb-video-popup-backdrop` |

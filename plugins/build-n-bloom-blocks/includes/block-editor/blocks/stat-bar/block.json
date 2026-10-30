@@ -1,0 +1,41 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/stat-bar",
+	"version": "0.1.0",
+	"title": "Stat Bar",
+	"category": "buildnbloom",
+	"icon": "chart-bar",
+	"description": "A row of key facts or figures. Add Stat Items inside it.",
+	"keywords": [ "stats", "numbers", "facts", "proof" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"tabletColumns": {
+			"type": "number",
+			"default": 2
+		},
+		"mobileColumns": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"editorScript": "file:../../../../build/stat-bar.js",
+	"editorStyle": "file:../../../../build/stat-bar.css",
+	"style": "file:../../../../build/style-stat-bar.css"
+}

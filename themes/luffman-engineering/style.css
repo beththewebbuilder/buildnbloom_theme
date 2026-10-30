@@ -29,10 +29,23 @@ Text Domain: luffman-engineering
 	margin-block-start: 0.75rem !important;
 }
 
-/* Item Grid cards on the paper background */
+/* Plugin block styling: cards on the paper background, the proof bar and the What we do list */
 :root {
 	--bnb-card-background: var(--wp--preset--color--surface);
 	--bnb-card-padding: 1.25rem;
+	--bnb-stat-padding: 1.375rem 1.125rem;
+	--bnb-stat-divider: 1px solid rgba(27, 13, 3, 0.25);
+	--bnb-process-rule: 2px solid var(--wp--preset--color--contrast);
+	--bnb-process-border: var(--wp--preset--color--border);
+	--bnb-process-hover-background: var(--wp--preset--color--surface);
+	--bnb-process-arrow-color: var(--wp--preset--color--accent-text);
+	--bnb-process-number-color: var(--wp--preset--color--subtle-text);
+	--bnb-process-spec-font: var(--wp--preset--font-family--mono);
+}
+
+.bnb-process__text {
+	color: var(--wp--preset--color--subtle-text);
+	font-size: 1rem;
 }
 
 /* Dark section: small text and links use the brighter ember */

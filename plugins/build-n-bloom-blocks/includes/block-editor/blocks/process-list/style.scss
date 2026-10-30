@@ -1,0 +1,107 @@
+@import "../../variables.scss";
+
+// /* FRONT-END DISPLAY (also loaded in the editor) */
+// Layout only. Selectors use :where() so they have no specificity and any theme style wins.
+// Themes can restyle through these custom properties:
+//   --bnb-process-rule, --bnb-process-border, --bnb-process-hover-background, --bnb-process-arrow-color,
+//   --bnb-process-number-color, --bnb-process-spec-font
+
+:where(.bnb-process__items) {
+	counter-reset: bnb-process;
+	margin: 0;
+	padding: 0;
+	border-top: var(--bnb-process-rule, 2px solid currentColor);
+	list-style: none;
+}
+
+:where(.wp-block-build-n-bloom-blocks-process-row) {
+	counter-increment: bnb-process;
+	margin: 0;
+	border-bottom: 1px solid var(--bnb-process-border, rgba(128, 128, 128, 0.4));
+}
+
+// Number, title, text, spec and arrow. Each has a set column so an empty field does not move the rest.
+:where(.bnb-process__row) {
+	display: grid;
+	grid-template-columns: 2.75rem minmax(0, 1fr) 1.75rem;
+	gap: 0.25rem 1rem;
+	align-items: center;
+	padding: 1.375rem 0.5rem;
+	color: inherit;
+	text-decoration: none;
+
+	&::before {
+		content: counter(bnb-process, decimal-leading-zero);
+		grid-column: 1;
+		grid-row: 1;
+		color: var(--bnb-process-number-color, inherit);
+		font-family: var(--bnb-process-spec-font, inherit);
+		font-size: 0.8125rem;
+	}
+
+	@media screen and (min-width: $desktop-up) {
+		grid-template-columns: 4.375rem 1.1fr 1.5fr 1.5fr 2.5rem;
+		gap: 1.25rem;
+	}
+}
+
+:where(.bnb-process--no-numbers .bnb-process__row)::before {
+	content: "";
+}
+
+:where(.bnb-process__title) {
+	grid-column: 2;
+	grid-row: 1;
+	margin: 0;
+}
+
+:where(.bnb-process__text, .bnb-process__spec) {
+	grid-column: 2;
+	margin: 0;
+}
+
+:where(.bnb-process__spec) {
+	font-family: var(--bnb-process-spec-font, inherit);
+	font-size: 0.8125rem;
+}
+
+@media screen and (min-width: $desktop-up) {
+	:where(.bnb-process__text) {
+		grid-column: 3;
+		grid-row: 1;
+	}
+
+	:where(.bnb-process__spec) {
+		grid-column: 4;
+		grid-row: 1;
+	}
+}
+
+// Not :where(), so a linked row keeps the text colour instead of taking the theme's link colour
+a.bnb-process__row {
+	color: inherit;
+	text-decoration: none;
+}
+
+// The arrow only shows on rows with a link
+:where(a.bnb-process__row)::after {
+	content: "\2192";
+	grid-column: -2;
+	grid-row: 1;
+	color: var(--bnb-process-arrow-color, inherit);
+	font-size: 1.5rem;
+	text-align: right;
+}
+
+:where(a.bnb-process__row) {
+	transition: background-color 0.15s, padding-left 0.15s;
+
+	&:hover {
+		padding-left: 1.125rem;
+		background: var(--bnb-process-hover-background, transparent);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}

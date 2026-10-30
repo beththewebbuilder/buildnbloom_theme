@@ -1,0 +1,48 @@
+@import "../../variables.scss";
+
+// /* FRONT-END DISPLAY (also loaded in the editor) */
+// Layout only. Selectors use :where() so they have no specificity and any theme style wins.
+// Themes can restyle through these custom properties:
+//   --bnb-stat-padding, --bnb-stat-divider, --bnb-stat-value-size, --bnb-stat-label-size
+
+:where(.bnb-stats__items) {
+	display: grid;
+	grid-template-columns: repeat(var(--bnb-stats-columns-mobile, 2), minmax(0, 1fr));
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@media screen and (min-width: $tablet-up) {
+		grid-template-columns: repeat(var(--bnb-stats-columns-tablet, 2), minmax(0, 1fr));
+	}
+	@media screen and (min-width: $desktop-up) {
+		grid-template-columns: repeat(var(--bnb-stats-columns, 4), minmax(0, 1fr));
+	}
+}
+
+:where(.wp-block-build-n-bloom-blocks-stat-item) {
+	margin: 0;
+	padding: var(--bnb-stat-padding, 1.25rem 1rem);
+}
+
+// Lines between stats only on desktop, where they are all on one row
+@media screen and (min-width: $desktop-up) {
+	:where(.wp-block-build-n-bloom-blocks-stat-item + .wp-block-build-n-bloom-blocks-stat-item) {
+		border-left: var(--bnb-stat-divider, 0);
+	}
+}
+
+:where(.bnb-stat__value) {
+	display: block;
+	font-family: var(--wp--preset--font-family--heading, inherit);
+	font-size: var(--bnb-stat-value-size, clamp(2rem, 3.6vw, 2.875rem));
+	font-weight: 700;
+	line-height: 1;
+}
+
+:where(.bnb-stat__label) {
+	display: block;
+	margin-top: 0.25rem;
+	font-size: var(--bnb-stat-label-size, 0.875rem);
+	font-weight: 500;
+}

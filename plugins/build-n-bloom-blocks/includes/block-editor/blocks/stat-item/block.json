@@ -1,0 +1,25 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/stat-item",
+	"version": "0.1.0",
+	"title": "Stat Item",
+	"category": "buildnbloom",
+	"icon": "marker",
+	"description": "A headline figure with a short label.",
+	"parent": [ "build-n-bloom-blocks/stat-bar" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"value": {
+			"type": "string",
+			"default": ""
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "build-n-bloom-blocks"
+}

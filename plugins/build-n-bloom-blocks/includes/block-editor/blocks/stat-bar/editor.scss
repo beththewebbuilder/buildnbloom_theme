@@ -1,0 +1,10 @@
+/* ADMIN EDIT DISPLAY */
+
+// "Add new stat" button, on its own row under the stats
+.bnb-stats__items > .block-list-appender {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	grid-column: 1 / -1;
+	margin: 0.5rem 0 0;
+}

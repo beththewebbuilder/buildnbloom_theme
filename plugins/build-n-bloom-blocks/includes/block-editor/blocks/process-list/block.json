@@ -1,0 +1,33 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/process-list",
+	"version": "0.1.0",
+	"title": "Process List",
+	"category": "buildnbloom",
+	"icon": "editor-ol",
+	"description": "An ordered list of services or steps, numbered automatically. Add Process Rows inside it.",
+	"keywords": [ "services", "steps", "capabilities", "list" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"showNumbers": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"textdomain": "build-n-bloom-blocks",
+	"editorScript": "file:../../../../build/process-list.js",
+	"editorStyle": "file:../../../../build/process-list.css",
+	"style": "file:../../../../build/style-process-list.css"
+}

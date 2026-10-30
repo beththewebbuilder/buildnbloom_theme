@@ -16,6 +16,8 @@ Adds a "Build N Bloom" category to the block inserter with:
 
 * Video Popup - an image with a title and play button that opens a YouTube or Vimeo video in a popup.
 * Item Grid - a responsive grid of Grid Cards, within the page container or full width, with an optional heading and intro, adjustable spacing and image height, and text below the image or over it on hover.
+* Stat Bar - a row of Stat Items, each a headline figure with a short label.
+* Process List - an automatically numbered list of Process Rows, each with a title, text, a spec line and an optional link.
 * Carousel - a scrolling carousel of either Carousel Slides or Review Items, with arrows, dots and autoplay.
 * Tabs - tabbed content made of Tab blocks.
 

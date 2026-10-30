@@ -8,7 +8,7 @@ Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README
 |---|---|
 | `theme.json` | Luffman colours, self-hosted Barlow, Barlow Condensed and IBM Plex Mono, heading sizes, square buttons and a 1240px wide layout |
 | `parts/` | Header with phone number and quote button, and a footer with the company address |
-| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Quick answers, Same part four processes, and Workshop film and story |
+| `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Same part four processes, and Workshop film and story |
 | `assets/images/hero-cut-part.svg` | Hero illustration, a static version of the mockup's laser animation |
 | `styles/blocks/` | Block styles: **Eyebrow** (Paragraph), **Dark section** and **Spec card** (Group), **Spec table** (Table) |
 | `style.css` | The little CSS `theme.json` can't do |

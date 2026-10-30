@@ -1,0 +1,37 @@
+{
+	"apiVersion": 3,
+	"name": "build-n-bloom-blocks/process-row",
+	"version": "0.1.0",
+	"title": "Process Row",
+	"category": "buildnbloom",
+	"icon": "minus",
+	"description": "A numbered row with a title, text, a short spec line and an optional link.",
+	"parent": [ "build-n-bloom-blocks/process-list" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"spec": {
+			"type": "string",
+			"default": ""
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "build-n-bloom-blocks"
+}
