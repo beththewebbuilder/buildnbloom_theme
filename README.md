@@ -7,11 +7,6 @@ This is the development site for the `build-n-bloom-blocks` plugin: one central 
 
 All blocks are in the **Build N Bloom** category of the block inserter.
 
-#### Image/Video Banner (`image-background`)
-
-This was the first block to be created for this plugin in March 2024. It allows an image to be selected for both desktop and mobile sized screens, image height, position, opacity and content position to be set. Either image or video can be selected and will adjust accordingly.
-A header, subheading and a button can be added to this block. Left blank it will just be an image or video banner. 
-
 #### Video Popup (`youtube-video`)
 
 An image with a title and play button. Clicking it opens a YouTube or Vimeo video in a full screen popup.
