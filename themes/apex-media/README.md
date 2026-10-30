@@ -58,4 +58,4 @@ The old theme declared Qualy without a font file, so it only showed on computers
 
 - **Contact form** (`page-content.php`): it posted to a `bt_scf` AJAX handler that isn't in the theme. Use a form plugin on the Contact page instead.
 - **Instagram feed** on the homepage: add the `[instagram-feed feed=1]` shortcode to the Home page with a Shortcode block.
-- **Bootstrap, jQuery, Slick and the Font Awesome kit** loaded from CDNs: no longer needed. The Build'n'Bloom blocks replace the old custom carousel, item grid, tabs and background media styles.
+- **Bootstrap, jQuery, Slick and the Font Awesome kit** loaded from CDNs: no longer needed. The Build'n'Bloom blocks replace the old custom carousel, item grid, tabs and background media styles. The Carousel block brings its own copy of Slick, and WordPress's jQuery, only on pages that use it.

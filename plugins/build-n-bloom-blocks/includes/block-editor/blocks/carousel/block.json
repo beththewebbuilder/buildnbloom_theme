@@ -6,11 +6,19 @@
 	"category": "buildnbloom",
 	"icon": "images-alt2",
 	"description": "A scrolling carousel of image slides, e.g. a gallery or logo strip. Add Carousel Slides inside it.",
-	"keywords": [ "slider", "slideshow", "logos", "gallery" ],
+	"keywords": [
+		"slider",
+		"slideshow",
+		"logos",
+		"gallery"
+	],
 	"supports": {
 		"html": false,
 		"anchor": true,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"color": {
 			"background": true,
 			"text": true
@@ -45,6 +53,14 @@
 			"type": "boolean",
 			"default": true
 		},
+		"arrowColor": {
+			"type": "string",
+			"default": ""
+		},
+		"arrowBackgroundColor": {
+			"type": "string",
+			"default": ""
+		},
 		"showDots": {
 			"type": "boolean",
 			"default": false
@@ -53,9 +69,9 @@
 			"type": "boolean",
 			"default": false
 		},
-		"autoplaySeconds": {
+		"autoplaySpeed": {
 			"type": "number",
-			"default": 5
+			"default": 5000
 		},
 		"loop": {
 			"type": "boolean",

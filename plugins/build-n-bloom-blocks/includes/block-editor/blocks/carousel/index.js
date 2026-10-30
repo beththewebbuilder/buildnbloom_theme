@@ -8,10 +8,12 @@ import './editor.scss';
  */
 import edit from './edit';
 import save from './save';
+import deprecated from './deprecated';
 import json from './block.json';
 
-// Slides can only be used inside the carousel, so they are registered from this bundle
+// Slide Image and Review Item can only be used inside the carousel, so they are registered from this bundle
 import '../carousel-slide';
+import '../review-item';
 
 const { name, ...settings } = json;
 
@@ -19,4 +21,5 @@ registerBlockType( name, {
 	...settings,
 	edit,
 	save,
+	deprecated,
 } );
