@@ -5,7 +5,7 @@
 	"title": "Item Grid",
 	"category": "buildnbloom",
 	"icon": "grid-view",
-	"description": "A grid of cards. Add Grid Cards (image) or Video Cards inside it.",
+	"description": "A grid of cards. Add Grid Cards inside it.",
 	"keywords": [ "cards", "columns", "gallery" ],
 	"supports": {
 		"html": false,
@@ -36,6 +36,25 @@
 		"aspectRatio": {
 			"type": "string",
 			"default": "4/3"
+		},
+		"cardHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"gap": {
+			"type": "number"
+		},
+		"cardStyle": {
+			"type": "string",
+			"default": "stacked"
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"intro": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "build-n-bloom-blocks",

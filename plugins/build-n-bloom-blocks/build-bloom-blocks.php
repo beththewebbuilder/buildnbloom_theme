@@ -65,12 +65,11 @@ function build_n_bloom_blocks_init() {
 	// A site can remove families it doesn't use, e.g. in its theme's functions.php:
 	//   add_filter( 'build_n_bloom_blocks', function( $blocks ) { unset( $blocks['tabs'] ); return $blocks; } );
 	$blocks = apply_filters( 'build_n_bloom_blocks', array(
-		'hero-media'       => array( 'hero-media' ),
-		'image-background' => array( 'image-background' ),
-		'youtube-video'    => array( 'youtube-video' ),
-		'item-grid'        => array( 'item-grid', 'grid-card', 'video-card' ),
-		'carousel'         => array( 'carousel', 'carousel-slide', 'review-item' ),
-		'tabs'             => array( 'tabs', 'tab' ),
+		'hero-media'    => array( 'hero-media' ),
+		'youtube-video' => array( 'youtube-video' ),
+		'item-grid'     => array( 'item-grid', 'grid-card' ),
+		'carousel'      => array( 'carousel', 'carousel-slide', 'review-item' ),
+		'tabs'          => array( 'tabs', 'tab' ),
 	) );
 
 	foreach( $blocks as $family ) {

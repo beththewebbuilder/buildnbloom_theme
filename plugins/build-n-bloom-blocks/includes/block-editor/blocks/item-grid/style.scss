@@ -3,9 +3,11 @@
 // /* FRONT-END DISPLAY (also loaded in the editor) */
 // Layout only. Selectors use :where() so they have no specificity and any theme style wins.
 // Themes can restyle through these custom properties:
-//   --bnb-grid-gap, --bnb-card-background, --bnb-card-radius, --bnb-card-padding
+//   --bnb-grid-gap, --bnb-card-background, --bnb-card-radius, --bnb-card-padding,
+//   --bnb-card-overlay-color, --bnb-card-overlay-background
 
-:where(.wp-block-build-n-bloom-blocks-item-grid) {
+// .bnb-grid__items is the editor's wrapper around the cards
+:where(.wp-block-build-n-bloom-blocks-item-grid, .bnb-grid__items) {
 	display: grid;
 	gap: var(--bnb-grid-gap, 1.5rem);
 	grid-template-columns: repeat(var(--bnb-grid-columns-mobile, 1), minmax(0, 1fr));
@@ -18,8 +20,22 @@
 	}
 }
 
-// Grid Card and Video Card share the card layout
-:where(.wp-block-build-n-bloom-blocks-grid-card, .wp-block-build-n-bloom-blocks-video-card) {
+:where(.bnb-grid__header) {
+	grid-column: 1 / -1;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+:where(.bnb-grid__heading) {
+	margin: 0;
+}
+
+:where(.bnb-grid__intro) {
+	margin: 0.5rem 0 0;
+}
+
+// Grid Card layout
+:where(.wp-block-build-n-bloom-blocks-grid-card) {
 	display: flex;
 	flex-direction: column;
 	margin: 0;
@@ -38,17 +54,18 @@
 
 :where(.bnb-card__media) {
 	aspect-ratio: var(--bnb-card-aspect-ratio, auto);
+	height: var(--bnb-card-height, auto);
 	overflow: hidden;
 }
 
-:where(.bnb-card__media img, .bnb-card__media video) {
+:where(.bnb-card__media img) {
 	display: block;
 	width: 100%;
 	object-fit: cover;
 }
 
 // Not :where(), so it beats WordPress's `html :where(img[class*=wp-image-]) { height: auto }`
-.bnb-card__media :is(img, video) {
+.bnb-card__media img {
 	height: 100%;
 }
 
@@ -62,4 +79,49 @@
 
 :where(.bnb-card__text) {
 	margin: 0;
+}
+
+// "Text over image on hover": a card with no image keeps its text below instead
+:where(.has-overlay-cards .bnb-card__inner) {
+	position: relative;
+}
+
+:where(.has-overlay-cards .bnb-card__media img) {
+	transition: opacity 0.2s;
+}
+
+:where(.has-overlay-cards .bnb-card__media + .bnb-card__body) {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--bnb-card-padding, 1rem);
+	color: var(--bnb-card-overlay-color, inherit);
+	text-align: center;
+	background: var(--bnb-card-overlay-background, transparent);
+	transition: opacity 0.2s;
+}
+
+@media (hover: hover) {
+	:where(.has-overlay-cards .bnb-card__media + .bnb-card__body) {
+		opacity: 0;
+	}
+
+	:where(.has-overlay-cards .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__body) {
+		opacity: 1;
+	}
+
+	:where(.has-overlay-cards .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__media img) {
+		opacity: 0.5;
+	}
+}
+
+// Touch screens can't hover, so the text is always shown over a darkened image
+@media (hover: none) {
+	:where(.has-overlay-cards .bnb-card__media + .bnb-card__body) {
+		color: var(--bnb-card-overlay-color, #fff);
+		background: var(--bnb-card-overlay-background, rgba(0, 0, 0, 0.3));
+	}
 }

@@ -14,10 +14,9 @@ Custom designed Gutenberg blocks for Build'n'Bloom clients.
 
 Adds a "Build N Bloom" category to the block inserter with:
 
-* Image Background - full width image or video banner with separate desktop/mobile media, height, image/content position, padding and overlay settings, plus a heading, subheading and button.
 * Video Popup - an image with a title and play button that opens a YouTube or Vimeo video in a popup.
-* Item Grid - a responsive grid of Grid Cards (image) and Video Cards.
-* Carousel - a scrolling carousel of Carousel Slides with arrows, dots and autoplay.
+* Item Grid - a responsive grid of Grid Cards, within the page container or full width, with an optional heading and intro, adjustable spacing and image height, and text below the image or over it on hover.
+* Carousel - a scrolling carousel of either Carousel Slides or Review Items, with arrows, dots and autoplay.
 * Tabs - tabbed content made of Tab blocks.
 
 Blocks only ship layout CSS: each site styles them with block settings, its theme stylesheet or CSS custom properties.

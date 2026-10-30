@@ -92,3 +92,10 @@
 		pointer-events: none;
 	}
 }
+
+// "Add new ..." button in container blocks (components/add-block-button.js)
+.bnb-add-block-button.components-button {
+	height: auto;
+	padding: 0.75rem 1.5rem;
+	font-size: 14px;
+}

@@ -7,22 +7,17 @@ This is the development site for the `build-n-bloom-blocks` plugin: one central 
 
 All blocks are in the **Build N Bloom** category of the block inserter.
 
-#### Image/Video Banner (`image-background`)
-
-This was the first block to be created for this plugin in March 2024. It allows an image to be selected for both desktop and mobile sized screens, image height, position, opacity and content position to be set. Either image or video can be selected and will adjust accordingly.
-A header, subheading and a button can be added to this block. Left blank it will just be an image or video banner. 
-
 #### Video Popup (`youtube-video`)
 
 An image with a title and play button. Clicking it opens a YouTube or Vimeo video in a full screen popup.
 
-#### Item Grid (`item-grid`) → Grid Card / Video Card
+#### Item Grid (`item-grid`) → Grid Card
 
-A grid of cards with separate column counts for desktop, tablet and mobile and a shared image shape. The grid only accepts **Grid Cards** (image, title, text, optional link) and **Video Cards** (short muted clip that plays on hover or loops, title, text, optional link), and the cards can only be added inside a grid.
+A grid of cards that sits within the page container or runs the full width of the page, with separate column counts for desktop, tablet and mobile, an optional heading and intro, adjustable spacing, and a shared image shape or fixed image height. Card text can sit below the image or appear over it on hover. The grid only accepts **Grid Cards** (image, title, text, optional link), and they can only be added inside a grid.
 
-#### Carousel (`carousel`) → Carousel Slide
+#### Carousel (`carousel`) → Carousel Slide / Review Item
 
-A scrolling carousel with slides visible per screen size, optional arrows, dots, looping and autoplay (paused on hover, off for reduced motion). Use "Fit inside" image fit for logo strips. It only accepts **Carousel Slides** (image, optional caption and link), which can only be added inside a carousel.
+A scrolling carousel with slides visible per screen size, optional arrows, dots, looping and autoplay (paused on hover, off for reduced motion). Use "Fit inside" image fit for logo strips. Its **Carousel type** setting makes it either an image carousel of **Carousel Slides** (image, optional caption and link), which can only be added inside a carousel, or a review carousel of **Review Items**. The two can't be mixed: Slick sizes every slide from the first one, so a slide with different padding wraps onto a second row and leaves a gap above the dots.
 
 #### Tabs (`tabs`) → Tab
 
@@ -38,7 +33,7 @@ The plugin only ships layout CSS, so each site keeps its own look:
 
 | Block | Custom properties |
 | --- | --- |
-| Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding` |
+| Item Grid, cards | `--bnb-grid-gap`, `--bnb-card-background`, `--bnb-card-radius`, `--bnb-card-padding`, `--bnb-card-overlay-color`, `--bnb-card-overlay-background` |
 | Carousel | `--bnb-carousel-gap`, `--bnb-carousel-arrow-color`, `--bnb-carousel-arrow-background`, `--bnb-carousel-arrow-size`, `--bnb-carousel-dot-color`, `--bnb-carousel-dot-active-color` |
 | Tabs | `--bnb-tabs-gap`, `--bnb-tabs-border`, `--bnb-tab-padding`, `--bnb-tab-background`, `--bnb-tab-color`, `--bnb-tab-active-background`, `--bnb-tab-active-color`, `--bnb-tab-active-border-color`, `--bnb-tab-panel-padding` |
 | Video Popup | `--bnb-video-popup-text-color`, `--bnb-video-popup-icon-size`, `--bnb-video-popup-backdrop` |
