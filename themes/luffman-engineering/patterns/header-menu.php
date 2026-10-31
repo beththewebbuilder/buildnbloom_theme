@@ -13,7 +13,6 @@ $luffman_links = array(
 	'Quick answers'  => 'answers',
 	'Capabilities'   => 'capabilities',
 	'Process finder' => 'picker',
-	'Our work'       => 'work',
 	'Firepits'       => 'firepits',
 	'Sculptures'     => 'sculptures',
 	'About'          => 'about',

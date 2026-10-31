@@ -13,6 +13,35 @@
 	}
 }
 
+// Stacked layout: the eyebrow and heading come first, then the preview, then the choices
+.wp-block-luffman-blocks-product-configurator.is-ready {
+
+	@media (max-width: 1000px) {
+		gap: 0;
+
+		.luffman-config__panel {
+			display: contents;
+		}
+
+		.luffman-eyebrow {
+			order: -3;
+		}
+
+		.luffman-config__heading {
+			order: -2;
+			margin-bottom: 1.5rem;
+		}
+
+		.luffman-config__visual {
+			order: -1;
+		}
+
+		.luffman-config__cta {
+			justify-self: start;
+		}
+	}
+}
+
 .luffman-config__stage {
 	border: 1px solid #2f6a4c;
 	background: radial-gradient(ellipse at 50% 70%, #1e5a3e, #0c2c1e 68%);
@@ -283,6 +312,41 @@
 // Choices
 .luffman-config__chosen {
 	color: var(--luffman-accent);
+}
+
+// Long groups: buttons on larger screens, a dropdown on phones
+.luffman-config__select {
+	display: none;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0.625rem;
+	border: 1px solid var(--luffman-line);
+	border-radius: 0;
+	background-color: #fff;
+	color: var(--wp--preset--color--contrast);
+	font: inherit;
+	font-size: 1rem;
+
+	&:focus-visible {
+		outline: 3px solid var(--wp--preset--color--primary);
+		outline-offset: 2px;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.has-dropdown {
+
+		.luffman-seg,
+		.luffman-config__chosen-label {
+			display: none;
+		}
+
+		.luffman-config__select {
+			display: block;
+		}
+	}
 }
 
 .luffman-config__group-note {

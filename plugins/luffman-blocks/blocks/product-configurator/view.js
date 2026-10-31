@@ -7,6 +7,9 @@ const DRAWN_PREVIEWS = {
 	firepit: createFirepitPreview,
 };
 
+// On phones, a group with this many options or more is a dropdown instead of rows of buttons
+const DROPDOWN_FROM = 7;
+
 function showStackedImages( preview, chosen ) {
 	preview.replaceChildren( ...chosen.filter( ( button ) => button.dataset.image ).map( ( button ) => {
 		const image = document.createElement( 'img' );
@@ -31,6 +34,27 @@ function element( tag, className, text ) {
 		node.textContent = text;
 	}
 	return node;
+}
+
+// The same choices as a group's buttons. Picking an option presses its button, so both stay in step.
+function buildDropdown( group, label ) {
+	const select = element( 'select', 'luffman-config__select' );
+	select.setAttribute( 'aria-label', label );
+	if ( group.isOptional ) {
+		select.append( new window.Option( 'None', '' ) );
+	}
+	group.buttons.forEach( ( button, index ) => {
+		select.append( new window.Option( button.textContent, String( index ) ) );
+	} );
+	select.addEventListener( 'change', () => {
+		const button = select.value ? group.buttons[ Number( select.value ) ] : group.fieldset.querySelector( '[aria-pressed="true"]' );
+		if ( button ) {
+			button.click();
+		}
+	} );
+	group.fieldset.classList.add( 'has-dropdown' );
+	group.fieldset.querySelector( '.luffman-seg' ).after( select );
+	return select;
 }
 
 // What an option asks the visitor once it is chosen: some text, an upload, or both
@@ -207,7 +231,10 @@ function initConfigurator( root ) {
 	const groups = Array.from( root.querySelectorAll( '.luffman-config__group' ) ).map( ( fieldset ) => {
 		const buttons = Array.from( fieldset.querySelectorAll( '.luffman-seg__button' ) );
 		const legend = fieldset.querySelector( 'legend' );
+		const label = legend.textContent;
 		const chosenName = element( 'span', 'luffman-config__chosen' );
+		const chosenLabel = element( 'span', 'luffman-config__chosen-label', ': ' );
+		chosenLabel.append( chosenName );
 		const note = element( 'p', 'luffman-config__group-note' );
 		note.setAttribute( 'aria-live', 'polite' );
 		legend.after( note );
@@ -222,7 +249,10 @@ function initConfigurator( root ) {
 			prompts: [],
 		};
 		if ( ! group.isOptional ) {
-			legend.append( ': ', chosenName );
+			legend.append( chosenLabel );
+		}
+		if ( buttons.length >= DROPDOWN_FROM ) {
+			group.select = buildDropdown( group, label );
 		}
 		return group;
 	} );
@@ -246,6 +276,9 @@ function initConfigurator( root ) {
 
 			const button = group.fieldset.querySelector( '[aria-pressed="true"]' );
 			group.note.textContent = button ? button.dataset.note || '' : '';
+			if ( group.select ) {
+				group.select.value = button ? String( group.buttons.indexOf( button ) ) : '';
+			}
 			if ( ! button ) {
 				return;
 			}

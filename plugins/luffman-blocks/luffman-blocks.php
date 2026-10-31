@@ -3,8 +3,8 @@
  * Plugin Name:       Luffman Blocks
  * Description:       Luffman Engineering's own content: the Process Finder and Product Configurator blocks, the Our work post type and the settings for the quote form.
  * Requires at least: 6.7
- * Requires PHP:      8.3
- * Version:           0.1.0
+ * Requires PHP:      7.4
+ * Version:           0.1.2
  * Author:            Bethany Fowler
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -326,13 +326,15 @@ html {
 }
 
 /* Solid buttons: forest green on light backgrounds, white on dark ones */
-.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background) {
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background),
+.luffman-config__cta.wp-element-button {
 	border-color: var(--luffman-button);
 	background-color: var(--luffman-button);
 	color: var(--luffman-button-text);
 }
 
-.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background):hover {
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background):hover,
+.luffman-config__cta.wp-element-button:hover {
 	border-color: var(--luffman-button-hover);
 	background-color: var(--luffman-button-hover);
 	color: var(--luffman-button-text);
