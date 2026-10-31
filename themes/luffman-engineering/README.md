@@ -28,6 +28,10 @@ Everything else (templates, page layout) comes from the parent theme.
 | `primary-on-dark` | Pale green. Automatically replaces `primary` in the hero, proof bar, footer and Dark sections, where forest green is too dark to see. Solid buttons turn white there |
 | `subtle-text` | Secondary text |
 
+## Mosaic gallery
+
+The Sculptures pattern uses a core Gallery block with the Mosaic style. In each set of four photos the first is tall and the fourth is wide, so it fills evenly in sets of four.
+
 ## Setting up the site
 
 1. Upload `bnb_base_theme` and `luffman-engineering` to `wp-content/themes`, and install the Build'n'Bloom Gutenberg Blocks plugin.

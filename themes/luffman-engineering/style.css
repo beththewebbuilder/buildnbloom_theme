@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.3
+Version: 1.0.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -84,6 +84,95 @@ Text Domain: luffman-engineering
 .bnb-process__text {
 	color: var(--wp--preset--color--subtle-text);
 	font-size: 1rem;
+}
+
+/* Section heading with the intro on the right, and a closing line with its button */
+.luffman-section-head {
+	gap: 2rem;
+	margin-bottom: 2.5rem;
+}
+
+.luffman-section-head > p {
+	max-width: 58ch;
+	margin: 0;
+}
+
+.luffman-cta-row {
+	gap: 1.25rem;
+	margin-top: 1.75rem;
+}
+
+.luffman-cta-row > p {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: clamp(1.625rem, 3vw, 2.25rem);
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+}
+
+/* Mosaic gallery: in each set of four photos the first is tall and the fourth is wide */
+.wp-block-gallery.has-nested-images.is-style-mosaic {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-auto-rows: clamp(190px, 22vw, 270px);
+	grid-auto-flow: dense;
+	gap: 12px;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image) {
+	position: relative;
+	width: auto;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background: var(--wp--preset--color--muted);
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image):nth-child(4n + 1) {
+	grid-row: span 2;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image):nth-child(4n) {
+	grid-column: span 2;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image figcaption {
+	position: absolute;
+	inset: auto 0 0;
+	max-height: none;
+	margin: 0;
+	padding: 1.5rem 0.875rem 0.625rem;
+	overflow: visible;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+	color: #fff;
+	font-size: 0.9375rem;
+	text-align: left;
+	text-shadow: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.wp-block-gallery.has-nested-images.is-style-mosaic img {
+		transition: transform 0.3s;
+	}
+
+	.wp-block-gallery.has-nested-images.is-style-mosaic figure:hover img {
+		transform: scale(1.03);
+	}
+}
+
+@media (max-width: 560px) {
+	.wp-block-gallery.has-nested-images.is-style-mosaic {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-auto-rows: 44vw;
+	}
 }
 
 /* Job cards: small label next to each value */
