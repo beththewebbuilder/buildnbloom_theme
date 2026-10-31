@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.4
+Version: 1.0.5
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -16,6 +16,17 @@ Text Domain: luffman-engineering
  * Colours, fonts and buttons are in theme.json, and the block styles are in styles/blocks/.
  * This file is only what those can't do. Loaded after the parent's style.css, on the site and in the editor.
  */
+
+/* The menu links to sections of the homepage: glide there, and stop clear of the sticky header */
+html {
+	scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
 
 /* White header with the logo, and the logo keeps its proportions */
 .luffman-header {
@@ -52,8 +63,34 @@ Text Domain: luffman-engineering
 	}
 }
 
-/* Header phone number has no room next to the menu on smaller screens */
-@media (max-width: 1000px) {
+/* Seven menu links need the room: the phone number goes first, then the menu moves behind its button */
+@media (min-width: 600px) and (max-width: 1000px) {
+	.luffman-header .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.luffman-header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+}
+
+/* Everything in the header stays on one line, until a phone screen has no room for it */
+@media (min-width: 600px) {
+	.luffman-header :is(.wp-block-site-title, .luffman-header__phone, .wp-element-button, .wp-block-navigation-item__label) {
+		white-space: nowrap;
+	}
+}
+
+.luffman-header .alignwide > .wp-block-group:last-child {
+	gap: 1.5rem;
+}
+
+.luffman-header .wp-block-navigation__container {
+	flex-wrap: nowrap;
+	gap: 1.25rem;
+}
+
+@media (max-width: 1340px) {
 	.luffman-header__phone {
 		display: none;
 	}

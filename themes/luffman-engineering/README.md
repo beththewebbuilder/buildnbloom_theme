@@ -28,6 +28,10 @@ Everything else (templates, page layout) comes from the parent theme.
 | `primary-on-dark` | Pale green. Automatically replaces `primary` in the hero, proof bar, footer and Dark sections, where forest green is too dark to see. Solid buttons turn white there |
 | `subtle-text` | Secondary text |
 
+## Menu and site icon
+
+The header menu is in `patterns/header-menu.php` and links to the sections of the homepage by their anchors. The site icon is `assets/images/site-icon.png`, and choosing a Site Icon in the Site Editor replaces it.
+
 ## Mosaic gallery
 
 The Sculptures pattern uses a core Gallery block with the Mosaic style. In each set of four photos the first is tall and the fourth is wide, so it fills evenly in sets of four.
