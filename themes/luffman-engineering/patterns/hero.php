@@ -3,7 +3,7 @@
  * Title: Luffman hero
  * Slug: luffman-engineering/hero
  * Categories: bnb-base, banner
- * Description: Full-width dark hero with a headline, two buttons and an image. Text, links and image can be edited; the layout is locked.
+ * Description: Full-width dark hero with a headline, two buttons and the laser cutting animation. Text and links can be edited; the layout is locked.
  *
  * @package luffman-engineering
  */
@@ -38,9 +38,7 @@
 
 <!-- wp:column {"verticalAlignment":"center"} -->
 <div class="wp-block-column is-vertically-aligned-center">
-<!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/hero-cut-part.svg' ) ); ?>" alt="A steel bracket cut from a sheet, shown with its drawing dimensions"/></figure>
-<!-- /wp:image -->
+<!-- wp:luffman-blocks/laser-cut /-->
 </div>
 <!-- /wp:column -->
 </div>

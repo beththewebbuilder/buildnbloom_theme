@@ -15,7 +15,7 @@
 
 // Blocks. Child blocks can only be used inside their parent, and are registered from its script.
 function luffman_register_blocks() {
-	$blocks = array( 'process-finder', 'finder-process', 'product-configurator', 'option-group', 'product-option' );
+	$blocks = array( 'laser-cut', 'process-finder', 'finder-process', 'product-configurator', 'option-group', 'product-option' );
 	foreach ( $blocks as $block ) {
 		register_block_type( plugin_dir_path( __FILE__ ) . 'blocks/' . $block );
 	}

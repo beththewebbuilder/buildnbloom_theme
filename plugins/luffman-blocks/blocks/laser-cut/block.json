@@ -1,0 +1,22 @@
+{
+	"apiVersion": 3,
+	"name": "luffman-blocks/laser-cut",
+	"version": "0.1.0",
+	"title": "Laser Cut Animation",
+	"category": "widgets",
+	"icon": "art",
+	"description": "An animation of a laser cutting a steel bracket, following its drawing.",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"caption": { "type": "string", "default": "FIBRE LASER · S275 · ±0.2 MM", "role": "content" },
+		"label": { "type": "string", "default": "Animation of a laser cutting a steel bracket from a sheet, following the drawing", "role": "content" }
+	},
+	"textdomain": "luffman-blocks",
+	"editorScript": "file:../../build/laser-cut.js",
+	"style": "file:../../build/style-laser-cut.css",
+	"viewScript": "file:../../build/laser-cut-view.js",
+	"render": "file:./render.php"
+}

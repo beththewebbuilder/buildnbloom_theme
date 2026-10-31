@@ -5,6 +5,8 @@ const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 module.exports = {
 	...defaultConfig,
 	entry: {
+		'laser-cut': './blocks/laser-cut',
+		'laser-cut-view': './blocks/laser-cut/view.js',
 		'process-finder': './blocks/process-finder',
 		'process-finder-view': './blocks/process-finder/view.js',
 		'product-configurator': './blocks/product-configurator',

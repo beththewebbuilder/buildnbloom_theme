@@ -10,7 +10,6 @@ Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README
 | `parts/` | Header with phone number and quote button, and a footer with the company address |
 | `patterns/` | The header's phone number and quote button, plus homepage sections: Luffman hero, Proof bar, Quick answers, What we do, Process finder, Same part four processes, Workshop film and story, Our work, Firepit designer, and Get a quote |
 | `templates/archive-job.html` | The Our work page listing every job |
-| `assets/images/hero-cut-part.svg` | Hero illustration, a static version of the mockup's laser animation |
 | `styles/blocks/` | Block styles: **Eyebrow** (Paragraph), **Dark section** and **Spec card** (Group), **Spec table** (Table) |
 | `style.css` | The little CSS `theme.json` can't do |
 | `assets/fonts/` | Latin web fonts from Fontsource, under the SIL Open Font License |
@@ -33,6 +32,10 @@ Everything else (templates, page layout) comes from the parent theme.
 3. **Site title:** Settings → General. Use a logo instead if you want "Engineering" in orange, as a site title can only be one colour.
 4. **Menu:** Appearance → Editor → Patterns → Header, select the menu and choose or create it.
 5. **Homepage:** Settings → Reading → "A static page". Set full-width pages to the **Page without title (full width)** template.
+
+## Laser Cut Animation
+
+The hero uses the **Laser Cut Animation** block from Luffman Blocks. Its caption and screen reader description are in the block sidebar; the drawing is `blocks/laser-cut/drawing.svg`. It shows the finished part in the editor, without JavaScript and for visitors who prefer reduced motion, and only runs while on screen.
 
 ## Process Finder
 
