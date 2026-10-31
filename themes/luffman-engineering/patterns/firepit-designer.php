@@ -130,6 +130,7 @@ $luffman_settings = array(
 	'eyebrow'       => 'Made in Devon, made to order',
 	'heading'       => 'Design your firepit',
 	'preview'       => 'firepit',
+	'previewName'   => 'Your firepit',
 	'previewLabel'  => 'Preview of the firepit you have configured',
 	'price'         => 'From £ TBC',
 	'ctaLabel'      => 'Enquire about this firepit',
@@ -157,7 +158,7 @@ $luffman_option_data = array(
 <!-- wp:group {"metadata":{"name":"Firepit designer"},"anchor":"firepits","align":"full","className":"is-style-dark-section","style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
 <div id="firepits" class="wp-block-group alignfull is-style-dark-section" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
 <!-- wp:luffman-blocks/product-configurator <?php echo wp_json_encode( array_merge( $luffman_settings, array( 'align' => 'wide' ) ), $luffman_flags ); ?> -->
-<div class="wp-block-luffman-blocks-product-configurator alignwide" data-preview="firepit" data-enquiry-prefix="<?php echo esc_attr( $luffman_settings['enquiryPrefix'] ); ?>"><div class="luffman-config__stage"><div class="luffman-config__preview" role="img" aria-label="<?php echo esc_attr( $luffman_settings['previewLabel'] ); ?>"></div></div><div class="luffman-config__panel"><p class="luffman-eyebrow"><?php echo $luffman_settings['eyebrow']; ?></p><h2 class="luffman-config__heading"><?php echo $luffman_settings['heading']; ?></h2><div class="luffman-config__groups">
+<div class="wp-block-luffman-blocks-product-configurator alignwide" data-preview="firepit" data-preview-name="<?php echo esc_attr( $luffman_settings['previewName'] ); ?>" data-enquiry-prefix="<?php echo esc_attr( $luffman_settings['enquiryPrefix'] ); ?>"><div class="luffman-config__stage"><div class="luffman-config__preview" role="img" aria-label="<?php echo esc_attr( $luffman_settings['previewLabel'] ); ?>"></div></div><div class="luffman-config__panel"><p class="luffman-eyebrow"><?php echo $luffman_settings['eyebrow']; ?></p><h2 class="luffman-config__heading"><?php echo $luffman_settings['heading']; ?></h2><div class="luffman-config__groups">
 <?php foreach ( $luffman_groups as $luffman_group ) : ?>
 <!-- wp:luffman-blocks/option-group <?php echo wp_json_encode( array_diff_key( $luffman_group, array( 'options' => true ) ), $luffman_flags ); ?> -->
 <fieldset class="wp-block-luffman-blocks-option-group luffman-config__group" data-key="<?php echo esc_attr( $luffman_group['key'] ); ?>"<?php echo empty( $luffman_group['optional'] ) ? '' : ' data-optional="true"'; ?><?php echo empty( $luffman_group['showWhen'] ) ? '' : ' data-show-when="' . esc_attr( $luffman_group['showWhen'] ) . '"'; ?>><legend class="luffman-control-label"><?php echo $luffman_group['label']; ?></legend><div class="luffman-seg">

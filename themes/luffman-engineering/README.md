@@ -47,7 +47,7 @@ Each product is a **Product Configurator** block holding **Option Groups** (such
 
 - **Conditional groups:** set a group's **Only show when** to an earlier group's key and an option value, such as `style=round`.
 - **Asking the visitor:** an option's **Ask the visitor** panel can show a text box, an artwork upload, or both when it's selected.
-- **Photos:** an option's **Photos under the preview** show when it's selected.
+- **Photos:** an option's **Photos** join the preview as one slider, with thumbnails underneath, when it's selected. Changing any option returns to the preview.
 - **Previews:** **Stacked images** layers each chosen option's image, so a new product needs no code. A new drawn preview, like the firepit, is added in `blocks/product-configurator/view.js`.
 
 The enquiry button fills in the quote form's message and adds any uploaded artwork to the form. If the form is on another page, the message travels in the link but the artwork doesn't.

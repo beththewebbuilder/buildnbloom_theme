@@ -98,37 +98,111 @@ function initConfigurator( root ) {
 	const type = root.dataset.preview;
 	const drawn = DRAWN_PREVIEWS[ type ] ? DRAWN_PREVIEWS[ type ]( stage, preview ) : null;
 
-	// Notes and photos sit under the bordered stage
+	// The note and thumbnails sit under the bordered stage. The preview and photos share the stage as one slider.
 	const visual = element( 'div', 'luffman-config__visual' );
 	const stageNote = element( 'p', 'luffman-config__stage-note' );
-	const gallery = element( 'div', 'luffman-config__gallery' );
+	const thumbnails = element( 'div', 'luffman-config__thumbnails' );
 	stage.before( visual );
-	visual.append( stage, stageNote, gallery );
+	visual.append( stage, stageNote, thumbnails );
+
+	const slideImage = element( 'img', 'luffman-config__slide' );
+	const slideCaption = element( 'p', 'luffman-config__caption' );
+	const slideCount = element( 'span', 'luffman-config__count' );
+	const previousSlide = element( 'button', 'luffman-config__arrow is-previous', '‹' );
+	const nextSlide = element( 'button', 'luffman-config__arrow is-next', '›' );
+	slideImage.alt = '';
+	slideImage.draggable = false;
+	previousSlide.type = 'button';
+	nextSlide.type = 'button';
+	previousSlide.setAttribute( 'aria-label', 'Previous image' );
+	nextSlide.setAttribute( 'aria-label', 'Next image' );
+	stage.append( slideImage, slideCaption, slideCount, previousSlide, nextSlide );
 
 	let enquiry = '';
 	let shownPhotos = '';
+	let photos = [];
+	let slide = 0;
 	let promptCount = 0;
 	const upload = { file: null };
 
-	function showPhotos( photos ) {
-		const key = JSON.stringify( photos );
+	// Slide 0 is the live preview, then one slide for each photo
+	function showSlide( index ) {
+		const total = photos.length + 1;
+		slide = ( index + total ) % total;
+		const photo = photos[ slide - 1 ];
+
+		stage.classList.toggle( 'on-photo', Boolean( photo ) );
+		slideImage.hidden = ! photo;
+		slideCaption.hidden = ! photo || ! photo.caption;
+		slideCount.hidden = ! photo;
+		previousSlide.hidden = total < 2;
+		nextSlide.hidden = total < 2;
+
+		if ( photo ) {
+			slideImage.src = photo.url;
+			slideImage.alt = photo.alt || '';
+			slideCaption.textContent = photo.caption || '';
+			slideCount.textContent = slide + ' / ' + photos.length;
+		}
+
+		Array.from( thumbnails.children ).forEach( ( thumbnail, position ) => {
+			thumbnail.setAttribute( 'aria-current', String( position === slide ) );
+		} );
+	}
+
+	function thumbnail( index, label, content ) {
+		const button = element( 'button', 'luffman-config__thumbnail' );
+		button.type = 'button';
+		button.setAttribute( 'aria-label', label );
+		button.append( content );
+		button.addEventListener( 'click', () => showSlide( index ) );
+		return button;
+	}
+
+	function showPhotos( chosenPhotos ) {
+		const key = JSON.stringify( chosenPhotos );
 		if ( key === shownPhotos ) {
 			return;
 		}
 		shownPhotos = key;
-		gallery.replaceChildren( ...photos.map( ( photo ) => {
-			const figure = element( 'figure', '' );
-			const image = document.createElement( 'img' );
-			image.src = photo.url;
-			image.alt = photo.alt || '';
-			image.loading = 'lazy';
-			figure.appendChild( image );
-			if ( photo.caption ) {
-				figure.appendChild( element( 'figcaption', '', photo.caption ) );
-			}
-			return figure;
-		} ) );
+		photos = chosenPhotos;
+
+		if ( ! photos.length ) {
+			thumbnails.replaceChildren();
+			return;
+		}
+
+		const previewName = root.dataset.previewName || 'Your design';
+		thumbnails.replaceChildren(
+			thumbnail( 0, 'Show ' + previewName.toLowerCase() + ' preview', previewName ),
+			...photos.map( ( photo, index ) => {
+				const image = document.createElement( 'img' );
+				image.src = photo.url;
+				image.alt = '';
+				image.loading = 'lazy';
+				return thumbnail( index + 1, 'Show photo: ' + ( photo.caption || photo.alt || index + 1 ), image );
+			} )
+		);
 	}
+
+	previousSlide.addEventListener( 'click', () => showSlide( slide - 1 ) );
+	nextSlide.addEventListener( 'click', () => showSlide( slide + 1 ) );
+
+	// Swipe between photos on touch screens. On the preview, dragging turns the firepit instead.
+	let swipeFrom = null;
+	slideImage.addEventListener( 'pointerdown', ( event ) => {
+		swipeFrom = event.clientX;
+	} );
+	slideImage.addEventListener( 'pointerup', ( event ) => {
+		if ( swipeFrom === null ) {
+			return;
+		}
+		const distance = event.clientX - swipeFrom;
+		swipeFrom = null;
+		if ( Math.abs( distance ) > 40 ) {
+			showSlide( slide + ( distance < 0 ? 1 : -1 ) );
+		}
+	} );
 
 	const groups = Array.from( root.querySelectorAll( '.luffman-config__group' ) ).map( ( fieldset ) => {
 		const buttons = Array.from( fieldset.querySelectorAll( '.luffman-seg__button' ) );
@@ -198,6 +272,7 @@ function initConfigurator( root ) {
 		summary.textContent = text;
 		stageNote.textContent = chosen.map( ( button ) => button.dataset.stageNote ).filter( Boolean ).join( ' ' );
 		showPhotos( chosen.flatMap( readPhotos ) );
+		showSlide( 0 );
 
 		const uploadPrompt = groups.flatMap( ( group ) => group.prompts ).find( ( prompt ) => prompt.file && ! prompt.box.hidden );
 		upload.file = uploadPrompt ? uploadPrompt.file : null;

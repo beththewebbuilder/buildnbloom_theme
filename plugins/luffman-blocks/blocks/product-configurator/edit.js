@@ -30,6 +30,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						options={ PREVIEWS }
 						onChange={ ( preview ) => setAttributes( { preview } ) } />
 					<TextControl
+						label={ __( 'Preview thumbnail name', 'luffman-blocks' ) }
+						help={ __( 'The first thumbnail when there are photos, for example Your firepit.', 'luffman-blocks' ) }
+						value={ attributes.previewName }
+						onChange={ ( previewName ) => setAttributes( { previewName } ) } />
+					<TextControl
 						label={ __( 'Preview description', 'luffman-blocks' ) }
 						help={ __( 'Read out by screen readers.', 'luffman-blocks' ) }
 						value={ attributes.previewLabel }

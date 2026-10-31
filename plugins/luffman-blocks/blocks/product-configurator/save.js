@@ -3,6 +3,7 @@ import { useBlockProps, useInnerBlocksProps, RichText } from '@wordpress/block-e
 export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( {
 		'data-preview': attributes.preview,
+		'data-preview-name': attributes.previewName || undefined,
 		'data-enquiry-prefix': attributes.enquiryPrefix,
 	} );
 

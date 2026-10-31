@@ -169,27 +169,114 @@
 	}
 }
 
-.luffman-config__gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
-	gap: 0.75rem;
-	margin-top: 1.25rem;
+// The preview and photos share the stage as one slider
+.luffman-config__slide {
+	position: absolute;
+	z-index: 2;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	background: #16191c;
+	object-fit: contain;
+	touch-action: pan-y;
+}
 
-	figure {
-		margin: 0;
+.luffman-config__arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+	width: 2.75rem;
+	height: 2.75rem;
+	transform: translateY(-50%);
+	border: 1px solid #3c444b;
+	background: rgba(22, 25, 28, 0.82);
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.625rem;
+	line-height: 1;
+
+	&:hover {
+		background: var(--wp--preset--color--primary);
+		color: var(--wp--preset--color--on-primary);
+	}
+
+	&.is-previous {
+		left: 0.5rem;
+	}
+
+	&.is-next {
+		right: 0.5rem;
+	}
+}
+
+.luffman-config__caption {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	margin: 0;
+	padding: 1.5rem 0.875rem 0.625rem;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+	color: #fff;
+	font-size: 0.9375rem;
+}
+
+.luffman-config__count {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	z-index: 3;
+	padding: 0.1875rem 0.4375rem;
+	background: rgba(22, 25, 28, 0.82);
+	color: #fff;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+}
+
+.luffman-config__slide[hidden],
+.luffman-config__caption[hidden],
+.luffman-config__count[hidden],
+.luffman-config__arrow[hidden] {
+	display: none;
+}
+
+.on-photo .luffman-config__turn,
+.on-photo + .luffman-config__stage-note {
+	display: none;
+}
+
+.luffman-config__thumbnails {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+	gap: 0.5rem;
+	margin-top: 1rem;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.luffman-config__thumbnail {
+	overflow: hidden;
+	aspect-ratio: 4 / 3;
+	padding: 0;
+	border: 2px solid transparent;
+	background: #2c3339;
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.8125rem;
+	line-height: 1.2;
+
+	&[aria-current="true"] {
+		border-color: var(--wp--preset--color--primary);
 	}
 
 	img {
 		display: block;
 		width: 100%;
-		aspect-ratio: 4 / 3;
+		height: 100%;
 		object-fit: cover;
-	}
-
-	figcaption {
-		margin-top: 0.5rem;
-		color: #a5adb3;
-		font-size: 0.875rem;
 	}
 }
 

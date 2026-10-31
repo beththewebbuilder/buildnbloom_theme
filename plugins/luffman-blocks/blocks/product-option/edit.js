@@ -76,8 +76,8 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ attributes.stageNote }
 						onChange={ ( stageNote ) => setAttributes( { stageNote } ) } />
 				</PanelBody>
-				<PanelBody title={ __( 'Photos under the preview', 'luffman-blocks' ) } initialOpen={ false }>
-					<p>{ __( 'Shown when this option is selected. Captions and alt text come from the Media Library.', 'luffman-blocks' ) }</p>
+				<PanelBody title={ __( 'Photos', 'luffman-blocks' ) } initialOpen={ false }>
+					<p>{ __( 'Added to the preview slider when this option is selected. Captions and alt text come from the Media Library.', 'luffman-blocks' ) }</p>
 					<MediaUploadCheck>
 						<MediaUpload
 							allowedTypes={ [ 'image' ] }
