@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with an ember accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -137,6 +137,38 @@ Text Domain: luffman-engineering
 /* Dark section: small text and links use the brighter ember */
 .is-style-dark-section .is-style-eyebrow {
 	color: var(--wp--preset--color--primary);
+}
+
+/* Dark section: subtle text and the Process List stay readable on steel */
+.is-style-dark-section {
+	--bnb-process-rule: 2px solid var(--wp--preset--color--surface);
+	--bnb-process-border: #3c444b;
+	--bnb-process-hover-background: #2c3339;
+	--bnb-process-arrow-color: var(--wp--preset--color--primary);
+	--bnb-process-number-color: #a5adb3;
+}
+
+.is-style-dark-section .has-subtle-text-color,
+.is-style-dark-section .bnb-process__text {
+	color: #a5adb3 !important;
+}
+
+/* Cards keep their light background inside a Dark section, so they keep dark text */
+.is-style-dark-section .is-style-spec-card .has-subtle-text-color {
+	color: var(--wp--preset--color--subtle-text) !important;
+}
+
+.is-style-dark-section .wp-block-build-n-bloom-blocks-grid-card {
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Titles in cards stay ink, instead of taking the card's link colour */
+.is-style-spec-card .wp-block-post-title a {
+	color: var(--wp--preset--color--contrast);
+}
+
+.is-style-spec-card .wp-block-post-title a:hover {
+	color: var(--wp--preset--color--accent-text);
 }
 
 /* Spec table: label on the left, figure on the right, a line between each row */

@@ -1,3 +1,22 @@
+// Colours for the controls: dark on the page background, and pale inside a Dark section
+.wp-block-luffman-blocks-process-finder,
+.wp-block-luffman-blocks-product-configurator {
+	--luffman-label: var(--wp--preset--color--subtle-text);
+	--luffman-accent: var(--wp--preset--color--accent-text);
+	--luffman-line: #7d8387;
+	--luffman-selected: var(--wp--preset--color--contrast);
+	--luffman-on-selected: var(--wp--preset--color--surface);
+}
+
+.is-style-dark-section .wp-block-luffman-blocks-process-finder,
+.is-style-dark-section .wp-block-luffman-blocks-product-configurator {
+	--luffman-label: #a5adb3;
+	--luffman-accent: var(--wp--preset--color--primary);
+	--luffman-line: #3c444b;
+	--luffman-selected: var(--wp--preset--color--surface);
+	--luffman-on-selected: var(--wp--preset--color--contrast);
+}
+
 // Row of choice buttons, shared by the Process Finder and Product Configurator
 .luffman-seg {
 	display: flex;
@@ -7,7 +26,7 @@
 
 .luffman-seg__button {
 	padding: 0.5625rem 0.8125rem;
-	border: 1px solid #3c444b;
+	border: 1px solid var(--luffman-line);
 	background: transparent;
 	color: inherit;
 	cursor: pointer;
@@ -15,9 +34,9 @@
 	font-size: 0.9375rem;
 
 	&[aria-pressed="true"] {
-		border-color: var(--wp--preset--color--surface);
-		background: var(--wp--preset--color--surface);
-		color: var(--wp--preset--color--contrast);
+		border-color: var(--luffman-selected);
+		background: var(--luffman-selected);
+		color: var(--luffman-on-selected);
 		font-weight: 600;
 	}
 
@@ -30,14 +49,14 @@
 .luffman-control-label {
 	display: block;
 	margin-bottom: 0.5rem;
-	color: #a5adb3;
+	color: var(--luffman-label);
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: 0.8125rem;
 }
 
 .luffman-eyebrow {
 	margin: 0 0 0.75rem;
-	color: var(--wp--preset--color--primary);
+	color: var(--luffman-accent);
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: 0.8125rem;
 }
