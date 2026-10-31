@@ -5,6 +5,7 @@ export default function save( { attributes } ) {
 		className: 'luffman-config__group',
 		'data-key': attributes.key,
 		'data-optional': attributes.optional ? 'true' : undefined,
+		'data-show-when': attributes.showWhen || undefined,
 	} );
 
 	return (

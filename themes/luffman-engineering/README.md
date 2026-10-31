@@ -43,9 +43,23 @@ The rules are set on each **Finder Process** block in the editor: tick the mater
 
 ## Product Configurator
 
-Each product is a **Product Configurator** block holding **Option Groups** (such as size or material), which hold **Product Options**. Options, notes and prices are all content, so a new product needs no code if **Stacked images** is chosen as its preview: give each option a transparent PNG and the chosen images are layered in order. The firepit uses its own drawn preview, which needs the group keys `pattern`, `size`, `material` and `plate`. A new drawn preview is added in `blocks/product-configurator/view.js`.
+Each product is a **Product Configurator** block holding **Option Groups** (such as size or material), which hold **Product Options**. Options, notes, photos and prices are all content.
 
-The enquiry button fills in the quote form's message, on the same page or through a link to another page.
+- **Conditional groups:** set a group's **Only show when** to an earlier group's key and an option value, such as `style=round`.
+- **Asking the visitor:** an option's **Ask the visitor** panel can show a text box, an artwork upload, or both when it's selected.
+- **Photos:** an option's **Photos under the preview** show when it's selected.
+- **Previews:** **Stacked images** layers each chosen option's image, so a new product needs no code. A new drawn preview, like the firepit, is added in `blocks/product-configurator/view.js`.
+
+The enquiry button fills in the quote form's message and adds any uploaded artwork to the form. If the form is on another page, the message travels in the link but the artwork doesn't.
+
+## Firepit patterns
+
+To add a pattern, add a **Product Option** to the **Pattern** group and upload its image under **Pattern or preview image**:
+
+- **Flat artwork, wrapped around the drum:** a long, flat black-and-white strip. White areas are cut out, or turn on **Cut out the dark areas** if yours is the other way round. **Trim border** ignores a plain edge around the artwork.
+- **Finished photo or render, shown as it is:** a picture of the finished firepit. It can't be turned.
+
+The firepit needs the group keys `style`, `pattern`, `size`, `material` and `plate`, and the material values `mild`, `paint`, `s3cr` and `s304`. The artwork and photos in `assets/firepit/` came from Luffman's current site. Safari is a stand-in drawn in code until its flat artwork is uploaded.
 
 ## Our work
 
@@ -55,7 +69,7 @@ Install the **Luffman Blocks** plugin. Jobs are added under **Our work** in the 
 
 The Get a quote pattern shows the Contact Form 7 form titled **Get a quote**, so the form must keep that title. The host needs PHP 8.3 or newer for Contact Form 7.
 
-- **Uploads:** one file up to 15MB (DXF, DWG, STEP, PDF or ZIP). Email encoding adds about a third, and Gmail's limit is 25MB per message. The file is attached to the email and Contact Form 7 deletes its temporary copy.
+- **Uploads:** one file up to 15MB (DXF, DWG, STEP, PDF, ZIP or an image). Email encoding adds about a third, and Gmail's limit is 25MB per message. The file is attached to the email and Contact Form 7 deletes its temporary copy.
 - **Before launch:** change the form's Mail recipient from the site admin address to `luffmaneng@gmail.com`, and set up an SMTP plugin so email is delivered reliably.
 - **Spam:** add Cloudflare Turnstile under Contact → Integration.
 - **Test:** send a real file at the limit, because the mail service may have a lower limit than Gmail.

@@ -6,7 +6,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
 	gap: clamp(2rem, 6vw, 4.5rem);
-	align-items: center;
+	align-items: start;
 
 	@media (max-width: 1000px) {
 		grid-template-columns: minmax(0, 1fr);
@@ -102,4 +102,168 @@
 	to {
 		transform: scaleY(1.1) skewX(3deg);
 	}
+}
+
+// Stage controls, notes and photos
+.luffman-config__stage {
+	position: relative;
+}
+
+.luffman-config__preview canvas {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	cursor: grab;
+	touch-action: pan-y;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+// A finished render or photo, shown as it is on white
+.luffman-config__preview svg + canvas + img {
+	object-fit: cover;
+	background: #fff;
+}
+
+.luffman-config__turn {
+	position: absolute;
+	right: 0;
+	bottom: 0.5rem;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.625rem;
+	color: #a5adb3;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+	pointer-events: none;
+
+	&[hidden] {
+		display: none;
+	}
+
+	button {
+		width: 2.25rem;
+		height: 2.25rem;
+		border: 1px solid #3c444b;
+		background: rgba(255, 255, 255, 0.08);
+		color: #fff;
+		cursor: pointer;
+		font-size: 1.375rem;
+		line-height: 1;
+		pointer-events: auto;
+	}
+}
+
+.luffman-config__stage-note {
+	margin: 0.875rem 0 0;
+	color: #a5adb3;
+	font-size: 0.875rem;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.luffman-config__gallery {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+	gap: 0.75rem;
+	margin-top: 1.25rem;
+
+	figure {
+		margin: 0;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+
+	figcaption {
+		margin-top: 0.5rem;
+		color: #a5adb3;
+		font-size: 0.875rem;
+	}
+}
+
+// Choices
+.luffman-config__chosen {
+	color: var(--wp--preset--color--primary);
+}
+
+.luffman-config__group-note {
+	margin: 0 0 0.625rem;
+	color: #a5adb3;
+
+	&:empty {
+		display: none;
+	}
+}
+
+.luffman-seg__button.is-own[aria-pressed="false"] {
+	border-color: var(--wp--preset--color--primary);
+	color: #ffb27a;
+}
+
+.luffman-config__custom {
+	display: grid;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+	padding-left: 0.875rem;
+	border-left: 3px solid var(--wp--preset--color--primary);
+
+	&[hidden] {
+		display: none;
+	}
+
+	:is(input:not([type]), textarea) {
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0.625rem;
+		border: 1px solid #b9b6ad;
+		border-radius: 0;
+		background: #fff;
+		color: var(--wp--preset--color--contrast);
+		font: inherit;
+	}
+}
+
+.luffman-config__drop {
+	display: block;
+	padding: 0.875rem;
+	border: 2px dashed #3c444b;
+	color: #a5adb3;
+	cursor: pointer;
+	font-size: 0.875rem;
+
+	strong {
+		display: block;
+		color: var(--wp--preset--color--surface);
+		font-family: var(--wp--preset--font-family--heading);
+		font-size: 1.1875rem;
+		text-transform: uppercase;
+	}
+
+	input {
+		display: block;
+		margin-top: 0.5rem;
+	}
+}
+
+.luffman-config__check {
+	display: flex;
+	gap: 0.625rem;
+	align-items: center;
+	font-size: 0.9375rem;
+}
+
+.luffman-config__note:empty {
+	display: none;
 }

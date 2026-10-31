@@ -6,17 +6,78 @@
 	"category": "widgets",
 	"icon": "yes",
 	"description": "One option a visitor can choose.",
-	"parent": [ "luffman-blocks/option-group" ],
+	"parent": [
+		"luffman-blocks/option-group"
+	],
 	"supports": {
 		"html": false,
 		"reusable": false
 	},
 	"attributes": {
-		"label": { "type": "string", "default": "" },
-		"value": { "type": "string", "default": "" },
-		"summary": { "type": "string", "default": "" },
-		"note": { "type": "string", "default": "" },
-		"image": { "type": "string", "default": "" }
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"value": {
+			"type": "string",
+			"default": ""
+		},
+		"summary": {
+			"type": "string",
+			"default": ""
+		},
+		"note": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageMode": {
+			"type": "string",
+			"default": "wrap"
+		},
+		"trim": {
+			"type": "string",
+			"default": ""
+		},
+		"invert": {
+			"type": "boolean",
+			"default": false
+		},
+		"noSummary": {
+			"type": "boolean",
+			"default": false
+		},
+		"stageNote": {
+			"type": "string",
+			"default": ""
+		},
+		"photos": {
+			"type": "array",
+			"default": []
+		},
+		"textPrompt": {
+			"type": "string",
+			"default": ""
+		},
+		"textPlaceholder": {
+			"type": "string",
+			"default": ""
+		},
+		"textUse": {
+			"type": "string",
+			"default": "summary"
+		},
+		"uploadLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"uploadHelp": {
+			"type": "string",
+			"default": ""
+		}
 	},
 	"textdomain": "luffman-blocks"
 }

@@ -6,15 +6,30 @@
 	"category": "widgets",
 	"icon": "list-view",
 	"description": "One choice in the Product Configurator, such as size or material. Add Product Options inside it.",
-	"parent": [ "luffman-blocks/product-configurator" ],
+	"parent": [
+		"luffman-blocks/product-configurator"
+	],
 	"supports": {
 		"html": false,
 		"reusable": false
 	},
 	"attributes": {
-		"label": { "type": "string", "default": "" },
-		"key": { "type": "string", "default": "" },
-		"optional": { "type": "boolean", "default": false }
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"key": {
+			"type": "string",
+			"default": ""
+		},
+		"optional": {
+			"type": "boolean",
+			"default": false
+		},
+		"showWhen": {
+			"type": "string",
+			"default": ""
+		}
 	},
 	"textdomain": "luffman-blocks"
 }

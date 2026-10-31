@@ -22,6 +22,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						help={ __( 'A short word used by drawn previews, such as size. Leave as it is if unsure.', 'luffman-blocks' ) }
 						value={ attributes.key }
 						onChange={ ( key ) => setAttributes( { key } ) } />
+					<TextControl
+						label={ __( 'Only show when', 'luffman-blocks' ) }
+						help={ __( 'Optional. An earlier group key and option value, such as style=round.', 'luffman-blocks' ) }
+						value={ attributes.showWhen }
+						onChange={ ( showWhen ) => setAttributes( { showWhen } ) } />
 					<ToggleControl
 						label={ __( 'Optional', 'luffman-blocks' ) }
 						help={ __( 'Nothing is chosen at first, and clicking a chosen option clears it. Good for add-ons.', 'luffman-blocks' ) }
