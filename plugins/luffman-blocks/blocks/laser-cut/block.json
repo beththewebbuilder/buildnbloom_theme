@@ -1,7 +1,7 @@
 {
 	"apiVersion": 3,
 	"name": "luffman-blocks/laser-cut",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"title": "Laser Cut Animation",
 	"category": "widgets",
 	"icon": "art",

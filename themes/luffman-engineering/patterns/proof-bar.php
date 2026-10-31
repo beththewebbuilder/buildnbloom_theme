@@ -3,7 +3,7 @@
  * Title: Proof bar
  * Slug: luffman-engineering/proof-bar
  * Categories: bnb-base, text
- * Description: Full-width orange band of key facts, using the Stat Bar block.
+ * Description: Full-width green band of key facts, using the Stat Bar block.
  *
  * @package luffman-engineering
  */

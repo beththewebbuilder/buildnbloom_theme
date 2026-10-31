@@ -3,10 +3,10 @@ Theme Name: Luffman Engineering
 Template: bnb_base_theme
 Author: Bethany Fowler
 Author URI: https://bethanyfowler.me/
-Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with an ember accent, Barlow type and square buttons.
+Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -34,7 +34,7 @@ Text Domain: luffman-engineering
 	--bnb-card-background: var(--wp--preset--color--surface);
 	--bnb-card-padding: 1.25rem;
 	--bnb-stat-padding: 1.375rem 1.125rem;
-	--bnb-stat-divider: 1px solid rgba(27, 13, 3, 0.25);
+	--bnb-stat-divider: 1px solid color-mix(in srgb, currentColor 25%, transparent);
 	--bnb-process-rule: 2px solid var(--wp--preset--color--contrast);
 	--bnb-process-border: var(--wp--preset--color--border);
 	--bnb-process-hover-background: var(--wp--preset--color--surface);
@@ -134,7 +134,28 @@ Text Domain: luffman-engineering
 	}
 }
 
-/* Dark section: small text and links use the brighter ember */
+/* Forest green is too dark to see on the dark backgrounds, so everything that uses it there swaps to light green */
+.is-style-dark-section,
+.has-header-background-color,
+.has-steel-background-color,
+.has-contrast-background-color,
+.luffman-finder__result,
+.luffman-config__stage {
+	--wp--preset--color--primary: var(--wp--preset--color--primary-on-dark);
+	--wp--preset--color--on-primary: var(--wp--preset--color--contrast);
+	--wp--preset--color--secondary: #b4e6ca;
+	--wp--preset--color--on-secondary: var(--wp--preset--color--contrast);
+}
+
+/* Cards keep their light background inside a dark section, so they keep the forest green */
+:is(.is-style-dark-section, .has-header-background-color, .has-steel-background-color, .has-contrast-background-color) :is(.is-style-spec-card, .wp-block-build-n-bloom-blocks-grid-card) {
+	--wp--preset--color--primary: var(--wp--preset--color--accent-text);
+	--wp--preset--color--on-primary: var(--wp--preset--color--surface);
+	--wp--preset--color--secondary: #2c7652;
+	--wp--preset--color--on-secondary: var(--wp--preset--color--surface);
+}
+
+/* Dark section: small text uses the light green */
 .is-style-dark-section .is-style-eyebrow {
 	color: var(--wp--preset--color--primary);
 }

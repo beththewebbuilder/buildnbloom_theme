@@ -1,6 +1,6 @@
 # Luffman Engineering
 
-Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README.md) theme: steel and paper with an ember accent, Barlow type and square buttons.
+Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README.md) theme: steel and paper with a forest green accent, Barlow type and square buttons.
 
 ## What's here
 
@@ -22,14 +22,15 @@ Everything else (templates, page layout) comes from the parent theme.
 |---|---|
 | `surface` | Cards on the paper background |
 | `steel` | Dark sections |
-| `accent-text` | Small orange text and links on light backgrounds. Ember (`primary`) is too light to read at small sizes there |
+| `accent-text` | Small green text and links on light backgrounds |
+| `primary-on-dark` | Light green. Automatically replaces `primary` in the header, hero, footer and Dark sections, where forest green is too dark to see |
 | `subtle-text` | Secondary text |
 
 ## Setting up the site
 
 1. Upload `bnb_base_theme` and `luffman-engineering` to `wp-content/themes`, and install the Build'n'Bloom Gutenberg Blocks plugin.
 2. Activate **Luffman Engineering** under Appearance → Themes.
-3. **Site title:** Settings → General. Use a logo instead if you want "Engineering" in orange, as a site title can only be one colour.
+3. **Site title:** Settings → General. Use a logo instead if you want "Engineering" in green, as a site title can only be one colour.
 4. **Menu:** Appearance → Editor → Patterns → Header, select the menu and choose or create it.
 5. **Homepage:** Settings → Reading → "A static page". Set full-width pages to the **Page without title (full width)** template.
 

@@ -11,7 +11,7 @@ function createSparks( container ) {
 	for ( let i = 0; i < SPARK_COUNT; i++ ) {
 		const element = document.createElementNS( SVG_NS, 'circle' );
 		element.setAttribute( 'r', 1.6 );
-		element.setAttribute( 'fill', '#ffc27a' );
+		element.setAttribute( 'fill', '#b4e6ca' );
 		element.setAttribute( 'opacity', 0 );
 		container.appendChild( element );
 		sparks.push( { element, x: 0, y: 0, vx: 0, vy: 0, life: 0 } );

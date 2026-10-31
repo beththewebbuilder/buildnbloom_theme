@@ -6,17 +6,18 @@
 			"palette": [
 				{ "slug": "base", "name": "Paper", "color": "#f3f0e8" },
 				{ "slug": "contrast", "name": "Ink", "color": "#16191c" },
-				{ "slug": "primary", "name": "Ember", "color": "#ff6a13" },
-				{ "slug": "on-primary", "name": "Text on ember", "color": "#1b0d03" },
-				{ "slug": "secondary", "name": "Ember hover", "color": "#ff8238" },
-				{ "slug": "on-secondary", "name": "Text on ember hover", "color": "#1b0d03" },
+				{ "slug": "primary", "name": "Forest green", "color": "#1f5a3d" },
+				{ "slug": "on-primary", "name": "Text on green", "color": "#fbfaf6" },
+				{ "slug": "secondary", "name": "Green hover", "color": "#2c7652" },
+				{ "slug": "on-secondary", "name": "Text on green hover", "color": "#fbfaf6" },
 				{ "slug": "muted", "name": "Paper dark", "color": "#e9e5da" },
 				{ "slug": "border", "name": "Border", "color": "#d7d3c9" },
 				{ "slug": "header", "name": "Header & footer", "color": "#16191c" },
 				{ "slug": "on-header", "name": "Text on header & footer", "color": "#fbfaf6" },
 				{ "slug": "surface", "name": "Card white", "color": "#fbfaf6" },
 				{ "slug": "steel", "name": "Steel", "color": "#20252a" },
-				{ "slug": "accent-text", "name": "Ember text (small text on light backgrounds)", "color": "#b53c00" },
+				{ "slug": "primary-on-dark", "name": "Light green (on dark backgrounds)", "color": "#8fd6ae" },
+				{ "slug": "accent-text", "name": "Green text (small text on light backgrounds)", "color": "#1f5a3d" },
 				{ "slug": "subtle-text", "name": "Subtle text", "color": "#5d6266" }
 			]
 		},
