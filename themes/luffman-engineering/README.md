@@ -21,16 +21,18 @@ Everything else (templates, page layout) comes from the parent theme.
 | Slug | Used for |
 |---|---|
 | `surface` | Cards on the paper background |
+| `header` | The hero background |
 | `steel` | Dark sections |
+| `contrast` | Text, and the proof bar and footer background |
 | `accent-text` | Small green text and links on light backgrounds |
-| `primary-on-dark` | Light green. Automatically replaces `primary` in the header, hero, footer and Dark sections, where forest green is too dark to see |
+| `primary-on-dark` | Pale green. Automatically replaces `primary` in the hero, proof bar, footer and Dark sections, where forest green is too dark to see. Solid buttons turn white there |
 | `subtle-text` | Secondary text |
 
 ## Setting up the site
 
 1. Upload `bnb_base_theme` and `luffman-engineering` to `wp-content/themes`, and install the Build'n'Bloom Gutenberg Blocks plugin.
 2. Activate **Luffman Engineering** under Appearance → Themes.
-3. **Site title:** Settings → General. Use a logo instead if you want "Engineering" in green, as a site title can only be one colour.
+3. **Site title:** Settings → General. The logo is a drawing in `patterns/logo.php`, so it takes the colour of the header and footer.
 4. **Menu:** Appearance → Editor → Patterns → Header, select the menu and choose or create it.
 5. **Homepage:** Settings → Reading → "A static page". Set full-width pages to the **Page without title (full width)** template.
 

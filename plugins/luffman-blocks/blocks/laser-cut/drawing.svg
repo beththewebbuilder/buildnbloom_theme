@@ -17,7 +17,7 @@
           <path d="M285 235H375a15 15 0 0 1 0 30H285a15 15 0 0 1 0-30Z"/>
           <path d="M130 110H430Q450 110 462 126L528 214Q540 230 540 250V370Q540 390 520 390H130Q110 390 110 370V130Q110 110 130 110Z"/>
         </g>
-        <g class="luffman-cut__kerf" fill="none" stroke="#8fd6ae" stroke-width="2.4" stroke-linecap="round">
+        <g class="luffman-cut__kerf" fill="none" stroke="#ffb27a" stroke-width="2.4" stroke-linecap="round">
           <path d="M210 195a20 20 0 1 0-40 0a20 20 0 1 0 40 0Z"/>
           <path d="M210 320a20 20 0 1 0-40 0a20 20 0 1 0 40 0Z"/>
           <path d="M475 320a20 20 0 1 0-40 0a20 20 0 1 0 40 0Z"/>
@@ -32,10 +32,10 @@
         </g>
         <g class="luffman-cut__sparks"></g>
         <g class="luffman-cut__head" style="display:none">
-          <circle r="16" fill="#3fb27f" filter="url(#{{id}}-glow)" opacity=".9"/>
+          <circle r="16" fill="#ff6a13" filter="url(#{{id}}-glow)" opacity=".9"/>
           <circle r="4" fill="#fff"/>
         </g>
-        <rect x="20" y="434" width="600" height="46" fill="#16191c" fill-opacity=".72"/>
+        <rect x="20" y="434" width="600" height="46" fill="#0c2c1e" fill-opacity=".72"/>
         <text x="38" y="462" font-family="IBM Plex Mono,Consolas,monospace" font-size="14" fill="#fbfaf6">{{caption}}</text>
-        <text class="luffman-cut__percent" x="602" y="462" text-anchor="end" font-family="IBM Plex Mono,Consolas,monospace" font-size="14" fill="#8fd6ae">100%</text>
+        <text class="luffman-cut__percent" x="602" y="462" text-anchor="end" font-family="IBM Plex Mono,Consolas,monospace" font-size="14" fill="#ff8a45">100%</text>
       </svg>

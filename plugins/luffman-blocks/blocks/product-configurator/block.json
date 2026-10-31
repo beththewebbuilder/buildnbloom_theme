@@ -1,7 +1,7 @@
 {
 	"apiVersion": 3,
 	"name": "luffman-blocks/product-configurator",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"title": "Product Configurator",
 	"category": "widgets",
 	"icon": "admin-customizer",

@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -16,6 +16,41 @@ Text Domain: luffman-engineering
  * Colours, fonts and buttons are in theme.json, and the block styles are in styles/blocks/.
  * This file is only what those can't do. Loaded after the parent's style.css, on the site and in the editor.
  */
+
+/* White header with the logo, and the logo keeps its proportions */
+.luffman-header {
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+
+.luffman-logo {
+	display: block;
+	flex: none;
+	color: inherit;
+}
+
+.luffman-logo svg {
+	display: block;
+	width: 52px;
+	height: 45px;
+}
+
+.has-contrast-background-color .luffman-logo {
+	color: var(--wp--preset--color--surface);
+}
+
+@media (max-width: 600px) {
+	.luffman-logo svg {
+		width: 42px;
+		height: 36px;
+	}
+}
+
+/* The company name gives way to the menu on small desktops, as the logo still identifies the site */
+@media (min-width: 1001px) and (max-width: 1200px) {
+	.luffman-header .wp-block-site-title {
+		display: none;
+	}
+}
 
 /* Header phone number has no room next to the menu on smaller screens */
 @media (max-width: 1000px) {
@@ -31,6 +66,9 @@ Text Domain: luffman-engineering
 
 /* Plugin block styling: cards on the paper background, the proof bar and the What we do list */
 :root {
+	--luffman-button: var(--wp--preset--color--primary);
+	--luffman-button-text: var(--wp--preset--color--on-primary);
+	--luffman-button-hover: var(--wp--preset--color--secondary);
 	--bnb-card-background: var(--wp--preset--color--surface);
 	--bnb-card-padding: 1.25rem;
 	--bnb-stat-padding: 1.375rem 1.125rem;
@@ -90,7 +128,7 @@ Text Domain: luffman-engineering
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0.7rem;
-	border: 1px solid #b9b6ad;
+	border: 1px solid #b4c4ba;
 	border-radius: 0;
 	background: #fff;
 	color: var(--wp--preset--color--contrast);
@@ -100,7 +138,7 @@ Text Domain: luffman-engineering
 
 .luffman-form__drop {
 	padding: 1.5rem;
-	border: 2px dashed #9b988f;
+	border: 2px dashed #8fa597;
 	background: var(--wp--preset--color--base);
 }
 
@@ -134,7 +172,7 @@ Text Domain: luffman-engineering
 	}
 }
 
-/* Forest green is too dark to see on the dark backgrounds, so everything that uses it there swaps to light green */
+/* Forest green is too dark to see on the dark backgrounds, so links and accents there swap to pale green */
 .is-style-dark-section,
 .has-header-background-color,
 .has-steel-background-color,
@@ -143,35 +181,64 @@ Text Domain: luffman-engineering
 .luffman-config__stage {
 	--wp--preset--color--primary: var(--wp--preset--color--primary-on-dark);
 	--wp--preset--color--on-primary: var(--wp--preset--color--contrast);
-	--wp--preset--color--secondary: #b4e6ca;
+	--wp--preset--color--secondary: #dcebe2;
 	--wp--preset--color--on-secondary: var(--wp--preset--color--contrast);
+	--luffman-button: var(--wp--preset--color--surface);
+	--luffman-button-text: var(--wp--preset--color--steel);
+	--luffman-button-hover: #dcebe2;
 }
 
-/* Cards keep their light background inside a dark section, so they keep the forest green */
-:is(.is-style-dark-section, .has-header-background-color, .has-steel-background-color, .has-contrast-background-color) :is(.is-style-spec-card, .wp-block-build-n-bloom-blocks-grid-card) {
+/* Cards and the quote form keep their light background inside a dark section, so they keep the forest green */
+:is(.is-style-dark-section, .has-header-background-color, .has-steel-background-color, .has-contrast-background-color) :is(.is-style-spec-card, .wp-block-build-n-bloom-blocks-grid-card, .luffman-form) {
 	--wp--preset--color--primary: var(--wp--preset--color--accent-text);
 	--wp--preset--color--on-primary: var(--wp--preset--color--surface);
-	--wp--preset--color--secondary: #2c7652;
+	--wp--preset--color--secondary: #1e5a3e;
 	--wp--preset--color--on-secondary: var(--wp--preset--color--surface);
+	--luffman-button: var(--wp--preset--color--accent-text);
+	--luffman-button-text: var(--wp--preset--color--surface);
+	--luffman-button-hover: #1e5a3e;
 }
 
-/* Dark section: small text uses the light green */
+/* Solid buttons: forest green on light backgrounds, white on dark ones */
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background) {
+	border-color: var(--luffman-button);
+	background-color: var(--luffman-button);
+	color: var(--luffman-button-text);
+}
+
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background):hover {
+	border-color: var(--luffman-button-hover);
+	background-color: var(--luffman-button-hover);
+	color: var(--luffman-button-text);
+}
+
+/* Softer supporting text on the hero, proof bar and footer */
+.has-header-background-color p.has-large-font-size,
+.has-contrast-background-color .bnb-stat__label {
+	color: var(--wp--preset--color--primary-on-dark);
+}
+
+.has-contrast-background-color strong {
+	color: var(--wp--preset--color--surface);
+}
+
+/* Dark section: small text uses the pale green */
 .is-style-dark-section .is-style-eyebrow {
 	color: var(--wp--preset--color--primary);
 }
 
-/* Dark section: subtle text and the Process List stay readable on steel */
+/* Dark section: subtle text and the Process List stay readable on green */
 .is-style-dark-section {
 	--bnb-process-rule: 2px solid var(--wp--preset--color--surface);
-	--bnb-process-border: #3c444b;
-	--bnb-process-hover-background: #2c3339;
+	--bnb-process-border: #2f6a4c;
+	--bnb-process-hover-background: #1e5a3e;
 	--bnb-process-arrow-color: var(--wp--preset--color--primary);
-	--bnb-process-number-color: #a5adb3;
+	--bnb-process-number-color: #a9cdb6;
 }
 
 .is-style-dark-section .has-subtle-text-color,
 .is-style-dark-section .bnb-process__text {
-	color: #a5adb3 !important;
+	color: #a9cdb6 !important;
 }
 
 /* Cards keep their light background inside a Dark section, so they keep dark text */

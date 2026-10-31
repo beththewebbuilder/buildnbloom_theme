@@ -4,21 +4,21 @@
 	"settings": {
 		"color": {
 			"palette": [
-				{ "slug": "base", "name": "Paper", "color": "#f3f0e8" },
-				{ "slug": "contrast", "name": "Ink", "color": "#16191c" },
-				{ "slug": "primary", "name": "Forest green", "color": "#1f5a3d" },
-				{ "slug": "on-primary", "name": "Text on green", "color": "#fbfaf6" },
-				{ "slug": "secondary", "name": "Green hover", "color": "#2c7652" },
-				{ "slug": "on-secondary", "name": "Text on green hover", "color": "#fbfaf6" },
-				{ "slug": "muted", "name": "Paper dark", "color": "#e9e5da" },
-				{ "slug": "border", "name": "Border", "color": "#d7d3c9" },
-				{ "slug": "header", "name": "Header & footer", "color": "#16191c" },
-				{ "slug": "on-header", "name": "Text on header & footer", "color": "#fbfaf6" },
-				{ "slug": "surface", "name": "Card white", "color": "#fbfaf6" },
-				{ "slug": "steel", "name": "Steel", "color": "#20252a" },
-				{ "slug": "primary-on-dark", "name": "Light green (on dark backgrounds)", "color": "#8fd6ae" },
-				{ "slug": "accent-text", "name": "Green text (small text on light backgrounds)", "color": "#1f5a3d" },
-				{ "slug": "subtle-text", "name": "Subtle text", "color": "#5d6266" }
+				{ "slug": "base", "name": "Paper", "color": "#f5f8f5" },
+				{ "slug": "contrast", "name": "Ink", "color": "#0c2c1e" },
+				{ "slug": "primary", "name": "Forest green", "color": "#14452f" },
+				{ "slug": "on-primary", "name": "Text on green", "color": "#ffffff" },
+				{ "slug": "secondary", "name": "Green hover", "color": "#1e5a3e" },
+				{ "slug": "on-secondary", "name": "Text on green hover", "color": "#ffffff" },
+				{ "slug": "muted", "name": "Paper dark", "color": "#e8f0eb" },
+				{ "slug": "border", "name": "Border", "color": "#cfdcd3" },
+				{ "slug": "header", "name": "Hero green", "color": "#14452f" },
+				{ "slug": "on-header", "name": "Text on hero green", "color": "#ffffff" },
+				{ "slug": "surface", "name": "White", "color": "#ffffff" },
+				{ "slug": "steel", "name": "Dark section green", "color": "#14452f" },
+				{ "slug": "primary-on-dark", "name": "Pale green (on dark backgrounds)", "color": "#a9cdb6" },
+				{ "slug": "accent-text", "name": "Green text (small text on light backgrounds)", "color": "#14452f" },
+				{ "slug": "subtle-text", "name": "Subtle text", "color": "#4a5f54" }
 			]
 		},
 		"layout": {

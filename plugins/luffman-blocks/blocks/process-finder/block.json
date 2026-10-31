@@ -1,7 +1,7 @@
 {
 	"apiVersion": 3,
 	"name": "luffman-blocks/process-finder",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"title": "Process Finder",
 	"category": "widgets",
 	"icon": "filter",
