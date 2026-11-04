@@ -284,6 +284,28 @@
 	&:empty {
 		display: none;
 	}
+
+	// Phones: one row that swipes sideways, with the next thumbnail peeking in
+	@media (max-width: 600px) {
+		grid-template-columns: none;
+		grid-auto-flow: column;
+		grid-auto-columns: 5.5rem;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline: 0.125rem;
+		padding: 0.125rem;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.luffman-config__thumbnail {
+			scroll-snap-align: start;
+		}
+	}
 }
 
 .luffman-config__thumbnail {

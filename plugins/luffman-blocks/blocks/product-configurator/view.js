@@ -172,6 +172,13 @@ function initConfigurator( root ) {
 		Array.from( thumbnails.children ).forEach( ( thumbnail, position ) => {
 			thumbnail.setAttribute( 'aria-current', String( position === slide ) );
 		} );
+
+		// On phones the thumbnails are a sideways slider, so keep the current one in view
+		const current = thumbnails.children[ slide ];
+		if ( current && thumbnails.scrollWidth > thumbnails.clientWidth ) {
+			const left = current.offsetLeft - thumbnails.offsetLeft - ( thumbnails.clientWidth - current.offsetWidth ) / 2;
+			thumbnails.scrollTo( { left, behavior: 'smooth' } );
+		}
 	}
 
 	function thumbnail( index, label, content ) {
