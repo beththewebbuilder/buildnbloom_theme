@@ -2,7 +2,7 @@
 /**
  * Title: Luffman hero
  * Slug: luffman-engineering/hero
- * Categories: bnb-base, banner
+ * Categories: luffman-engineering, banner
  * Description: Full-width dark hero with a headline, two buttons and the laser cutting animation. Text and links can be edited; the layout is locked.
  *
  * @package luffman-engineering

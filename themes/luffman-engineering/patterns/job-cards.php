@@ -2,7 +2,7 @@
 /**
  * Title: Job cards
  * Slug: luffman-engineering/job-cards
- * Categories: bnb-base, query
+ * Categories: luffman-engineering, query
  * Inserter: no
  * Description: Cards of the three latest jobs. Used by the Our work pattern.
  *

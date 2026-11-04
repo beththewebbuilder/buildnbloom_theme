@@ -2,7 +2,7 @@
 /**
  * Title: Firepit designer
  * Slug: luffman-engineering/firepit-designer
- * Categories: bnb-base, featured
+ * Categories: luffman-engineering, featured
  * Description: Dark section with a Product Configurator set up for firepits. Upload a new pattern by adding a Product Option to the Pattern group. Options, notes, photos and the price can be edited.
  *
  * @package luffman-engineering

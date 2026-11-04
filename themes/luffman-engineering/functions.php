@@ -29,3 +29,11 @@ function luffman_enqueue_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'luffman_enqueue_scripts' );
+
+/**
+ * Groups the Luffman patterns in their own Luffman Engineering folder in the block inserter.
+ */
+function luffman_register_pattern_category() {
+	register_block_pattern_category( 'luffman-engineering', array( 'label' => __( 'Luffman Engineering', 'luffman-engineering' ) ) );
+}
+add_action( 'init', 'luffman_register_pattern_category' );

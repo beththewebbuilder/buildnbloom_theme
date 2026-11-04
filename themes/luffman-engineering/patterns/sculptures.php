@@ -2,7 +2,7 @@
 /**
  * Title: Sculptures
  * Slug: luffman-engineering/sculptures
- * Categories: bnb-base, gallery
+ * Categories: luffman-engineering, gallery
  * Description: A heading, a mosaic of captioned photos and a button to the quote form. Photos can be replaced or added in the gallery.
  *
  * @package luffman-engineering

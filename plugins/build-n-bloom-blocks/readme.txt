@@ -1,5 +1,5 @@
 === Build'n'Bloom Gutenberg Blocks ===
-Contributors:      Bethany Fowler
+Contributors:      Bethany Luffman
 Tags:              block
 Requires at least: 6.1
 Requires PHP:      7.4

@@ -2,7 +2,7 @@
 /**
  * Title: Our work
  * Slug: luffman-engineering/our-work
- * Categories: bnb-base, query
+ * Categories: luffman-engineering, query
  * Description: A heading and the three latest jobs. New jobs added under Our work appear here automatically.
  *
  * @package luffman-engineering

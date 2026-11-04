@@ -2,7 +2,7 @@
 /**
  * Title: Process finder
  * Slug: luffman-engineering/process-finder
- * Categories: bnb-base, featured
+ * Categories: luffman-engineering, featured
  * Description: Dark section where visitors choose a material, thickness and priority to find a process. The rules are set on each Finder Process block.
  *
  * @package luffman-engineering

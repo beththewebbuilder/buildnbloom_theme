@@ -2,7 +2,7 @@
 /**
  * Title: Quick answers
  * Slug: luffman-engineering/quick-answers
- * Categories: bnb-base, text
+ * Categories: luffman-engineering, text
  * Description: Cards of common questions, each with a table of answers. Cards and table rows can be added or removed.
  *
  * @package luffman-engineering

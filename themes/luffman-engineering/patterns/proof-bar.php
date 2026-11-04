@@ -2,7 +2,7 @@
 /**
  * Title: Proof bar
  * Slug: luffman-engineering/proof-bar
- * Categories: bnb-base, text
+ * Categories: luffman-engineering, text
  * Description: Full-width deep green band of key facts, using the Stat Bar block.
  *
  * @package luffman-engineering

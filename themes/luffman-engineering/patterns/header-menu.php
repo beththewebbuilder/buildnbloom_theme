@@ -2,7 +2,7 @@
 /**
  * Title: Header menu
  * Slug: luffman-engineering/header-menu
- * Categories: header
+ * Categories: luffman-engineering, header
  * Inserter: no
  * Description: Links to the sections of the homepage. Used by the header part.
  *

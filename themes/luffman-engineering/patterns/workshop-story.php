@@ -2,7 +2,7 @@
 /**
  * Title: Workshop film and story
  * Slug: luffman-engineering/workshop-story
- * Categories: bnb-base, about
+ * Categories: luffman-engineering, about
  * Description: Full-width split section. Replace the placeholder with a Video Popup block once the film exists. The story text can be edited; its layout is locked.
  *
  * @package luffman-engineering

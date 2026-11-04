@@ -2,7 +2,7 @@
 /**
  * Title: Get a quote
  * Slug: luffman-engineering/quote
- * Categories: bnb-base, call-to-action
+ * Categories: luffman-engineering, call-to-action
  * Description: Advice on drawing files next to the quote form. The form is the Contact Form 7 form titled "Get a quote".
  *
  * @package luffman-engineering

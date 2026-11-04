@@ -2,7 +2,7 @@
 /**
  * Title: Same part, four processes
  * Slug: luffman-engineering/edge-comparison
- * Categories: bnb-base, gallery
+ * Categories: luffman-engineering, gallery
  * Description: A heading and an Item Grid comparing the edge finish of each process. Add a macro photo to each card.
  *
  * @package luffman-engineering

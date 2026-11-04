@@ -2,7 +2,7 @@
 /**
  * Title: What we do
  * Slug: luffman-engineering/capabilities
- * Categories: bnb-base, services
+ * Categories: luffman-engineering, services
  * Description: A heading and intro with a Process List of services. Point each row at its service page once those exist.
  *
  * @package luffman-engineering

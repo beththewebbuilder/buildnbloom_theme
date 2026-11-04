@@ -2,7 +2,7 @@
 /**
  * Title: Luffman logo
  * Slug: luffman-engineering/logo
- * Categories: header
+ * Categories: luffman-engineering, header
  * Inserter: no
  * Description: The LE hexagon logo as a drawing that takes the colour of its background. Used by the header and footer parts.
  *

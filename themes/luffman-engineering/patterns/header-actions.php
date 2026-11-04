@@ -2,7 +2,7 @@
 /**
  * Title: Header actions
  * Slug: luffman-engineering/header-actions
- * Categories: header
+ * Categories: luffman-engineering, header
  * Inserter: no
  * Description: Phone number and quote button in the header. Used by the header part.
  *
