@@ -119,6 +119,45 @@ html {
 	color: var(--wp--preset--color--primary-on-dark);
 }
 
+/* Phone number and quote button: only in the opened menu, under the links */
+.luffman-header .wp-block-navigation__responsive-container:not(.is-menu-open) :is(.luffman-menu-phone, .luffman-menu-quote) {
+	display: none !important;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item.luffman-menu-phone {
+	margin-top: 1.5rem;
+	border: 0;
+}
+
+.luffman-header .is-menu-open .luffman-menu-phone .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	padding: 0.75rem 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 1.125rem;
+	font-weight: 500;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item:has(> .luffman-menu-quote) {
+	border: 0;
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote {
+	justify-content: center;
+	width: 100%;
+	margin-top: 0.75rem;
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote .wp-block-button {
+	width: min(100%, 20rem);
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote .wp-element-button {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
 .luffman-header .alignwide > .wp-block-group:last-child {
 	gap: 1.5rem;
 }
