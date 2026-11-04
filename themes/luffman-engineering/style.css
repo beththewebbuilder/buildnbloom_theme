@@ -1,0 +1,536 @@
+/*
+Theme Name: Luffman Engineering
+Template: bnb_base_theme
+Author: Bethany Luffman
+Author URI: https://bethanyfowler.me/
+Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
+Requires at least: 6.6
+Requires PHP: 7.4
+Version: 1.0.9
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: luffman-engineering
+*/
+
+/*
+ * Colours, fonts and buttons are in theme.json, and the block styles are in styles/blocks/.
+ * This file is only what those can't do. Loaded after the parent's style.css, on the site and in the editor.
+ */
+
+/* The menu links to sections of the homepage: glide there, and stop clear of the sticky header */
+html {
+	scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+/* White header with the logo, and the logo keeps its proportions */
+.luffman-header {
+	border-bottom: 1px solid var(--wp--preset--color--border);
+}
+
+.luffman-logo {
+	display: block;
+	flex: none;
+	color: inherit;
+}
+
+.luffman-logo svg {
+	display: block;
+	width: 52px;
+	height: 45px;
+}
+
+.has-contrast-background-color .luffman-logo {
+	color: var(--wp--preset--color--surface);
+}
+
+@media (max-width: 600px) {
+	.luffman-logo svg {
+		width: 42px;
+		height: 36px;
+	}
+}
+
+/* The company name gives way to the menu on small desktops, as the logo still identifies the site */
+@media (min-width: 1001px) and (max-width: 1200px) {
+	.luffman-header .wp-block-site-title {
+		display: none;
+	}
+}
+
+/* Seven menu links need the room: the phone number goes first, then the menu moves behind its button */
+@media (min-width: 600px) and (max-width: 1000px) {
+	.luffman-header .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.luffman-header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+}
+
+/* Everything in the header stays on one line, until a phone screen has no room for it */
+@media (min-width: 600px) {
+	.luffman-header :is(.wp-block-site-title, .luffman-header__phone, .wp-element-button, .wp-block-navigation-item__label) {
+		white-space: nowrap;
+	}
+}
+
+/* Opened menu on phones and tablets: big centred links across the full width, one per row with a line between */
+.luffman-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: stretch;
+	padding-top: 3.5rem;
+}
+
+.luffman-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item {
+	width: 100%;
+	border-bottom: 1px solid #2f6a4c;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item:first-child {
+	border-top: 1px solid #2f6a4c;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	display: block;
+	width: 100%;
+	padding: 1.125rem 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: clamp(1.75rem, 8vw, 2.5rem);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	line-height: 1.1;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item__content:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--primary-on-dark);
+}
+
+/* Phone number and quote button: only in the opened menu, under the links */
+.luffman-header .wp-block-navigation__responsive-container:not(.is-menu-open) :is(.luffman-menu-phone, .luffman-menu-quote) {
+	display: none !important;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item.luffman-menu-phone {
+	margin-top: 1.5rem;
+	border: 0;
+}
+
+.luffman-header .is-menu-open .luffman-menu-phone .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	padding: 0.75rem 0;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 1.125rem;
+	font-weight: 500;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item:has(> .luffman-menu-quote) {
+	border: 0;
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote {
+	justify-content: center;
+	width: 100%;
+	margin-top: 0.75rem;
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote .wp-block-button {
+	width: min(100%, 20rem);
+}
+
+.luffman-header .is-menu-open .luffman-menu-quote .wp-element-button {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.luffman-header .alignwide > .wp-block-group:last-child {
+	gap: 1.5rem;
+}
+
+.luffman-header .wp-block-navigation__container {
+	flex-wrap: nowrap;
+	gap: 1.25rem;
+}
+
+@media (max-width: 1340px) {
+	.luffman-header__phone {
+		display: none;
+	}
+}
+
+/* Eyebrow sits tight above the heading it introduces */
+.is-style-eyebrow + * {
+	margin-block-start: 0.75rem !important;
+}
+
+/* Plugin block styling: cards on the paper background, the proof bar and the What we do list */
+:root {
+	--luffman-button: var(--wp--preset--color--primary);
+	--luffman-button-text: var(--wp--preset--color--on-primary);
+	--luffman-button-hover: var(--wp--preset--color--secondary);
+	--bnb-card-background: var(--wp--preset--color--surface);
+	--bnb-card-padding: 1.25rem;
+	--bnb-stat-padding: 1.375rem 1.125rem;
+	--bnb-stat-divider: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+	--bnb-process-rule: 2px solid var(--wp--preset--color--contrast);
+	--bnb-process-border: var(--wp--preset--color--border);
+	--bnb-process-hover-background: var(--wp--preset--color--surface);
+	--bnb-process-arrow-color: var(--wp--preset--color--accent-text);
+	--bnb-process-number-color: var(--wp--preset--color--subtle-text);
+	--bnb-process-spec-font: var(--wp--preset--font-family--mono);
+}
+
+.bnb-process__text {
+	color: var(--wp--preset--color--subtle-text);
+	font-size: 1rem;
+}
+
+/* Section heading with the intro on the right, and a closing line with its button */
+.luffman-section-head {
+	gap: 2rem;
+	margin-bottom: 2.5rem;
+}
+
+.luffman-section-head > p {
+	max-width: 58ch;
+	margin: 0;
+}
+
+.luffman-cta-row {
+	gap: 1.25rem;
+	margin-top: 1.75rem;
+}
+
+.luffman-cta-row > p {
+	margin: 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: clamp(1.625rem, 3vw, 2.25rem);
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+}
+
+/* Mosaic gallery: in each set of four photos the first is tall and the fourth is wide */
+.wp-block-gallery.has-nested-images.is-style-mosaic {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-auto-rows: clamp(190px, 22vw, 270px);
+	grid-auto-flow: dense;
+	gap: 12px;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image) {
+	position: relative;
+	width: auto;
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	background: var(--wp--preset--color--muted);
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image):nth-child(4n + 1) {
+	grid-row: span 2;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image:not(#individual-image):nth-child(4n) {
+	grid-column: span 2;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wp-block-gallery.has-nested-images.is-style-mosaic figure.wp-block-image figcaption {
+	position: absolute;
+	inset: auto 0 0;
+	max-height: none;
+	margin: 0;
+	padding: 1.5rem 0.875rem 0.625rem;
+	overflow: visible;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+	color: #fff;
+	font-size: 0.9375rem;
+	text-align: left;
+	text-shadow: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.wp-block-gallery.has-nested-images.is-style-mosaic img {
+		transition: transform 0.3s;
+	}
+
+	.wp-block-gallery.has-nested-images.is-style-mosaic figure:hover img {
+		transform: scale(1.03);
+	}
+}
+
+@media (max-width: 560px) {
+	.wp-block-gallery.has-nested-images.is-style-mosaic {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-auto-rows: 44vw;
+	}
+}
+
+/* Job cards: small label next to each value */
+.luffman-job-field {
+	gap: 0.75rem;
+	padding-block: 0.4rem;
+	border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.luffman-job-field > :first-child {
+	flex: 0 0 5.75rem;
+	color: var(--wp--preset--color--subtle-text);
+}
+
+.luffman-job-field > * {
+	margin: 0;
+}
+
+/* Quote form (Contact Form 7) */
+.luffman-form {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	border: 1px solid var(--wp--preset--color--border);
+	background: var(--wp--preset--color--surface);
+}
+
+.luffman-form__field--full {
+	grid-column: 1 / -1;
+}
+
+.luffman-form label {
+	display: grid;
+	gap: 0.375rem;
+	color: var(--wp--preset--color--subtle-text);
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+}
+
+.luffman-form :is(input:not([type="submit"], [type="file"]), select, textarea) {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.7rem;
+	border: 1px solid #b4c4ba;
+	border-radius: 0;
+	background: #fff;
+	color: var(--wp--preset--color--contrast);
+	font-family: var(--wp--preset--font-family--body);
+	font-size: 1rem;
+}
+
+.luffman-form__drop {
+	padding: 1.5rem;
+	border: 2px dashed #8fa597;
+	background: var(--wp--preset--color--base);
+}
+
+.luffman-form__drop strong {
+	color: var(--wp--preset--color--contrast);
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 1.4375rem;
+	text-transform: uppercase;
+}
+
+.luffman-form input[type="submit"] {
+	padding: 0.8em 1.15em;
+	border: 0;
+	background: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--on-primary);
+	cursor: pointer;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: 1.1875rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.luffman-form input[type="submit"]:hover {
+	background: var(--wp--preset--color--secondary);
+}
+
+@media (max-width: 560px) {
+	.luffman-form {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+/* Forest green is too dark to see on the dark backgrounds, so links and accents there swap to pale green */
+.is-style-dark-section,
+.has-header-background-color,
+.has-steel-background-color,
+.has-contrast-background-color,
+.luffman-finder__result,
+.luffman-config__stage {
+	--wp--preset--color--primary: var(--wp--preset--color--primary-on-dark);
+	--wp--preset--color--on-primary: var(--wp--preset--color--contrast);
+	--wp--preset--color--secondary: #dcebe2;
+	--wp--preset--color--on-secondary: var(--wp--preset--color--contrast);
+	--luffman-button: var(--wp--preset--color--surface);
+	--luffman-button-text: var(--wp--preset--color--steel);
+	--luffman-button-hover: #dcebe2;
+}
+
+/* Cards and the quote form keep their light background inside a dark section, so they keep the forest green */
+:is(.is-style-dark-section, .has-header-background-color, .has-steel-background-color, .has-contrast-background-color) :is(.is-style-spec-card, .wp-block-build-n-bloom-blocks-grid-card, .luffman-form) {
+	--wp--preset--color--primary: var(--wp--preset--color--accent-text);
+	--wp--preset--color--on-primary: var(--wp--preset--color--surface);
+	--wp--preset--color--secondary: #1e5a3e;
+	--wp--preset--color--on-secondary: var(--wp--preset--color--surface);
+	--luffman-button: var(--wp--preset--color--accent-text);
+	--luffman-button-text: var(--wp--preset--color--surface);
+	--luffman-button-hover: #1e5a3e;
+}
+
+/* Solid buttons: forest green on light backgrounds, white on dark ones */
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background),
+.luffman-config__cta.wp-element-button {
+	border-color: var(--luffman-button);
+	background-color: var(--luffman-button);
+	color: var(--luffman-button-text);
+}
+
+.wp-block-button:not(.is-style-outline) > .wp-element-button:not(.has-background):hover,
+.luffman-config__cta.wp-element-button:hover {
+	border-color: var(--luffman-button-hover);
+	background-color: var(--luffman-button-hover);
+	color: var(--luffman-button-text);
+}
+
+/* Softer supporting text on the hero, proof bar and footer */
+.has-header-background-color p.has-large-font-size,
+.has-contrast-background-color .bnb-stat__label {
+	color: var(--wp--preset--color--primary-on-dark);
+}
+
+.has-contrast-background-color strong {
+	color: var(--wp--preset--color--surface);
+}
+
+/* Dark section: small text uses the pale green */
+.is-style-dark-section .is-style-eyebrow {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Dark section: subtle text and the Process List stay readable on green */
+.is-style-dark-section {
+	--bnb-process-rule: 2px solid var(--wp--preset--color--surface);
+	--bnb-process-border: #2f6a4c;
+	--bnb-process-hover-background: #1e5a3e;
+	--bnb-process-arrow-color: var(--wp--preset--color--primary);
+	--bnb-process-number-color: #a9cdb6;
+}
+
+.is-style-dark-section .has-subtle-text-color,
+.is-style-dark-section .bnb-process__text {
+	color: #a9cdb6 !important;
+}
+
+/* Cards keep their light background inside a Dark section, so they keep dark text */
+.is-style-dark-section .is-style-spec-card .has-subtle-text-color {
+	color: var(--wp--preset--color--subtle-text) !important;
+}
+
+.is-style-dark-section .wp-block-build-n-bloom-blocks-grid-card {
+	color: var(--wp--preset--color--contrast);
+}
+
+/* Titles in cards stay ink, instead of taking the card's link colour */
+.is-style-spec-card .wp-block-post-title a {
+	color: var(--wp--preset--color--contrast);
+}
+
+.is-style-spec-card .wp-block-post-title a:hover {
+	color: var(--wp--preset--color--accent-text);
+}
+
+/* Spec table: label on the left, figure on the right, a line between each row */
+.is-style-spec-table table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.is-style-spec-table :is(td, th) {
+	padding: 0.55rem 0;
+	border: 0;
+	border-top: 1px solid var(--wp--preset--color--border);
+	text-align: left;
+	vertical-align: top;
+}
+
+.is-style-spec-table td:first-child {
+	width: 38%;
+	padding-right: 0.875rem;
+	font-weight: 600;
+}
+
+/* Quick answers on phones: each card folds to its title (assets/js/quick-answers.js), with a plus that turns to a minus when open */
+.luffman-answer__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-align: left;
+	text-transform: inherit;
+	cursor: pointer;
+}
+
+.luffman-answer__toggle::after {
+	content: "";
+	flex: none;
+	width: 1rem;
+	height: 1rem;
+	background:
+		linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+		linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+	color: var(--wp--preset--color--accent-text);
+}
+
+.luffman-answer__toggle[aria-expanded="true"]::after {
+	background-size: 100% 2px, 2px 0;
+}
+
+.luffman-answer__toggle:focus-visible {
+	outline: 3px solid var(--wp--preset--color--accent-text);
+	outline-offset: 4px;
+}
+
+/* Closed cards are only the title, so tighten the padding a little */
+@media (max-width: 600px) {
+	#answers .is-style-spec-card:has(.luffman-answer__toggle[aria-expanded="false"]) {
+		padding-block: 0.875rem !important;
+	}
+
+	/* A closed panel still keeps its gap above, which would leave an empty strip under the title */
+	.luffman-answer__panel[hidden] {
+		margin-block-start: 0 !important;
+	}
+}

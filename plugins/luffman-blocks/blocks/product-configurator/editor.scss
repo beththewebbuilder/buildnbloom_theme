@@ -1,0 +1,25 @@
+@import "../editor-box";
+
+/* ADMIN EDIT DISPLAY */
+
+.wp-block-luffman-blocks-product-configurator.luffman-editor-box {
+	display: block;
+}
+
+.wp-block-luffman-blocks-option-group {
+	padding: 0.75rem;
+	border: 1px solid #2f6a4c;
+}
+
+.wp-block-luffman-blocks-product-option {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid #2f6a4c;
+}
+
+.luffman-option-thumb {
+	display: block;
+	width: 6rem;
+	height: 2rem;
+	margin-bottom: 0.25rem;
+	object-fit: cover;
+}

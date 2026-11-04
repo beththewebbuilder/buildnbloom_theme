@@ -5,7 +5,7 @@
  * Requires at least: 6.1
  * Requires PHP:      7.4
  * Version:           0.1.0
- * Author:            Bethany Fowler
+ * Author:            Bethany Luffman
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       build-n-bloom-blocks
@@ -68,6 +68,8 @@ function build_n_bloom_blocks_init() {
 		'hero-media'    => array( 'hero-media' ),
 		'youtube-video' => array( 'youtube-video' ),
 		'item-grid'     => array( 'item-grid', 'grid-card' ),
+		'stat-bar'      => array( 'stat-bar', 'stat-item' ),
+		'process-list'  => array( 'process-list', 'process-row' ),
 		'carousel'      => array( 'carousel', 'carousel-slide', 'review-item' ),
 		'tabs'          => array( 'tabs', 'tab' ),
 	) );

@@ -1,0 +1,14 @@
+// Outline around Luffman blocks in the editor
+.luffman-editor-box {
+	padding: 1rem;
+	border: 1px dashed #949494;
+}
+
+.luffman-editor-box__label {
+	display: block;
+	margin-bottom: 0.75rem;
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
