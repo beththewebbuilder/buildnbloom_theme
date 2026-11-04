@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.7
+Version: 1.0.8
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -79,6 +79,44 @@ html {
 	.luffman-header :is(.wp-block-site-title, .luffman-header__phone, .wp-element-button, .wp-block-navigation-item__label) {
 		white-space: nowrap;
 	}
+}
+
+/* Opened menu on phones and tablets: big centred links across the full width, one per row with a line between */
+.luffman-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: stretch;
+	padding-top: 3.5rem;
+}
+
+.luffman-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation__container {
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item {
+	width: 100%;
+	border-bottom: 1px solid #2f6a4c;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item:first-child {
+	border-top: 1px solid #2f6a4c;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	display: block;
+	width: 100%;
+	padding: 1.125rem 0;
+	font-family: var(--wp--preset--font-family--heading);
+	font-size: clamp(1.75rem, 8vw, 2.5rem);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	line-height: 1.1;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.luffman-header .is-menu-open .wp-block-navigation-item__content:is(:hover, :focus-visible) {
+	color: var(--wp--preset--color--primary-on-dark);
 }
 
 .luffman-header .alignwide > .wp-block-group:last-child {
