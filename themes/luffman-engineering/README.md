@@ -12,6 +12,7 @@ Luffman Engineering's brand on the [Build'n'Bloom Base](../bnb_base_theme/README
 | `templates/archive-job.html` | The Our work page listing every job |
 | `styles/blocks/` | Block styles: **Eyebrow** (Paragraph), **Dark section** and **Spec card** (Group), **Spec table** (Table) |
 | `style.css` | The little CSS `theme.json` can't do |
+| `assets/js/quick-answers.js` | On phones (600px and below), folds each card in the Quick answers section (`#answers`) down to its title, with a plus to open it. Larger screens show the cards open |
 | `assets/fonts/` | Latin web fonts from Fontsource, under the SIL Open Font License |
 
 Everything else (templates, page layout) comes from the parent theme.

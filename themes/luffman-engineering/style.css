@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Luffman Engineering's brand on the Build'n'Bloom Base theme: steel and paper with a forest green accent, Barlow type and square buttons.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 1.0.6
+Version: 1.0.7
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: luffman-engineering
@@ -405,4 +405,55 @@ html {
 	width: 38%;
 	padding-right: 0.875rem;
 	font-weight: 600;
+}
+
+/* Quick answers on phones: each card folds to its title (assets/js/quick-answers.js), with a plus that turns to a minus when open */
+.luffman-answer__toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	text-align: left;
+	text-transform: inherit;
+	cursor: pointer;
+}
+
+.luffman-answer__toggle::after {
+	content: "";
+	flex: none;
+	width: 1rem;
+	height: 1rem;
+	background:
+		linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat,
+		linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat;
+	color: var(--wp--preset--color--accent-text);
+}
+
+.luffman-answer__toggle[aria-expanded="true"]::after {
+	background-size: 100% 2px, 2px 0;
+}
+
+.luffman-answer__toggle:focus-visible {
+	outline: 3px solid var(--wp--preset--color--accent-text);
+	outline-offset: 4px;
+}
+
+/* Closed cards are only the title, so tighten the padding a little */
+@media (max-width: 600px) {
+	#answers .is-style-spec-card:has(.luffman-answer__toggle[aria-expanded="false"]) {
+		padding-block: 0.875rem !important;
+	}
+
+	/* A closed panel still keeps its gap above, which would leave an empty strip under the title */
+	.luffman-answer__panel[hidden] {
+		margin-block-start: 0 !important;
+	}
 }

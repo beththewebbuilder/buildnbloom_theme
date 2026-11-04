@@ -33,7 +33,7 @@ $luffman_formats = array(
 <!-- /wp:table -->
 
 <!-- wp:paragraph {"textColor":"subtle-text","fontSize":"small"} -->
-<p class="has-subtle-text-color has-text-color has-small-font-size">We usually reply within TBC. Prefer to talk? Call <a href="tel:01884821076">01884 821076</a>.</p>
+<p class="has-subtle-text-color has-text-color has-small-font-size">We'll get back to you as soon as possible. Email is best: it gives us time to look over your drawings properly before we reply. If you'd rather talk, call us on <a href="tel:01884821076">01884 821076</a>.</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:column -->

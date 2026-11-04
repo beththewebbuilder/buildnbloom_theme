@@ -14,8 +14,7 @@ $luffman_links = array(
 	'Capabilities'   => 'capabilities',
 	'Process finder' => 'picker',
 	'Firepits'       => 'firepits',
-	'Sculptures'     => 'sculptures',
-	'About'          => 'about',
+	'Projects'     => 'sculptures',
 );
 ?>
 <!-- wp:navigation {"overlayBackgroundColor":"header","overlayTextColor":"on-header","layout":{"type":"flex","justifyContent":"right"}} -->
