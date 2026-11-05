@@ -25,10 +25,20 @@
 				},
 				{
 					"slug": "heading",
-					"name": "Qualy",
-					"fontFamily": "Qualy, \"Segoe UI\", system-ui, sans-serif"
+					"name": "Barlow Condensed",
+					"fontFamily": "\"Barlow Condensed\", \"Arial Narrow\", Arial, sans-serif",
+					"fontFace": [
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "500", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-500.woff2" ] },
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "600", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-600.woff2" ] },
+						{ "fontFamily": "Barlow Condensed", "fontWeight": "700", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/barlow-condensed-700.woff2" ] }
+					]
 				}
 			]
+		},
+		"custom": {
+			"button": {
+				"radius": "0"
+			}
 		}
 	},
 	"styles": {
@@ -38,7 +48,7 @@
 			"h3": { "typography": { "fontSize": "1.5rem" } },
 			"h4": { "typography": { "fontSize": "1.25rem" } },
 			"heading": {
-				"typography": { "fontWeight": "400" }
+				"typography": { "fontWeight": "600" }
 			},
 			"button": {
 				"color": {
@@ -49,7 +59,9 @@
 					"color": "var:preset|color|contrast"
 				},
 				"typography": {
-					"fontWeight": "400"
+					"fontWeight": "500",
+					"letterSpacing": "0.06em",
+					"textTransform": "uppercase"
 				},
 				":hover": {
 					"color": {

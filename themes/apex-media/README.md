@@ -1,6 +1,6 @@
 # Apex Media
 
-Apex Media's brand on the [Build'n'Bloom Base](../bnb_base_theme/README.md) theme: black and white with a red accent, Qualy headings, outlined buttons and a full-screen menu.
+Apex Media's brand on the [Build'n'Bloom Base](../bnb_base_theme/README.md) theme: black and white with a red accent, Barlow Condensed headings, outlined buttons and a full-screen menu.
 
 Replaces the old classic `apex_media` theme (v1.6.6).
 
@@ -8,9 +8,11 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 
 | | |
 |---|---|
-| `theme.json` | Apex colours (black, white, red `#b70000`), Qualy and system fonts, heading sizes, outlined white/black buttons |
+| `theme.json` | Apex colours (black, white, red `#b70000`), Barlow Condensed and system fonts, heading sizes, outlined white/black buttons with square corners and capitals |
 | `parts/header.html` | Black header with the menu button on the left and the logo in the centre; the menu opens full screen |
-| `style.css` | Header layout and the full-screen menu styling |
+| `style.css` | Header layout, the full-screen menu styling, and the Apex hero styling |
+| `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
+| `functions.php` | Registers the Apex Media pattern category |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
 Everything else (templates, footer, page layout) comes from the parent theme.
@@ -36,26 +38,20 @@ Appearance → Editor → Styles → Colors → Palette shows the theme's defaul
 
 To add another, copy one of the files, change its `title` and colours, and keep all ten slugs. Each file must only contain colours, or WordPress lists it as a full style instead of a palette. Check text contrast for new colours (4.5:1 for normal text, 3:1 for large text).
 
-## Qualy font
+## Fonts
 
-The old theme declared Qualy without a font file, so it only showed on computers that had it installed. To load it for everyone:
+Headings, buttons, the menu and the site title use **Barlow Condensed** (500, 600 and 700), loaded from `assets/fonts/` so nothing is fetched from Google. Body text stays on the system font. Barlow Condensed is under the SIL Open Font License, so it is free to use on the web.
 
-1. Put the web font in `assets/fonts/`, e.g. `assets/fonts/qualy.woff2` (check the font licence allows web use).
-2. Add a `fontFace` to the Qualy entry in `theme.json`:
-
-```json
-{
-	"slug": "heading",
-	"name": "Qualy",
-	"fontFamily": "Qualy, \"Segoe UI\", system-ui, sans-serif",
-	"fontFace": [
-		{ "fontFamily": "Qualy", "fontWeight": "400", "fontStyle": "normal", "fontDisplay": "swap", "src": [ "file:./assets/fonts/qualy.woff2" ] }
-	]
-}
-```
+The old theme used Qualy, declared without a font file, so it only showed on computers that had it installed. To use another font, add its `.woff2` files to `assets/fonts/` and change the `heading` entry and its `fontFace` list in `theme.json`.
 
 ## Not carried over from the old theme
 
 - **Contact form** (`page-content.php`): it posted to a `bt_scf` AJAX handler that isn't in the theme. Use a form plugin on the Contact page instead.
 - **Instagram feed** on the homepage: add the `[instagram-feed feed=1]` shortcode to the Home page with a Shortcode block.
 - **Bootstrap, jQuery, Slick and the Font Awesome kit** loaded from CDNs: no longer needed. The Build'n'Bloom blocks replace the old custom carousel, item grid, tabs and background media styles. The Carousel block brings its own copy of Slick, and WordPress's jQuery, only on pages that use it.
+
+## Apex hero pattern
+
+Uses the Build'n'Bloom **Hero Video or Image** block. Insert it, then choose the showreel under the block's Background settings (a fallback image is recommended so something shows before the video loads). Until a video is chosen it shows on black.
+
+Everything over the video is ordinary blocks inside the hero, so lines, buttons or a list can be added, moved or removed. The red label and the red word in the heading use `#ff4545`, a brighter red than the brand `#b70000`, which is too dark to read on black. A fade on the left and bottom keeps the text readable over a bright video.

@@ -1,4 +1,4 @@
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 import { cssVariables, focalPointValue, linkWrapper, videoEmbedUrl } from '../../utils';
 import Icon from '../../components/icons';
 import MediaLayer, { hasMobileMedia } from './media-layer';
@@ -105,6 +105,8 @@ export default function save( { attributes } ) {
 						) }
 					</div>
 				}
+				{ /* Outputs nothing when there are no inner blocks, so heroes saved before this was added still validate */ }
+				<InnerBlocks.Content />
 			</div>
 
 			{ /* Video popup, filled and opened by view.js */ }

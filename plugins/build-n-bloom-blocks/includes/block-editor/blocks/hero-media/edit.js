@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, useSettings, InspectorControls, MediaPlaceholder, RichText } from '@wordpress/block-editor';
+import { useBlockProps, useSettings, InspectorControls, InnerBlocks, MediaPlaceholder, RichText, store as blockEditorStore } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
 import {
 	PanelBody,
 	RadioControl,
@@ -180,12 +181,17 @@ function TypographySettings( { attributes, setAttributes, part, label } ) {
 	);
 }
 
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit( { attributes, setAttributes, clientId } ) {
 	const isVideo = attributes.mediaType === 'video';
 	const hasMedia = isVideo ? attributes.videoUrl : attributes.imageUrl;
 	const separateMobile = hasMobileMedia( attributes );
 	const isPopup = attributes.buttonAction === 'video';
 	const blockProps = useBlockProps( { className: heroClassName( attributes ), style: heroStyle( attributes ) } );
+	// Once blocks are added to the overlay, the built-in heading and text only show when they have content,
+	// so a hero built from blocks doesn't show empty "Main heading…" placeholders
+	const hasInnerBlocks = useSelect( ( select ) => select( blockEditorStore ).getBlockCount( clientId ) > 0, [ clientId ] );
+	const showHeading = ! hasInnerBlocks || ! RichText.isEmpty( attributes.heading );
+	const showText = ! hasInnerBlocks || ! RichText.isEmpty( attributes.text );
 
 	function onSelectPlaceholder( media ) {
 		setAttributes( isVideo
@@ -347,20 +353,24 @@ export default function Edit( { attributes, setAttributes } ) {
 				) }
 
 				<div className="bnb-hero__content">
-					<RichText
-						tagName="h1"
-						className={ typographyClassName( attributes, 'heading' ) }
-						style={ typographyStyle( attributes, 'heading' ) }
-						placeholder={ __( 'Main heading…', 'build-n-bloom-blocks' ) }
-						value={ attributes.heading }
-						onChange={ ( heading ) => setAttributes( { heading } ) } />
-					<RichText
-						tagName="p"
-						className={ typographyClassName( attributes, 'text' ) }
-						style={ typographyStyle( attributes, 'text' ) }
-						placeholder={ __( 'Optional text…', 'build-n-bloom-blocks' ) }
-						value={ attributes.text }
-						onChange={ ( text ) => setAttributes( { text } ) } />
+					{ showHeading &&
+						<RichText
+							tagName="h1"
+							className={ typographyClassName( attributes, 'heading' ) }
+							style={ typographyStyle( attributes, 'heading' ) }
+							placeholder={ __( 'Main heading…', 'build-n-bloom-blocks' ) }
+							value={ attributes.heading }
+							onChange={ ( heading ) => setAttributes( { heading } ) } />
+					}
+					{ showText &&
+						<RichText
+							tagName="p"
+							className={ typographyClassName( attributes, 'text' ) }
+							style={ typographyStyle( attributes, 'text' ) }
+							placeholder={ __( 'Optional text…', 'build-n-bloom-blocks' ) }
+							value={ attributes.text }
+							onChange={ ( text ) => setAttributes( { text } ) } />
+					}
 					{ attributes.showButton &&
 						<div className="wp-block-buttons bnb-hero__buttons">
 							{ showsPlayIcon( attributes ) ? (
@@ -389,6 +399,9 @@ export default function Edit( { attributes, setAttributes } ) {
 							) }
 						</div>
 					}
+
+					{ /* Any other blocks (a label above the heading, more buttons, a list…) overlaid under the built-in fields */ }
+					<InnerBlocks renderAppender={ InnerBlocks.ButtonBlockAppender } />
 				</div>
 			</div>
 		</>

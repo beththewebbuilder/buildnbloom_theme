@@ -121,6 +121,14 @@
 	justify-content: flex-end;
 }
 
+// Buttons blocks added inside the overlay follow the content alignment too
+:where(.bnb-hero--align-center .bnb-hero__content .wp-block-buttons) {
+	justify-content: center;
+}
+:where(.bnb-hero--align-right .bnb-hero__content .wp-block-buttons) {
+	justify-content: flex-end;
+}
+
 // Play icon button style
 :where(.bnb-hero__play) {
 	display: inline-flex;

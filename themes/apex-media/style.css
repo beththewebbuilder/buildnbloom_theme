@@ -3,7 +3,7 @@ Theme Name: Apex Media
 Template: bnb_base_theme
 Author: Bethany Luffman
 Author URI: https://bethanyfowler.me/
-Description: Apex Media's brand on the Build'n'Bloom Base theme: black and white with a red accent, Qualy headings, outlined buttons and a full-screen menu.
+Description: Apex Media's brand on the Build'n'Bloom Base theme: black and white with a red accent, Barlow Condensed headings, outlined buttons and a full-screen menu.
 Requires at least: 6.6
 Requires PHP: 7.4
 Version: 2.0.0
@@ -57,4 +57,89 @@ Text Domain: apex-media
 .apex-header__menu .wp-block-navigation-item__content:hover,
 .apex-header__menu .wp-block-navigation-item__content:focus-visible {
 	color: var(--wp--preset--color--secondary);
+}
+
+/*
+ * Apex hero pattern (patterns/hero.php): the Build'n'Bloom Hero block with the text low on the left,
+ * lined up with the header, and a fade behind it so a longer message stays readable over the video.
+ */
+.apex-hero {
+	--bnb-hero-content-width: 52rem;
+	--bnb-hero-padding: var(--wp--preset--spacing--60) max(1.5rem, calc((100% - var(--wp--style--global--wide-size, 1400px)) / 2));
+	background-color: #000; /* until a video or image is chosen */
+}
+
+/* Darkens the left and bottom, where the text sits, and leaves the rest of the video bright */
+.apex-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0) 45%);
+	pointer-events: none;
+}
+
+.apex-hero h1 {
+	font-size: clamp(2.5rem, 6vw, 4.5rem);
+	line-height: 1.05;
+	text-transform: uppercase;
+}
+
+/* Coloured words in the heading are a <mark>. WordPress strips its transparent background for
+   users who can't post unfiltered HTML, which would leave the browser's yellow highlight. */
+.apex-hero mark {
+	background-color: transparent;
+}
+
+.apex-hero :is(h1, p, .wp-block-buttons) {
+	margin-block: 1.25rem 0;
+}
+
+.apex-hero .apex-hero__eyebrow {
+	margin-top: 0;
+}
+
+.apex-hero .apex-hero__eyebrow + h1 {
+	margin-top: 0.5rem;
+}
+
+.apex-hero p.has-large-font-size {
+	max-width: 58ch;
+	color: #e2e2e2;
+}
+
+/* Theme buttons hover to black, which would vanish on the dark video */
+.apex-hero .wp-block-button:not(.is-style-outline) .wp-block-button__link:hover {
+	filter: brightness(1.2);
+}
+
+.apex-hero .is-style-outline .wp-block-button__link:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Play triangle before the showreel button's text */
+.apex-hero__showreel .wp-block-button__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6em;
+}
+
+.apex-hero__showreel .wp-block-button__link::before {
+	content: "";
+	border-top: 0.4em solid transparent;
+	border-bottom: 0.4em solid transparent;
+	border-left: 0.65em solid currentColor;
+}
+
+@media (max-width: 767px) {
+	.apex-hero .wp-block-button {
+		flex: 1 1 auto;
+		text-align: center;
+	}
+
+	.apex-hero__showreel .wp-block-button__link {
+		justify-content: center;
+		width: 100%;
+	}
 }
