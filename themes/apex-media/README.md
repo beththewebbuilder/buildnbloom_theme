@@ -13,6 +13,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `style.css` | Header layout, the full-screen menu styling, and the Apex hero styling |
 | `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
+| `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
 | `functions.php` | Registers the Apex Media pattern category |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
@@ -62,3 +63,7 @@ Everything over the video is ordinary blocks inside the hero, so lines, buttons 
 The band that goes straight under the hero: a "Trusted by" slider of client logos on the left and one short review on the right, with a red line beside it. On phones the review sits under the logos. The logo slider is a Carousel block; the review is a core Quote block, so its words and name are edited in place.
 
 The logos are linked from the current site's media library (`apex-media.uk/wp-content/uploads/…`), which stays in place when this theme replaces the old one. If the site moves, re-choose them in each slide's settings. They are white artwork, so keep the band dark. Links from the logos to the case studies are filled in with the site's address when the pattern is inserted.
+
+## Apex what we do pattern
+
+"What we do" heading with an intro underneath, then four service cards in an Item Grid (4 across on desktop, 2 on tablets, 1 on phones). Each card is a Grid Card with a title, a line of text and a link; the whole card is clickable. The red numbers (01, 02…) and "Find out more →" are added by `style.css`, so they stay in order when cards are added, removed or moved. "Find out more" only shows on cards with a link. The cards and the intro's "tell us the goal" link point to `/services/` and `/contact/` on this site.

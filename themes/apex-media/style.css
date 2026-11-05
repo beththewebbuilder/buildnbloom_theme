@@ -183,3 +183,111 @@ Text Domain: apex-media
 	font-style: normal;
 	color: #b5b5b5;
 }
+
+/*
+ * Apex what we do (patterns/services.php)
+ */
+
+.apex-services .apex-services__eyebrow {
+	margin: 0;
+}
+
+.apex-services__head h2 {
+	margin: 0.5rem 0 0;
+	font-size: clamp(2rem, 4.6vw, 3.25rem);
+	line-height: 1.05;
+	text-transform: uppercase;
+}
+
+.apex-services__lede {
+	max-width: 56ch;
+	margin: 0.875rem 0 0;
+	color: #b5b5b5;
+}
+
+/* Theme links are black, which would vanish here */
+.apex-services__lede a {
+	color: #fff;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+.apex-services__lede a:hover {
+	color: #ff4545;
+}
+
+.apex-services__grid {
+	counter-reset: apex-service;
+}
+
+.apex-services__grid .wp-block-build-n-bloom-blocks-grid-card {
+	counter-increment: apex-service;
+	background: #141414;
+	border: 1px solid #2c2c2c;
+	transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.apex-services__grid .wp-block-build-n-bloom-blocks-grid-card:is(:hover, :focus-within) {
+	border-color: #ff4545;
+	transform: translateY(-3px);
+}
+
+/* The whole card is a link, so it would take the theme's black link colour */
+.apex-services__grid a.bnb-card__inner {
+	color: #fff;
+}
+
+.apex-services__grid .bnb-card__body {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 1.625rem 1.375rem;
+}
+
+/* 01, 02... numbered in order, so they stay right when cards are moved */
+.apex-services__grid .bnb-card__body::before {
+	content: counter(apex-service, decimal-leading-zero);
+	margin-bottom: 0.625rem;
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: #ff4545;
+}
+
+.apex-services__grid .bnb-card__title {
+	margin: 0 0 0.625rem;
+	font-size: 1.5rem;
+	line-height: 1.1;
+	text-transform: uppercase;
+}
+
+.apex-services__grid .bnb-card__text {
+	color: #b5b5b5;
+	font-size: 0.9375rem;
+}
+
+/* Only on cards with a link. Hidden from screen readers, which already read the card's title as the link. */
+.apex-services__grid a.bnb-card__inner .bnb-card__body::after {
+	content: "Find out more \2192"; /* for browsers without the alt-text syntax below */
+	content: "Find out more \2192" / "";
+	margin-top: auto;
+	padding-top: 1rem;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.apex-services__grid a.bnb-card__inner:focus-visible {
+	outline: 3px solid #ff4545;
+	outline-offset: -3px; /* inside, as the card clips anything outside it */
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.apex-services__grid .wp-block-build-n-bloom-blocks-grid-card {
+		transition: none;
+	}
+
+	.apex-services__grid .wp-block-build-n-bloom-blocks-grid-card:is(:hover, :focus-within) {
+		transform: none;
+	}
+}
