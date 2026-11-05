@@ -15,6 +15,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button |
 | `assets/images/apex-logo.png` | The APEX logo, trimmed and resized from the old theme's `Apex_Logo.png`. White lettering, so it needs a dark header |
 | `assets/images/site-icon.png` | The red A favicon, made square (512px) from the old theme's `images/favicon.png` |
+| `assets/js/video-modal.js` | Plays YouTube and Vimeo videos from buttons in a pop-up, e.g. "Watch the showreel" in the hero |
 | `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
@@ -66,6 +67,8 @@ The old theme used Qualy, declared without a font file, so it only showed on com
 Uses the Build'n'Bloom **Hero Video or Image** block. Insert it, then choose the showreel under the block's Background settings (a fallback image is recommended so something shows before the video loads). Until a video is chosen it shows on black.
 
 Everything over the video is ordinary blocks inside the hero, so lines, buttons or a list can be added, moved or removed. The red label and the red word in the heading use `#ff4545`, a brighter red than the brand `#b70000`, which is too dark to read on black. A fade on the left and bottom keeps the text readable over a bright video.
+
+**Watch the showreel** links to the full showreel on YouTube (`youtube.com/watch?v=Lqkbyx07yXw`) and plays it in a pop-up over the page, as on the old site. Any button whose link is a YouTube or Vimeo video does the same, anywhere on the site, so to change the video just change the button's link. The pop-up closes with the × button, the Escape key or a click outside the video, which stops the video. Without JavaScript, or with Ctrl/Cmd-click, the link opens the video on YouTube. This is `assets/js/video-modal.js` and the "Video pop-up" section of `style.css`.
 
 ## Apex trusted by pattern
 
