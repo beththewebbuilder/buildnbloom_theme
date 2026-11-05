@@ -42,7 +42,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Start a project →</a></li>
+<li><a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Start a project →</a></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column --></div>

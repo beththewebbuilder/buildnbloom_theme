@@ -905,3 +905,16 @@ main:has(> .entry-content:first-child > .alignfull:first-child) {
 .apex-video-modal-open {
 	overflow: hidden;
 }
+
+/*
+ * Links to a section (e.g. "Start a project" to #contact) glide there and stop clear of the sticky header
+ */
+html {
+	scroll-padding-top: calc(var(--wp-admin--admin-bar--height, 0px) + 4.5rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}

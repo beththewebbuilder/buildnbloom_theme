@@ -24,7 +24,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"secondary","textColor":"on-secondary"} -->
-<div class="wp-block-button"><a class="wp-block-button__link has-on-secondary-color has-secondary-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Start a project</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link has-on-secondary-color has-secondary-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Start a project</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline apex-hero__showreel"} -->

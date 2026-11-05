@@ -12,7 +12,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `parts/header.html` | Black header that stays at the top: logo on the left, then the menu, phone number and "Start a project". Below 1024px the menu becomes a button on the left that opens it full screen |
 | `parts/footer.html`, `patterns/footer.php` | Black footer: logo and a line about Apex, the menu under "Explore", phone, email and a contact link under "Get in touch", then the copyright and Build'n'Bloom credit |
 | `style.css` | Header layout, the full-screen menu styling, and the styling for each Apex pattern |
-| `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button |
+| `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button, which goes to the contact section on the homepage |
 | `assets/images/apex-logo.png` | The APEX logo, trimmed and resized from the old theme's `Apex_Logo.png`. White lettering, so it needs a dark header |
 | `assets/images/site-icon.png` | The red A favicon, made square (512px) from the old theme's `images/favicon.png` |
 | `assets/js/video-modal.js` | Plays YouTube and Vimeo videos from buttons in a pop-up, e.g. "Watch the showreel" in the hero |
@@ -94,7 +94,7 @@ The reviews are single sentences from the testimonials on the Van Haven, Autobea
 
 ## Apex contact pattern
 
-The page's closing section: "Ready to make something great?", a line about replying with ideas and a rough budget, and the phone number, email and studio, with the enquiry form beside them. On phones the form sits underneath. The bold word in each contact line is its label. The section has the anchor `contact`, so buttons can link to `#contact`.
+The page's closing section: "Ready to make something great?", a line about replying with ideas and a rough budget, and the phone number, email and studio, with the enquiry form beside them. On phones the form sits underneath. The bold word in each contact line is its label. The section has the anchor `contact`. Every "Start a project" (header, hero and footer) links to `#contact` on the homepage, so put this pattern on the homepage. The page glides down to it and stops just below the sticky header.
 
 The form is the **Contact Form 7** form titled **Apex enquiry**, so the form must keep that title. To set it up, add a new form under Contact → Add New, title it `Apex enquiry` and replace its Form tab with:
 

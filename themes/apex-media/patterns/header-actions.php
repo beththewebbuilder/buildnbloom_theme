@@ -4,7 +4,7 @@
  * Slug: apex-media/header-actions
  * Categories: apex-media, header
  * Inserter: no
- * Description: Phone number and "Start a project" button in the header. Used by the header part.
+ * Description: Phone number and "Start a project" button in the header, which goes to the contact section on the homepage. Used by the header part.
  *
  * @package apex-media
  */
@@ -17,7 +17,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"secondary","textColor":"on-secondary","className":"apex-header__cta"} -->
-<div class="wp-block-button apex-header__cta"><a class="wp-block-button__link has-on-secondary-color has-secondary-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Start a project</a></div>
+<div class="wp-block-button apex-header__cta"><a class="wp-block-button__link has-on-secondary-color has-secondary-background-color has-text-color has-background wp-element-button" href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Start a project</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
