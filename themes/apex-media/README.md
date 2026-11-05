@@ -14,6 +14,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
+| `patterns/work.php` | **Apex our work**: six recent projects as photo tiles with the client, type of work and a result, and a button to the portfolio |
 | `functions.php` | Registers the Apex Media pattern category |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
@@ -67,3 +68,9 @@ The logos are linked from the current site's media library (`apex-media.uk/wp-co
 ## Apex what we do pattern
 
 "What we do" heading with an intro underneath, then four service cards in an Item Grid (4 across on desktop, 2 on tablets, 1 on phones). Each card is a Grid Card with a title, a line of text and a link; the whole card is clickable. The red numbers (01, 02…) and "Find out more →" are added by `style.css`, so they stay in order when cards are added, removed or moved. "Find out more" only shows on cards with a link. The cards and the intro's "tell us the goal" link point to `/services/` and `/contact/` on this site.
+
+## Apex our work pattern
+
+"Recent projects": six photo tiles in an Item Grid (3 across on desktop, 2 on tablets, 1 on phones), then a "View the full portfolio" button. Each tile is a Grid Card: the photo, the client as the title, and a line on the type of work, with the title and text over the bottom of the photo. **Bold text in a tile's text is shown as the red result label** (e.g. "135,000+ YouTube views"): put it on a new line (Shift+Enter) and make it bold. Phones show only the first four tiles. Placed straight after the What we do pattern, the space between them is removed so they read as one section.
+
+The photos are the 1024px versions from the current site's media library, like the logos in the trusted by pattern. Each tile links to its case study on this site.

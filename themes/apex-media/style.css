@@ -291,3 +291,103 @@ Text Domain: apex-media
 		transform: none;
 	}
 }
+
+/*
+ * Apex our work (patterns/work.php)
+ */
+
+/* Straight after What we do, the two read as one section */
+.apex-services + .apex-work {
+	padding-top: 0 !important;
+}
+
+.apex-work .apex-work__eyebrow {
+	margin: 0;
+}
+
+.apex-work__head h2 {
+	margin: 0.5rem 0 0;
+	font-size: clamp(2rem, 4.6vw, 3.25rem);
+	line-height: 1.05;
+	text-transform: uppercase;
+}
+
+/* Project tiles: the photo fills the tile and the text sits over its bottom edge */
+.apex-work__grid .wp-block-build-n-bloom-blocks-grid-card {
+	background: #1d1d1d; /* until the photo loads */
+}
+
+.apex-work__grid .bnb-card__inner {
+	position: relative;
+	color: #fff;
+}
+
+.apex-work__grid .bnb-card__media img {
+	transition: transform 0.35s ease;
+}
+
+.apex-work__grid .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__media img {
+	transform: scale(1.04);
+}
+
+.apex-work__grid .bnb-card__media + .bnb-card__body {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 2.75rem 1.125rem 1rem;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+.apex-work__grid .bnb-card__title {
+	margin: 0 0 0.25rem;
+	font-size: 1.375rem;
+	line-height: 1.1;
+	text-transform: uppercase;
+}
+
+.apex-work__grid .bnb-card__text {
+	font-size: 0.875rem;
+	color: #ddd;
+}
+
+/* Bold text in a tile is shown as the red result label */
+.apex-work__grid .bnb-card__text strong {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: #fff;
+	background: #b70000;
+}
+
+.apex-work__grid a.bnb-card__inner:focus-visible {
+	outline: 3px solid #ff4545;
+	outline-offset: -3px;
+}
+
+/* Theme buttons are black on hover, which would vanish here */
+.apex-work .is-style-outline .wp-block-button__link:hover {
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Phones show the first four projects */
+@media (max-width: 767px) {
+	.apex-work__grid > .wp-block-build-n-bloom-blocks-grid-card:nth-child(n+5) {
+		display: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.apex-work__grid .bnb-card__media img {
+		transition: none;
+	}
+
+	.apex-work__grid .bnb-card__inner:is(:hover, :focus-visible) .bnb-card__media img {
+		transform: none;
+	}
+}
