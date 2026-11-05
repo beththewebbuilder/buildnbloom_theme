@@ -16,7 +16,8 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
 | `patterns/work.php` | **Apex our work**: six recent projects as photo tiles with the client, type of work and a result, and a button to the portfolio |
 | `patterns/testimonials.php` | **Apex testimonials**: three client reviews as cards with a photo of the person, their role and a link to the project; they swipe on phones |
-| `functions.php` | Registers the Apex Media pattern category |
+| `patterns/contact.php` | **Apex contact**: closing section with phone, email and studio beside the enquiry form (the Contact Form 7 form titled "Apex enquiry") |
+| `functions.php` | Registers the Apex Media pattern category and stops Contact Form 7 adding paragraphs inside the enquiry form |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
 Everything else (templates, footer, page layout) comes from the parent theme.
@@ -81,3 +82,33 @@ The photos are the 1024px versions from the current site's media library, like t
 "Don't take our word for it": three reviews in a Carousel of Review Items. All three show on desktop, two on tablets and one on phones, with dots to swipe between them. Each card has a photo across the top, then the review, the person and a "See the project →" link to the case study, which sits at the bottom of every card. The photo is cropped to a 4:3 shape around the focal point set in the review's Image settings (set to the face for these photos). In the person's name and role (the Review Item's author), the bold part is the name and the line after it (Shift+Enter) is the role. Placed straight after What we do or Our work, the space between them is removed so they read as one section.
 
 The reviews are single sentences from the testimonials on the Van Haven, Autobead and The Lost Foundry case studies. The photos are the portraits from the current homepage (576px versions, linked from its media library).
+
+## Apex contact pattern
+
+The page's closing section: "Ready to make something great?", a line about replying with ideas and a rough budget, and the phone number, email and studio, with the enquiry form beside them. On phones the form sits underneath. The bold word in each contact line is its label. The section has the anchor `contact`, so buttons can link to `#contact`.
+
+The form is the **Contact Form 7** form titled **Apex enquiry**, so the form must keep that title. To set it up, add a new form under Contact → Add New, title it `Apex enquiry` and replace its Form tab with:
+
+```
+<div class="apex-form">
+<label>Name [text* your-name autocomplete:name]</label>
+<label>Email [email* your-email autocomplete:email]</label>
+<label>Company [text your-company autocomplete:organization]</label>
+<label>What do you need? [select your-need "Not sure yet" "Brand film" "Social content" "Event or launch" "Product or commercial"]</label>
+<label class="apex-form__full">Tell us about the project [textarea* your-message x4]</label>
+<div class="apex-form__full">[submit "Send enquiry"]</div>
+</div>
+```
+
+On the Mail tab, set **To** to `contact@apex-media.uk`, **Subject** to `New enquiry from [your-name]`, **Additional headers** to `Reply-To: [your-email]`, and list the fields in the **Message body**:
+
+```
+Name: [your-name]
+Email: [your-email]
+Company: [your-company]
+What they need: [your-need]
+
+[your-message]
+```
+
+Fields wrapped in `apex-form__full` span both columns. Before launch, set up an SMTP plugin so email is delivered reliably, add Cloudflare Turnstile under Contact → Integration to stop spam, and send a test enquiry.
