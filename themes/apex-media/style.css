@@ -391,3 +391,102 @@ Text Domain: apex-media
 		transform: none;
 	}
 }
+
+/*
+ * Apex testimonials (patterns/testimonials.php)
+ */
+
+/* Straight after What we do or Our work, they read as one section */
+:is(.apex-services, .apex-work) + .apex-testimonials {
+	padding-top: 0 !important;
+}
+
+.apex-testimonials .apex-testimonials__eyebrow {
+	margin: 0;
+}
+
+.apex-testimonials__head h2 {
+	margin: 0.5rem 0 0;
+	font-size: clamp(2rem, 4.6vw, 3.25rem);
+	line-height: 1.05;
+	text-transform: uppercase;
+}
+
+/* Review cards: the review, then the person (beside their photo, if one is added), then the link.
+   Rows are placed by name so an empty part leaves no gap, and the link sits at the bottom of every card. */
+.apex-testimonials__reviews .wp-block-build-n-bloom-blocks-review-item {
+	--bnb-review-image-size: 2.875rem;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	grid-template-rows: auto 1fr auto auto;
+	grid-template-areas:
+		"company company"
+		"text text"
+		"image author"
+		"link link";
+	align-items: center;
+	padding: 1.625rem 1.5rem;
+	text-align: left;
+	background: #141414;
+	border: 1px solid #2c2c2c;
+}
+
+.apex-testimonials__reviews .bnb-review__company {
+	grid-area: company;
+	margin: 0 0 0.75rem;
+	font-size: 0.875rem;
+	color: #b5b5b5;
+}
+
+.apex-testimonials__reviews .bnb-review__text {
+	grid-area: text;
+	align-self: start;
+	font-size: 1.25rem;
+	font-weight: 500;
+	line-height: 1.4;
+	opacity: 1;
+}
+
+.apex-testimonials__reviews .bnb-review__image {
+	grid-area: image;
+	margin: 1.125rem 0.75rem 0 0;
+}
+
+.apex-testimonials__reviews .bnb-review__author {
+	grid-area: image / image / author / author;
+	margin: 1.125rem 0 0;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	color: #b5b5b5;
+	opacity: 1;
+}
+
+.apex-testimonials__reviews .bnb-review__image ~ .bnb-review__author {
+	grid-area: author;
+}
+
+.apex-testimonials__reviews .bnb-review__author strong {
+	font-size: 0.9375rem;
+	color: #fff;
+}
+
+.apex-testimonials__reviews .bnb-review__link {
+	grid-area: link;
+	justify-self: start;
+	margin-top: 1.125rem;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #ff4545;
+}
+
+.apex-testimonials__reviews .bnb-review__link:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+.apex-testimonials__reviews .bnb-carousel__dots {
+	color: #fff;
+}
