@@ -14,13 +14,14 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `style.css` | Header layout, the full-screen menu styling, and the styling for each Apex pattern |
 | `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button |
 | `assets/images/apex-logo.png` | The APEX logo, trimmed and resized from the old theme's `Apex_Logo.png`. White lettering, so it needs a dark header |
+| `assets/images/site-icon.png` | The red A favicon, made square (512px) from the old theme's `images/favicon.png` |
 | `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
 | `patterns/work.php` | **Apex our work**: six recent projects as photo tiles with the client, type of work and a result, and a button to the portfolio |
 | `patterns/testimonials.php` | **Apex testimonials**: three client reviews as cards with a photo of the person, their role and a link to the project; they swipe on phones |
 | `patterns/contact.php` | **Apex contact**: closing section with phone, email and studio beside the enquiry form (the Contact Form 7 form titled "Apex enquiry") |
-| `functions.php` | Registers the Apex Media pattern category and stops Contact Form 7 adding paragraphs inside the enquiry form |
+| `functions.php` | Registers the Apex Media pattern category, uses the red A as the favicon until a Site Icon is chosen, and stops Contact Form 7 adding paragraphs inside the enquiry form |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
 Everything else (templates, page layout) comes from the parent theme.
@@ -31,7 +32,7 @@ Everything else (templates, page layout) comes from the parent theme.
 2. Activate **Apex Media** under Appearance → Themes.
 3. **Logo:** the header shows the APEX logo that comes with the theme, so there's nothing to set up. To use a different logo, set a Site Logo (add a Site Logo block anywhere in the Site Editor and upload the image) and the header uses that instead.
 4. **Menu:** Appearance → Editor → Navigation, and edit the menu: add, remove and reorder its links there. The header shows that menu as links on desktop and in the full-screen menu on phones. The footer shows a menu under "Explore" too: select it in Appearance → Editor → Patterns → Footer to choose a different menu for it. Until a menu is made, WordPress lists every page. The phone number and "Start a project" button are in `patterns/header-actions.php`. The footer's about line and contact details are in `patterns/footer.php`, and its copyright line uses the site title from Settings → General.
-5. **Site icon:** Settings → General → Site Icon (the old theme used `images/favicon.png`).
+5. **Site icon:** the red A favicon comes with the theme, so there's nothing to set up. To use a different one, choose it in Settings → General → Site Icon.
 6. **Homepage:** Settings → Reading → "A static page", and choose the Home page. Set full-width pages like Home to the **Page without title (full width)** template so a Hero block can sit right under the header.
 
 ## Colour palette presets
@@ -101,6 +102,7 @@ The form is the **Contact Form 7** form titled **Apex enquiry**, so the form mus
 <label>Company [text your-company autocomplete:organization]</label>
 <label>What do you need? [select your-need "Not sure yet" "Brand film" "Social content" "Event or launch" "Product or commercial"]</label>
 <label class="apex-form__full">Tell us about the project [textarea* your-message x4]</label>
+<div class="apex-form__full">[turnstile theme:dark]</div>
 <div class="apex-form__full">[submit "Send enquiry"]</div>
 </div>
 ```
@@ -116,4 +118,11 @@ What they need: [your-need]
 [your-message]
 ```
 
-Fields wrapped in `apex-form__full` span both columns. Before launch, set up an SMTP plugin so email is delivered reliably, add Cloudflare Turnstile under Contact → Integration to stop spam, and send a test enquiry.
+Fields wrapped in `apex-form__full` span both columns. Before launch, set up an SMTP plugin so email is delivered reliably, and send a test enquiry.
+
+**Spam:** the `[turnstile theme:dark]` line places Cloudflare Turnstile's check above the button. It shows nothing until Turnstile is set up:
+
+1. In a free Cloudflare account, go to Turnstile → Add widget, enter the site's domain, and choose **Managed** mode.
+2. In WordPress, go to Contact → Integration → Cloudflare Turnstile → Setup Integration, and paste in the site key and secret key.
+
+If the form is missing the `[turnstile]` line, Contact Form 7 adds the check above the form instead, outside the dark box.
