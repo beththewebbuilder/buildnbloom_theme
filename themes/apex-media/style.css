@@ -13,26 +13,70 @@ Text Domain: apex-media
 */
 
 /*
- * Colours, fonts and buttons are in theme.json. This file is only the Apex header and menu,
+ * Colours, fonts and buttons are in theme.json. This file is the Apex header, menu and pattern styling,
  * which theme.json can't describe. Loaded after the parent's style.css, on the site and in the editor.
  */
 
-/* Header: menu button on the left, logo in the centre */
+/*
+ * Header (parts/header.html): logo on the left, then the menu, phone number and "Start a project".
+ * Below 1024px the menu becomes a button on the left that opens it full screen, and the phone number
+ * is hidden below 1100px. Stays at the top of the screen when scrolling.
+ */
+.wp-site-blocks > header.wp-block-template-part:has(.apex-header) {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0px);
+	z-index: 30;
+}
+
+/* The admin bar scrolls away on phones */
+@media (max-width: 600px) {
+	.wp-site-blocks > header.wp-block-template-part:has(.apex-header) {
+		top: 0;
+	}
+}
+
+.apex-header {
+	border-bottom: 1px solid #2c2c2c;
+}
+
 .apex-header__bar {
-	position: relative;
-	min-height: 3rem;
+	min-height: 2.75rem;
 }
 
 .apex-header__logo {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	display: block;
+	flex: none;
+}
+
+/* Pushes everything after the logo to the right (beats the flex layout's margin reset) */
+.apex-header .apex-header__bar > .apex-header__logo {
+	margin-right: auto;
 }
 
 .apex-header__logo img {
+	display: block;
 	width: auto;
-	height: 4rem;
+	height: 2.25rem;
+}
+
+/* Menu links */
+.apex-header__menu .wp-block-navigation__container {
+	gap: 1.625rem;
+}
+
+.apex-header__menu .wp-block-navigation-item {
+	font-size: 0.9375rem;
+	font-weight: 500;
+}
+
+.apex-header__menu .wp-block-navigation-item__content {
+	color: #ddd;
+}
+
+.apex-header__menu .wp-block-navigation-item__content:hover,
+.apex-header__menu .wp-block-navigation-item__content:focus-visible,
+.apex-header__menu .current-menu-item > .wp-block-navigation-item__content {
+	color: #fff;
 }
 
 .apex-header__menu .wp-block-navigation__responsive-container-open svg {
@@ -40,7 +84,77 @@ Text Domain: apex-media
 	height: 2rem;
 }
 
+.apex-header__phone {
+	margin: 0;
+	font-size: 0.9375rem;
+	white-space: nowrap;
+}
+
+.apex-header__phone a {
+	color: #ddd;
+	text-decoration: none;
+}
+
+.apex-header__phone a:hover {
+	color: #fff;
+}
+
+.apex-header__cta .wp-block-button__link {
+	padding: 0.75rem 1.125rem;
+	font-size: 0.875rem;
+	white-space: nowrap;
+}
+
+/* Theme buttons hover to black, which would vanish in the black header */
+.apex-header__cta .wp-block-button__link:hover {
+	color: var(--wp--preset--color--on-secondary);
+	background-color: var(--wp--preset--color--secondary);
+	filter: brightness(1.2);
+}
+
+@media (max-width: 1099px) {
+	.apex-header__phone {
+		display: none;
+	}
+}
+
+/* Below 1024px: menu button first, then the logo, with the button on the right.
+   WordPress only switches to the menu button below 600px, so this widens that to 1024px. */
+@media (max-width: 1023px) {
+	.apex-header__menu {
+		order: -1;
+	}
+
+	.apex-header .apex-header__menu .wp-block-navigation__responsive-container-open:not(.always-shown) {
+		display: flex;
+	}
+
+	.apex-header .apex-header__menu .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.apex-header__bar {
+		gap: 0.75rem;
+	}
+
+	.apex-header__logo img {
+		height: 1.75rem;
+	}
+
+	.apex-header__cta .wp-block-button__link {
+		padding: 0.625rem 0.75rem;
+		font-size: 0.8125rem;
+	}
+}
+
 /* Full-screen menu: large links in the centre of the screen */
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation__container, .wp-block-navigation-item) {
+	--navigation-layout-justification-setting: center;
+	text-align: center;
+}
+
 .apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-dialog,
 .apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
 	height: 100%;
@@ -48,14 +162,25 @@ Text Domain: apex-media
 
 .apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
 	justify-content: center;
+	align-items: center;
+}
+
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+	align-items: center;
+	gap: 1rem;
 }
 
 .apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item {
+	font-family: var(--wp--preset--font-family--heading);
 	font-size: clamp(2rem, 6vw, 2.5rem);
+	text-transform: uppercase;
 }
 
-.apex-header__menu .wp-block-navigation-item__content:hover,
-.apex-header__menu .wp-block-navigation-item__content:focus-visible {
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+	color: inherit;
+}
+
+.apex-header__menu .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content:is(:hover, :focus-visible) {
 	color: var(--wp--preset--color--secondary);
 }
 

@@ -9,8 +9,10 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | | |
 |---|---|
 | `theme.json` | Apex colours (black, white, red `#b70000`), Barlow Condensed and system fonts, heading sizes, outlined white/black buttons with square corners and capitals |
-| `parts/header.html` | Black header with the menu button on the left and the logo in the centre; the menu opens full screen |
-| `style.css` | Header layout, the full-screen menu styling, and the Apex hero styling |
+| `parts/header.html` | Black header that stays at the top: logo on the left, then the menu, phone number and "Start a project". Below 1024px the menu becomes a button on the left that opens it full screen |
+| `style.css` | Header layout, the full-screen menu styling, and the styling for each Apex pattern |
+| `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button |
+| `assets/images/apex-logo.png` | The APEX logo, trimmed and resized from the old theme's `Apex_Logo.png`. White lettering, so it needs a dark header |
 | `patterns/hero.php` | **Apex hero**: showreel video with a label, headline, intro and two buttons over it, low on the left. In the inserter under Patterns → Apex Media |
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
@@ -26,8 +28,8 @@ Everything else (templates, footer, page layout) comes from the parent theme.
 
 1. Upload `bnb_base_theme` and `apex-media` to `wp-content/themes`, and install the Build'n'Bloom Gutenberg Blocks plugin.
 2. Activate **Apex Media** under Appearance → Themes.
-3. **Logo:** Appearance → Editor → Patterns → Header, select the logo and upload `Apex_Logo.png`.
-4. **Menu:** in the same header, select the menu and choose or create the menu. Social links (Facebook, Instagram, LinkedIn) can be added inside it with the Social Icons block. The old theme had them with placeholder `#` links.
+3. **Logo:** the header shows the APEX logo that comes with the theme, so there's nothing to set up. To use a different logo, set a Site Logo (add a Site Logo block anywhere in the Site Editor and upload the image) and the header uses that instead.
+4. **Menu:** Appearance → Editor → Navigation, and edit the menu: add, remove and reorder its links there. The header shows that menu as links on desktop and in the full-screen menu on phones. Until a menu is made, WordPress lists every page. The phone number and "Start a project" button are in `patterns/header-actions.php`.
 5. **Site icon:** Settings → General → Site Icon (the old theme used `images/favicon.png`).
 6. **Homepage:** Settings → Reading → "A static page", and choose the Home page. Set full-width pages like Home to the **Page without title (full width)** template so a Hero block can sit right under the header.
 
@@ -40,6 +42,8 @@ Appearance → Editor → Styles → Colors → Palette shows the theme's defaul
 | Default (`theme.json`) | White page, black header and footer, red `#b70000` hovers |
 | Apex Dark (`styles/apex-dark.json`) | Near-black page with white text; a lighter red `#ff6b6b` so hovers stay readable on dark |
 | Apex Red Header (`styles/apex-red-header.json`) | White page with a red header, footer and full-screen menu; hovers are black |
+
+The logo's red A disappears on the red header, so Apex Red Header needs a different logo set as the Site Logo (see Setting up the site), such as an all-white version.
 
 To add another, copy one of the files, change its `title` and colours, and keep all ten slugs. Each file must only contain colours, or WordPress lists it as a full style instead of a palette. Check text contrast for new colours (4.5:1 for normal text, 3:1 for large text).
 
