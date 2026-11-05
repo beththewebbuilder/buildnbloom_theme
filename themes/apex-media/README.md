@@ -10,6 +10,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 |---|---|
 | `theme.json` | Apex colours (black, white, red `#b70000`), Barlow Condensed and system fonts, heading sizes, outlined white/black buttons with square corners and capitals |
 | `parts/header.html` | Black header that stays at the top: logo on the left, then the menu, phone number and "Start a project". Below 1024px the menu becomes a button on the left that opens it full screen |
+| `parts/footer.html`, `patterns/footer.php` | Black footer: logo and a line about Apex, the menu under "Explore", phone, email and a contact link under "Get in touch", then the copyright and Build'n'Bloom credit |
 | `style.css` | Header layout, the full-screen menu styling, and the styling for each Apex pattern |
 | `patterns/logo.php`, `patterns/header-actions.php` | Parts of the header (not in the inserter): the logo, and the phone number and "Start a project" button |
 | `assets/images/apex-logo.png` | The APEX logo, trimmed and resized from the old theme's `Apex_Logo.png`. White lettering, so it needs a dark header |
@@ -22,14 +23,14 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `functions.php` | Registers the Apex Media pattern category and stops Contact Form 7 adding paragraphs inside the enquiry form |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
-Everything else (templates, footer, page layout) comes from the parent theme.
+Everything else (templates, page layout) comes from the parent theme.
 
 ## Setting up the site
 
 1. Upload `bnb_base_theme` and `apex-media` to `wp-content/themes`, and install the Build'n'Bloom Gutenberg Blocks plugin.
 2. Activate **Apex Media** under Appearance → Themes.
 3. **Logo:** the header shows the APEX logo that comes with the theme, so there's nothing to set up. To use a different logo, set a Site Logo (add a Site Logo block anywhere in the Site Editor and upload the image) and the header uses that instead.
-4. **Menu:** Appearance → Editor → Navigation, and edit the menu: add, remove and reorder its links there. The header shows that menu as links on desktop and in the full-screen menu on phones. Until a menu is made, WordPress lists every page. The phone number and "Start a project" button are in `patterns/header-actions.php`.
+4. **Menu:** Appearance → Editor → Navigation, and edit the menu: add, remove and reorder its links there. The header shows that menu as links on desktop and in the full-screen menu on phones. The footer shows a menu under "Explore" too: select it in Appearance → Editor → Patterns → Footer to choose a different menu for it. Until a menu is made, WordPress lists every page. The phone number and "Start a project" button are in `patterns/header-actions.php`. The footer's about line and contact details are in `patterns/footer.php`, and its copyright line uses the site title from Settings → General.
 5. **Site icon:** Settings → General → Site Icon (the old theme used `images/favicon.png`).
 6. **Homepage:** Settings → Reading → "A static page", and choose the Home page. Set full-width pages like Home to the **Page without title (full width)** template so a Hero block can sit right under the header.
 
