@@ -5,7 +5,7 @@
 	"title": "Review Item",
 	"category": "buildnbloom",
 	"icon": "format-quote",
-	"description": "A customer review: logo or photo, company name, the review, an optional author and an optional link, e.g. to the case study. Use it on its own or as a Carousel slide.",
+	"description": "A customer review: logo or photo (with a focal point for cropping), company name, the review, an optional author and an optional link, e.g. to the case study. Use it on its own or as a Carousel slide.",
 	"supports": {
 		"html": false,
 		"reusable": false,
@@ -28,6 +28,9 @@
 		"imageAlt": {
 			"type": "string",
 			"default": ""
+		},
+		"focalPoint": {
+			"type": "object"
 		},
 		"company": {
 			"type": "string",

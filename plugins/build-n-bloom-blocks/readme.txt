@@ -18,7 +18,7 @@ Adds a "Build N Bloom" category to the block inserter with:
 * Item Grid - a responsive grid of Grid Cards, within the page container or full width, with an optional heading and intro, adjustable spacing and image height, and text below the image or over it on hover.
 * Stat Bar - a row of Stat Items, each a headline figure with a short label.
 * Process List - an automatically numbered list of Process Rows, each with a title, text, a spec line and an optional link.
-* Carousel - a scrolling carousel of either Carousel Slides or Review Items, with arrows, dots and autoplay. Each review can link to a case study.
+* Carousel - a scrolling carousel of either Carousel Slides or Review Items, with arrows, dots and autoplay. Each review can link to a case study and has a focal point for cropping its photo.
 * Tabs - tabbed content made of Tab blocks.
 
 Blocks only ship layout CSS: each site styles them with block settings, its theme stylesheet or CSS custom properties.

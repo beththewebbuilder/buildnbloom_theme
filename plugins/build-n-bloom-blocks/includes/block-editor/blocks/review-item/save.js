@@ -1,11 +1,16 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { linkWrapper } from '../../utils';
+import { cssVariables, focalPointValue, linkWrapper } from '../../utils';
+
+// Focal point of the image as a CSS custom property. Only saved when one is set, so reviews saved before it was added still validate.
+export function reviewStyle( attributes ) {
+	return attributes.focalPoint ? cssVariables( { '--bnb-review-focal-point': focalPointValue( attributes.focalPoint ) } ) : undefined;
+}
 
 // Same layout as the Apex Media "Review Item": round image, company, review, then the author.
 // Inside a carousel, view.js labels it as a slide.
 export default function save( { attributes } ) {
 	return (
-		<div { ...useBlockProps.save() }>
+		<div { ...useBlockProps.save( { style: reviewStyle( attributes ) } ) }>
 			{ attributes.imageUrl &&
 				<div className="bnb-review__image">
 					<img

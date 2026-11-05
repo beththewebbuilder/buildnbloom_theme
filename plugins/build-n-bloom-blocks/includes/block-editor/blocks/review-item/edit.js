@@ -1,17 +1,19 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, MediaPlaceholder, RichText } from '@wordpress/block-editor';
-import { PanelBody, TextareaControl } from '@wordpress/components';
+import { FocalPointPicker, PanelBody, TextareaControl } from '@wordpress/components';
 import MediaControl from '../../components/media-control';
 import LinkControl from '../../components/link-control';
+import { reviewStyle } from './save';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( { style: reviewStyle( attributes ) } );
 
+	// A new image starts centred, as the old focal point was for a different picture
 	function onSelectImage( image ) {
-		setAttributes( { imageId: image.id, imageUrl: image.url, imageAlt: image.alt || '' } );
+		setAttributes( { imageId: image.id, imageUrl: image.url, imageAlt: image.alt || '', focalPoint: undefined } );
 	}
 	function removeImage() {
-		setAttributes( { imageId: 0, imageUrl: '', imageAlt: '' } );
+		setAttributes( { imageId: 0, imageUrl: '', imageAlt: '', focalPoint: undefined } );
 	}
 
 	return (
@@ -24,6 +26,14 @@ export default function Edit( { attributes, setAttributes } ) {
 						mediaUrl={ attributes.imageUrl }
 						onSelect={ onSelectImage }
 						onRemove={ removeImage } />
+					{ attributes.imageUrl &&
+						<FocalPointPicker
+							label={ __( 'Focal point', 'build-n-bloom-blocks' ) }
+							help={ __( 'The part of the image that stays in view when it is cropped, e.g. the person\'s face.', 'build-n-bloom-blocks' ) }
+							url={ attributes.imageUrl }
+							value={ attributes.focalPoint }
+							onChange={ ( focalPoint ) => setAttributes( { focalPoint } ) } />
+					}
 					{ attributes.imageUrl &&
 						<TextareaControl
 							label={ __( 'Alt text', 'build-n-bloom-blocks' ) }

@@ -412,23 +412,31 @@ Text Domain: apex-media
 	text-transform: uppercase;
 }
 
-/* Review cards: the review, then the person (beside their photo, if one is added), then the link.
+/* Review cards: the photo across the top, then the review, the person and the link.
    Rows are placed by name so an empty part leaves no gap, and the link sits at the bottom of every card. */
 .apex-testimonials__reviews .wp-block-build-n-bloom-blocks-review-item {
-	--bnb-review-image-size: 2.875rem;
 	display: grid;
-	grid-template-columns: auto minmax(0, 1fr);
-	grid-template-rows: auto 1fr auto auto;
-	grid-template-areas:
-		"company company"
-		"text text"
-		"image author"
-		"link link";
-	align-items: center;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: auto auto 1fr auto auto;
+	grid-template-areas: "image" "company" "text" "author" "link";
 	padding: 1.625rem 1.5rem;
 	text-align: left;
 	background: #141414;
 	border: 1px solid #2c2c2c;
+}
+
+/* Edge to edge, cropped to the focal point set on each review (the face, for these photos) */
+.apex-testimonials__reviews .bnb-review__image {
+	grid-area: image;
+	width: auto;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	margin: -1.625rem -1.5rem 1.375rem;
+	overflow: hidden;
+}
+
+.apex-testimonials__reviews .bnb-review__image img {
+	border-radius: 0;
 }
 
 .apex-testimonials__reviews .bnb-review__company {
@@ -440,29 +448,19 @@ Text Domain: apex-media
 
 .apex-testimonials__reviews .bnb-review__text {
 	grid-area: text;
-	align-self: start;
 	font-size: 1.25rem;
 	font-weight: 500;
 	line-height: 1.4;
 	opacity: 1;
 }
 
-.apex-testimonials__reviews .bnb-review__image {
-	grid-area: image;
-	margin: 1.125rem 0.75rem 0 0;
-}
-
 .apex-testimonials__reviews .bnb-review__author {
-	grid-area: image / image / author / author;
+	grid-area: author;
 	margin: 1.125rem 0 0;
 	font-size: 0.875rem;
 	line-height: 1.4;
 	color: #b5b5b5;
 	opacity: 1;
-}
-
-.apex-testimonials__reviews .bnb-review__image ~ .bnb-review__author {
-	grid-area: author;
 }
 
 .apex-testimonials__reviews .bnb-review__author strong {

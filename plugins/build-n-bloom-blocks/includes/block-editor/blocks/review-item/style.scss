@@ -3,7 +3,7 @@
 
 // REVIEW ITEM
 // Same look as the Apex Media review: round logo/photo, company in the heading font, review, then the author.
-// Themes can resize the image with --bnb-review-image-size
+// Themes can resize the image with --bnb-review-image-size. The focal point is saved as --bnb-review-focal-point
 
 :where(.wp-block-build-n-bloom-blocks-review-item) {
 	padding: 1rem;
@@ -20,6 +20,7 @@
 	display: block;
 	width: 100%;
 	object-fit: cover;
+	object-position: var(--bnb-review-focal-point, 50% 50%);
 	border-radius: 50%;
 }
 

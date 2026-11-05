@@ -15,7 +15,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 | `patterns/proof.php` | **Apex trusted by**: the band under the hero, with a slider of client logos and one short review beside it |
 | `patterns/services.php` | **Apex what we do**: heading and intro with four numbered service cards that link to the Services page |
 | `patterns/work.php` | **Apex our work**: six recent projects as photo tiles with the client, type of work and a result, and a button to the portfolio |
-| `patterns/testimonials.php` | **Apex testimonials**: three client reviews as cards with the person, their role and a link to the project; they swipe on phones |
+| `patterns/testimonials.php` | **Apex testimonials**: three client reviews as cards with a photo of the person, their role and a link to the project; they swipe on phones |
 | `functions.php` | Registers the Apex Media pattern category |
 | `styles/*.json` | Colour palette presets: **Apex Dark** and **Apex Red Header** |
 
@@ -78,6 +78,6 @@ The photos are the 1024px versions from the current site's media library, like t
 
 ## Apex testimonials pattern
 
-"Don't take our word for it": three reviews in a Carousel of Review Items. All three show on desktop, two on tablets and one on phones, with dots to swipe between them. Each card has the review, the person and a "See the project →" link to the case study, which sits at the bottom of every card. In the person's name and role (the Review Item's author), the bold part is the name and the line after it (Shift+Enter) is the role. A photo or logo added to a review shows as a small circle beside the name. Placed straight after What we do or Our work, the space between them is removed so they read as one section.
+"Don't take our word for it": three reviews in a Carousel of Review Items. All three show on desktop, two on tablets and one on phones, with dots to swipe between them. Each card has a photo across the top, then the review, the person and a "See the project →" link to the case study, which sits at the bottom of every card. The photo is cropped to a 4:3 shape around the focal point set in the review's Image settings (set to the face for these photos). In the person's name and role (the Review Item's author), the bold part is the name and the line after it (Shift+Enter) is the role. Placed straight after What we do or Our work, the space between them is removed so they read as one section.
 
-The reviews are single sentences from the testimonials on the Van Haven, Autobead and The Lost Foundry case studies.
+The reviews are single sentences from the testimonials on the Van Haven, Autobead and The Lost Foundry case studies. The photos are the portraits from the current homepage (576px versions, linked from its media library).
