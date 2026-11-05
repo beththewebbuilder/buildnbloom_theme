@@ -44,3 +44,10 @@
 	font-size: 0.875em;
 	opacity: 0.75;
 }
+
+:where(.bnb-review__link) {
+	display: inline-block;
+	margin-top: 1rem;
+	font-weight: 600;
+}
+

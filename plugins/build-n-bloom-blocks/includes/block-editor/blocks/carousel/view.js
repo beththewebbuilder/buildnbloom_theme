@@ -55,6 +55,18 @@ function initCarousel( carousel ) {
 	} );
 
 	carousel.classList.add( 'bnb-carousel--ready' );
+
+	// Slick only re-measures when the window is resized. If the carousel's width changes after it starts
+	// (a scrollbar appears, the page layout settles), the slides keep the old width and the next one peeks in.
+	if ( 'ResizeObserver' in window ) {
+		let lastWidth = carousel.clientWidth;
+		new window.ResizeObserver( () => {
+			if ( carousel.clientWidth !== lastWidth ) {
+				lastWidth = carousel.clientWidth;
+				$track.slick( 'setPosition' );
+			}
+		} ).observe( carousel );
+	}
 }
 
 $( () => {

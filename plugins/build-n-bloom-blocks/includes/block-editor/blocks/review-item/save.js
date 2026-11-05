@@ -1,4 +1,5 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { linkWrapper } from '../../utils';
 
 // Same layout as the Apex Media "Review Item": round image, company, review, then the author.
 // Inside a carousel, view.js labels it as a slide.
@@ -21,6 +22,10 @@ export default function save( { attributes } ) {
 			}
 			{ ! RichText.isEmpty( attributes.author ) &&
 				<RichText.Content tagName="p" className="bnb-review__author" value={ attributes.author } />
+			}
+			{ /* Only saved when both are set, so reviews saved before the link was added still validate */ }
+			{ attributes.linkUrl && ! RichText.isEmpty( attributes.linkText ) &&
+				<RichText.Content tagName="a" className="bnb-review__link" value={ attributes.linkText } { ...linkWrapper( attributes ).linkProps } />
 			}
 		</div>
 	);

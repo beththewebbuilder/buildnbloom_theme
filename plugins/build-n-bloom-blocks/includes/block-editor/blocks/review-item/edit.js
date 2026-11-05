@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, InspectorControls, MediaPlaceholder, RichText } from '@wordpress/block-editor';
 import { PanelBody, TextareaControl } from '@wordpress/components';
 import MediaControl from '../../components/media-control';
+import LinkControl from '../../components/link-control';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
@@ -29,6 +30,15 @@ export default function Edit( { attributes, setAttributes } ) {
 							help={ __( 'E.g. the company name for a logo, or the person\'s name for a photo.', 'build-n-bloom-blocks' ) }
 							value={ attributes.imageAlt }
 							onChange={ ( imageAlt ) => setAttributes( { imageAlt } ) } />
+					}
+				</PanelBody>
+				<PanelBody title={ __( 'Link', 'build-n-bloom-blocks' ) }>
+					<LinkControl
+						label={ __( 'Link, e.g. to the case study (optional)', 'build-n-bloom-blocks' ) }
+						attributes={ attributes }
+						setAttributes={ setAttributes } />
+					{ attributes.linkUrl &&
+						<p className="components-base-control__help">{ __( 'Type the link text under the review.', 'build-n-bloom-blocks' ) }</p>
 					}
 				</PanelBody>
 			</InspectorControls>
@@ -61,6 +71,16 @@ export default function Edit( { attributes, setAttributes } ) {
 					placeholder={ __( 'Name (optional)…', 'build-n-bloom-blocks' ) }
 					value={ attributes.author }
 					onChange={ ( author ) => setAttributes( { author } ) } />
+				{ attributes.linkUrl &&
+					<RichText
+						tagName="span"
+						className="bnb-review__link"
+						placeholder={ __( 'Link text, e.g. Read the case study…', 'build-n-bloom-blocks' ) }
+						value={ attributes.linkText }
+						onChange={ ( linkText ) => setAttributes( { linkText } ) }
+						allowedFormats={ [] }
+						withoutInteractiveFormatting />
+				}
 			</div>
 		</>
 	);

@@ -195,6 +195,7 @@
 	padding: 0;
 	border: 0;
 	border-radius: 50%;
+	color: inherit; // buttons don't inherit text colour, so currentColor would be black on a dark section
 	background: var(--bnb-carousel-dot-color, currentColor);
 	opacity: 0.3;
 	font-size: 0;
@@ -263,6 +264,16 @@
 	&::after {
 		clear: both;
 	}
+}
+
+// Reviews: every slide as tall as the tallest, so the section doesn't jump between short and long reviews
+:where(.bnb-carousel__track .slick-track:has(> .wp-block-build-n-bloom-blocks-review-item)) {
+	display: flex;
+}
+
+:where(.bnb-carousel__track .slick-slide.wp-block-build-n-bloom-blocks-review-item) {
+	float: none;
+	height: auto;
 }
 
 :where(.bnb-carousel__track .slick-slide) {

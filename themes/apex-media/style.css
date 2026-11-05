@@ -6,7 +6,7 @@ Author URI: https://bethanyfowler.me/
 Description: Apex Media's brand on the Build'n'Bloom Base theme: black and white with a red accent, Barlow Condensed headings, outlined buttons and a full-screen menu.
 Requires at least: 6.6
 Requires PHP: 7.4
-Version: 2.0.0
+Version: 2.1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: apex-media
@@ -142,4 +142,44 @@ Text Domain: apex-media
 		justify-content: center;
 		width: 100%;
 	}
+}
+
+/*
+ * Apex trusted by pattern (patterns/proof.php): the band under the hero,
+ * with a slider of client logos on the left and one short review on the right.
+ */
+.apex-proof {
+	border-bottom: 1px solid #2c2c2c;
+}
+
+/* Logos are white artwork, slightly dimmed until hovered */
+.apex-proof__logos .bnb-carousel__image {
+	opacity: 0.75;
+	transition: opacity 0.2s ease;
+}
+
+.apex-proof__logos a:hover .bnb-carousel__image,
+.apex-proof__logos a:focus-visible .bnb-carousel__image {
+	opacity: 1;
+}
+
+.apex-proof__quote {
+	margin: 0;
+	padding: 0 0 0 1.125rem;
+	border-left: 3px solid #ff4545;
+}
+
+.apex-proof__quote p {
+	margin: 0;
+	font-size: 1.1875rem;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.apex-proof__quote cite {
+	display: block;
+	margin-top: 0.5rem;
+	font-size: 0.875rem;
+	font-style: normal;
+	color: #b5b5b5;
 }
