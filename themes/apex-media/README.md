@@ -8,7 +8,7 @@ Replaces the old classic `apex_media` theme (v1.6.6).
 
 | | |
 |---|---|
-| `theme.json` | Apex colours (black, white, red `#b70000`), Barlow Condensed and system fonts, heading sizes, outlined white/black buttons with square corners and capitals |
+| `theme.json` | Content up to 1200px wide (as in the homepage concept) with 16–48px side padding, Apex colours (black, white, red `#b70000`), Barlow Condensed and system fonts, heading sizes, outlined white/black buttons with square corners and capitals |
 | `parts/header.html` | Black header that stays at the top: logo on the left, then the menu, phone number and "Start a project". Below 1024px the menu becomes a button on the left that opens it full screen |
 | `parts/footer.html`, `patterns/footer.php` | Black footer: logo and a line about Apex, the menu under "Explore", phone, email and a contact link under "Get in touch", then the copyright and Build'n'Bloom credit |
 | `style.css` | Header layout, the full-screen menu styling, and the styling for each Apex pattern |

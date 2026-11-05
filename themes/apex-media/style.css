@@ -20,21 +20,8 @@ Text Domain: apex-media
 /*
  * Header (parts/header.html): logo on the left, then the menu, phone number and "Start a project".
  * Below 1024px the menu becomes a button on the left that opens it full screen, and the phone number
- * is hidden below 1100px. Stays at the top of the screen when scrolling.
+ * is hidden below 1100px. The parent theme keeps it at the top of the screen when scrolling.
  */
-.wp-site-blocks > header.wp-block-template-part:has(.apex-header) {
-	position: sticky;
-	top: var(--wp-admin--admin-bar--height, 0px);
-	z-index: 30;
-}
-
-/* The admin bar scrolls away on phones */
-@media (max-width: 600px) {
-	.wp-site-blocks > header.wp-block-template-part:has(.apex-header) {
-		top: 0;
-	}
-}
-
 .apex-header {
 	border-bottom: 1px solid #2c2c2c;
 }
@@ -190,7 +177,7 @@ Text Domain: apex-media
  */
 .apex-hero {
 	--bnb-hero-content-width: 52rem;
-	--bnb-hero-padding: var(--wp--preset--spacing--60) max(1.5rem, calc((100% - var(--wp--style--global--wide-size, 1400px)) / 2));
+	--bnb-hero-padding: var(--wp--preset--spacing--60) max(var(--wp--style--root--padding-left, 1.5rem), calc((100% - var(--wp--style--global--wide-size, 1200px)) / 2));
 	background-color: #000; /* until a video or image is chosen */
 }
 
@@ -837,4 +824,17 @@ Text Domain: apex-media
 
 .apex-footer__legal p {
 	margin: 0;
+}
+
+/*
+ * Page spacing. The parent's page template pads the bottom of every page, which leaves a white strip
+ * above the footer when a page ends with a full-width section (e.g. the contact pattern), so it's
+ * removed then. The same at the top, when a page starts with one.
+ */
+main:has(> .entry-content > .alignfull:last-child) {
+	padding-bottom: 0 !important;
+}
+
+main:has(> .entry-content:first-child > .alignfull:first-child) {
+	padding-top: 0 !important;
 }

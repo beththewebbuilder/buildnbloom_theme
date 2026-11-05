@@ -4,7 +4,7 @@ Tags:              block
 Requires at least: 6.1
 Requires PHP:      7.4
 Tested up to:      7.1.3
-Stable tag:        0.1.0
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,11 @@ Blocks only ship layout CSS: each site styles them with block settings, its them
 1. Activate the plugin through the 'Plugins' screen in WordPress.
 
 == Changelog ==
+
+= 0.2.0 =
+* Hero: extra blocks (e.g. a label or buttons) can be added inside the text
+* Review Item: optional link (e.g. to the case study) and a focal point for its photo
+* Carousel: re-measures when its width changes, dots show on dark backgrounds, and review slides are the same height
 
 = 0.1.0 =
 * Initial development release
